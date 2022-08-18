@@ -8,7 +8,7 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/setup"
+        android:id="@+id/setupPage_btn"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="14dp"
@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-black"
         android:text="나의 습관"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
-        android:id="@+id/creating_btn"
+        android:id="@+id/creatingPage_btn"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginEnd="25dp"
@@ -50,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
-        android:id="@+id/clock_btn"
+        android:id="@+id/clockPage_btn"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="25dp"
