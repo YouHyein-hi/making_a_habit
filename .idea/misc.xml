@@ -5,8 +5,9 @@
       <map>
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/circle_button.xml" value="0.254" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/habitname_edittext.xml" value="0.255" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/roundsquare.xml" value="0.255" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/creating_habit_page.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/creating_habit_page.xml" value="0.264" />
       </map>
     </option>
   </component>
