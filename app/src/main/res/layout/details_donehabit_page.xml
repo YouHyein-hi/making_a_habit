@@ -72,12 +72,13 @@
             android:id="@+id/textView13"
             android:layout_width="300dp"
             android:layout_height="200dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/roundsquare"
             android:gravity="center_horizontal"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="340dp" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

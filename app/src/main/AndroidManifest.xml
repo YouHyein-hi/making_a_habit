@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Making_a_habit"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreatingHabitActivity"></activity>
+        <activity android:name=".view.CreatingHabitActivity"></activity>
+        <activity android:name=".view.ClockActivity"></activity>
+        <activity android:name=".view.SetUpActivity"></activity>
+
+
     </application>
 
 </manifest>
