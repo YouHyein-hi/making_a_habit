@@ -3,13 +3,10 @@ package com.example.making_a_habit.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.viewModels
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.making_a_habit.R
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.viewmodel.HabitViewModel
@@ -27,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         })
 
 
+        // 화면 전환 부분  -> 다시 수정할 예정 (임시!)
         val creating_btn = findViewById<ImageButton>(R.id.creatingPage_btn) as ImageButton
         val setupPage_btn = findViewById<ImageView>(R.id.setupPage_btn)
         val clockPage_btn = findViewById<ImageButton>(R.id.clockPage_btn)
