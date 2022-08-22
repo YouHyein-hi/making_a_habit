@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         /***** RecyclerView 부분 *****/
         val adapter = MainAdapter { habit ->
-            // put extras of contact info & start AddActivity
+            // put extras of contact info & start CreatingHabitActivity
         }
 
         val lm = LinearLayoutManager(this)
