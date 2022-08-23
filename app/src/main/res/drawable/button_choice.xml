@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--눌렀을 때의 상태-->
+    <item
+        android:state_pressed="true"
+        android:drawable="@drawable/button_pressed"/>
+
+    <!--누르지 않은 (보통의) 상태-->
+    <item
+        android:state_enabled="true"
+        android:drawable="@drawable/button_enabled"/>
+
+    <!--비활성화의 상태-->
+    <item
+        android:state_enabled="false"
+        android:drawable="@drawable/button_disable"/>
+</selector>

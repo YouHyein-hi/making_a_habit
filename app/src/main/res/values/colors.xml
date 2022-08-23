@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--theme 5 color-->
+    <color name="theme_red">#FFAEAE</color>
+    <color name="theme_yellow">#FFE8AE</color>
+    <color name="theme_green">#B1CFD1</color>
+    <color name="theme_blue">#AED8FF</color>
+    <color name="theme_gray">#CECECE</color>
+    <color name="theme_pressed">#33000000</color>
+    
+    <!--Button-->
+    <color name="basic">#F5F5F5</color>
+    <color name="pressed">#EFEFEF</color>
+    <color name="disable">#707070</color>
 </resources>

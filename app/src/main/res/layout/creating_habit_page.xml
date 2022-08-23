@@ -83,7 +83,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/roundsquare"
+            android:background="@drawable/button_choice"
             android:text="기간"
             app:layout_constraintEnd_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -105,7 +105,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/roundsquare"
+            android:background="@drawable/button_choice"
             android:text="횟수"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -116,8 +116,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="#F5F5F5"
+            android:background="@drawable/button_choice"
             android:text="3"
             app:layout_constraintEnd_toStartOf="@+id/habitPeriod_btn_15"
             app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number" />
@@ -127,8 +126,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="#F5F5F5"
+            android:background="@drawable/button_choice"
             android:text="15"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,8 +138,7 @@
             android:layout_height="80dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="#F5F5F5"
+            android:background="@drawable/button_choice"
             android:text="30"
             app:layout_constraintStart_toEndOf="@+id/habitPeriod_btn_15"
             app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number" />
@@ -165,7 +162,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="#FFAEAE"
+            android:backgroundTint="@color/theme_red"
             app:layout_constraintEnd_toStartOf="@+id/habitColor_btn_yellow"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -176,7 +173,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="#FFE8AE"
+            android:backgroundTint="@color/theme_yellow"
             app:layout_constraintEnd_toStartOf="@+id/habitColor_btn_green"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -184,10 +181,11 @@
             android:id="@+id/habitColor_btn_green"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="#B1CFD1"
+            android:backgroundTint="@color/theme_green"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -198,7 +196,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="#AED8FF"
+            android:backgroundTint="@color/theme_blue"
             app:layout_constraintStart_toEndOf="@+id/habitColor_btn_green"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -209,7 +207,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="#CECECE"
+            android:backgroundTint="@color/theme_gray"
             app:layout_constraintStart_toEndOf="@+id/habitColor_btn_blue"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 

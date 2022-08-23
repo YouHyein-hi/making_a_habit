@@ -58,7 +58,6 @@ class CreatinghabitActivity : AppCompatActivity() {
         }
 
 
-
         /***** ViewModel 부분 *****/
         //val habitViewModel: HabitViewModel by viewModels()
         habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
@@ -67,20 +66,17 @@ class CreatinghabitActivity : AppCompatActivity() {
 
     } // onCreate
 
-    // editText 토스트 메세지 띄우기
+    // TODO editText 토스트 메세지 띄우기
     /*
     fun abc(){
         habitName_edittext.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(h: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             } // 텍스트가 변경된 이후에 동작
 
             override fun onTextChanged(h: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             } // 텍스트가 변경되기 바로 이전에 동작
 
             override fun afterTextChanged(h: Editable?) {
-                TODO("Not yet implemented")
 
                 if(h != null && !h.toString().equals("")){
                     //if(h.toString().toByte().length <= 20)
