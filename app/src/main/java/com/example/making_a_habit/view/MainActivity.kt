@@ -7,19 +7,22 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.making_a_habit.R
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.viewmodel.HabitViewModel
+//import androidx.lifecycle.get
 
 class MainActivity : AppCompatActivity() {
-    //private lateinit var habitViewModel : HabitViewModel
     val habitViewModel: HabitViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //habitViewModel = ViewModelProvider.of(this).get(HabitViewModel::class.java)
 
         /***** RecyclerView 부분 *****/
         val adapter = MainAdapter { habit ->
@@ -40,20 +43,24 @@ class MainActivity : AppCompatActivity() {
 
         creating_btn.setOnClickListener {
             var intent = Intent(this, CreatingHabitActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
         setupPage_btn.setOnClickListener{
             var intent = Intent(this, SetUpActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
         clockPage_btn.setOnClickListener{
             var intent = Intent(this, ClockActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
 
 
         /***** ViewModel 부분 *****/
         //val habitViewModel: HabitViewModel by viewModels()
+
         habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
             // update UI
             adapter.sethabit(habits!!)

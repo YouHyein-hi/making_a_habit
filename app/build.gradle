@@ -43,7 +43,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-    /*Room DB 관련*/
+    /***** Room DB 관련 *****/
     //val roomVersion = ""
 
     implementation("androidx.room:room-runtime:2.4.3")
@@ -73,7 +73,7 @@ dependencies {
     implementation("androidx.room:room-paging:2.4.3")
 
 
-    /*ViewModel 관련*/
+    /***** ViewModel 관련 *****/
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
     // ViewModel utilities for Compose
@@ -109,6 +109,40 @@ dependencies {
 
     implementation 'androidx.activity:activity-ktx:1.5.1'
     implementation 'androidx.fragment:fragment-ktx:1.5.2'
+
+    /***** *****/
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha01")
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha01")
+
+    // Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.0-alpha01")
+
+    // Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:2.6.0-alpha01")
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.6.0-alpha01")
+
+    // optional - helpers for implementing LifecycleOwner in a Service
+    implementation("androidx.lifecycle:lifecycle-service:2.6.0-alpha01")
+
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation("androidx.lifecycle:lifecycle-process:2.6.0-alpha01")
+
+    // optional - ReactiveStreams support for LiveData
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.6.0-alpha01")
+
+    // optional - Test helpers for LiveData
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
+    // optional - Test helpers for Lifecycle runtime
+    testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:2.6.0-alpha01")
 
 
     // Room 디버깅 툴 라이브러리

@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/creatingPage_btn"
         android:layout_width="75dp"
         android:layout_height="75dp"
