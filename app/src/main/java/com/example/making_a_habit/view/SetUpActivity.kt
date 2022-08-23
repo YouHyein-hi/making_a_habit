@@ -14,8 +14,7 @@ class SetUpActivity : AppCompatActivity() {
         val back_btn = findViewById<ImageView>(R.id.back_btn_setuppage)
 
         back_btn.setOnClickListener{
-            var intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 
