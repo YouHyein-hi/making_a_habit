@@ -34,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!--메인 페이지-->
-        <activity android:name=".view.CreatingHabitActivity"></activity>
+        <activity android:name=".view.CreatinghabitActivity"></activity>
         <activity android:name=".view.ClockActivity"></activity>
         <activity android:name=".view.SetUpActivity"></activity>
 

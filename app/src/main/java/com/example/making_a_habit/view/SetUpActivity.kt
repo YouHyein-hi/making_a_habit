@@ -5,15 +5,21 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.making_a_habit.R
+import com.example.making_a_habit.databinding.ListDonehabitPageBinding
+import com.example.making_a_habit.databinding.SetupPageBinding
 
 class SetUpActivity : AppCompatActivity() {
+
+    /***** veiwBinding *****/
+    private lateinit var binding: SetupPageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.setup_page)
+        /***** veiwBinding *****/
+        binding = SetupPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val back_btn = findViewById<ImageView>(R.id.back_btn_setuppage)
-
-        back_btn.setOnClickListener{
+        binding.backBtnSetuppage.setOnClickListener{
             finish()
         }
     }

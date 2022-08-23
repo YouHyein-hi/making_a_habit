@@ -13,28 +13,34 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.making_a_habit.R
+import com.example.making_a_habit.databinding.ActivityMainBinding
+import com.example.making_a_habit.databinding.CreatingCommentsBinding
+import com.example.making_a_habit.databinding.CreatingHabitPageBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.viewmodel.HabitViewModel
 import java.time.LocalDate
 
-class CreatingHabitActivity : AppCompatActivity() {
+class CreatinghabitActivity : AppCompatActivity() {
 
     val habitViewModel: HabitViewModel by viewModels()
     private var id: Long? = null
 
+    /***** veiwBinding *****/
+    private lateinit var binding: CreatingHabitPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.creating_habit_page)
-
         //habitViewModel = ViewModelProvider.get(HabitViewModel::class.java)
+        /***** veiwBinding *****/
+        binding = CreatingHabitPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         var back_btn = findViewById<ImageView>(R.id.back_btn_creatinghabitpage)
         var creatingHabit_btn = findViewById<Button>(R.id.creatinghabit_btn)
         var habitName_edittext = findViewById<EditText>(R.id.habitName_edittext)
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
-        back_btn.setOnClickListener{
+        binding.backBtnCreatinghabitpage.setOnClickListener{
             finish()
         }
 

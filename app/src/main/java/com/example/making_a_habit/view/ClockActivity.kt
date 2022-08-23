@@ -5,15 +5,22 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.making_a_habit.R
+import com.example.making_a_habit.databinding.ActivityMainBinding
+import com.example.making_a_habit.databinding.CreatingHabitPageBinding
+import com.example.making_a_habit.databinding.ListDonehabitPageBinding
 
 class ClockActivity : AppCompatActivity() {
+
+    /***** veiwBinding *****/
+    private lateinit var binding: ListDonehabitPageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_donehabit_page)
+        /***** veiwBinding *****/
+        binding = ListDonehabitPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val back_btn = findViewById<ImageView>(R.id.back_btn_listdonehabitpage)
-
-        back_btn.setOnClickListener{
+        binding.backBtnListdonehabitpage.setOnClickListener{
             finish()
         }
     }
