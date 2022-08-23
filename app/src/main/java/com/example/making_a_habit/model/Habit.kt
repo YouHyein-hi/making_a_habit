@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "habit")
-data class Habit (
+data class Habit(
     @PrimaryKey (autoGenerate = true)
-    val id: Int,
+    val id: Long?,
 
     @ColumnInfo
     var habitName: String,
