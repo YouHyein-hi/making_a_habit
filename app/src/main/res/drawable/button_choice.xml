@@ -4,8 +4,8 @@
 
     <!--눌렀을 때의 상태-->
     <item
-        android:state_pressed="true"
-        android:drawable="@drawable/button_pressed"/>
+        android:state_selected="true"
+        android:drawable="@drawable/button_selected"/>
 
     <!--누르지 않은 (보통의) 상태-->
     <item

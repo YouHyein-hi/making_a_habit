@@ -35,22 +35,51 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding = CreatingHabitPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var back_btn = findViewById<ImageView>(R.id.back_btn_creatinghabitpage)
-        var creatingHabit_btn = findViewById<Button>(R.id.creatinghabit_btn)
-        var habitName_edittext = findViewById<EditText>(R.id.habitName_edittext)
+        var habitPeriod: String? = null
+
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnCreatinghabitpage.setOnClickListener{
             finish()
         }
 
+
+        /***** habitPeriod_btn 클릭하면 버튼눌림효과 유지 *****/
+        // 기간 눌림효과, 눌림효과 해제  횟수 눌림효과, 눌림효과 해제
+        // 버튼 누른 상태에서 다른 버튼 누르면 눌림효과 해제 후 눌림
+
+        // 기간 Button
+        binding.habitPeriodBtnTime.setOnClickListener{
+            if(binding.habitPeriodBtnTime.isSelected()){  // 버튼이 눌려있을 경우 (selected 상태)
+                binding.habitPeriodBtnTime.isSelected = false
+            } else { // 버튼이 안 눌려있을 경우 (selected 상태)
+                binding.habitPeriodBtnTime.isSelected = true
+                binding.habitPeriodBtnNumber.isSelected = false  // 다른 버튼이 눌린 상태에서 눌렸을 경우를 대비
+            }
+            habitPeriod = "기간"
+        }
+        // 횟수 Button
+        binding.habitPeriodBtnNumber.setOnClickListener{
+            if(binding.habitPeriodBtnNumber.isSelected()){  // 버튼이 눌려있을 경우 (selected 상태)
+                binding.habitPeriodBtnNumber.isSelected = false
+            } else { // 버튼이 안 눌려있을 경우 (selected 상태)
+                binding.habitPeriodBtnNumber.isSelected = true
+                binding.habitPeriodBtnTime.isSelected = false  // 다른 버튼이 눌린 상태에서 눌렸을 경우를 대비
+            }
+            habitPeriod = "횟수"
+        }
+
+
+        // 3칸 Button
+
+
         /***** '생성하기'버튼 클릭시 DB 저장 및 화면 전환 *****/
-        creatingHabit_btn.setOnClickListener{
-            val habitName = habitName_edittext.text.toString()
+        binding.creatinghabitBtn.setOnClickListener{
+            val habitName = binding.habitNameEdittext.text.toString()
             val habitDateStart: LocalDate = LocalDate.now()
 
             val initial = habitName[0].toUpperCase()
-            val habit = Habit(id, habitName, "임시", "임시", habitDateStart.toString(),
+            val habit = Habit(id, habitName, habitPeriod.toString(), "임시", habitDateStart.toString(),
                     "임시", 0, false, "임시")
             println("Habit : " + habit)
             habitViewModel.insert(habit)

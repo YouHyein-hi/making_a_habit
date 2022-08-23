@@ -18,6 +18,6 @@
     
     <!--Button-->
     <color name="basic">#F5F5F5</color>
-    <color name="pressed">#EFEFEF</color>
+    <color name="selected">#DBDBDB</color>
     <color name="disable">#707070</color>
 </resources>
