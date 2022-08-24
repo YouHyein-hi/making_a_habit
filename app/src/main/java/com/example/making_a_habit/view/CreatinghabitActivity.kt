@@ -1,20 +1,9 @@
 package com.example.making_a_habit.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
-import com.example.making_a_habit.R
-import com.example.making_a_habit.databinding.ActivityMainBinding
-import com.example.making_a_habit.databinding.CreatingCommentsBinding
 import com.example.making_a_habit.databinding.CreatingHabitPageBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.viewmodel.HabitViewModel
@@ -36,6 +25,7 @@ class CreatinghabitActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var habitPeriod: String? = null
+        var hebitPeriodNum: Int? = 0
 
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
@@ -69,8 +59,39 @@ class CreatinghabitActivity : AppCompatActivity() {
             habitPeriod = "횟수"
         }
 
-
         // 3칸 Button
+        binding.habitPeriodNumBtn3.setOnClickListener{
+            if(binding.habitPeriodNumBtn3.isSelected()){
+                binding.habitPeriodNumBtn3.isSelected = false
+            } else {
+                binding.habitPeriodNumBtn3.isSelected = true
+                binding.habitPeriodNumBtn15.isSelected = false
+                binding.habitPeriodNumBtn30.isSelected = false
+            }
+            hebitPeriodNum = 3
+        }
+        // 15칸 button
+        binding.habitPeriodNumBtn15.setOnClickListener{
+            if(binding.habitPeriodNumBtn15.isSelected()){
+                binding.habitPeriodNumBtn15.isSelected = false
+            } else {
+                binding.habitPeriodNumBtn3.isSelected = false
+                binding.habitPeriodNumBtn15.isSelected = true
+                binding.habitPeriodNumBtn30.isSelected = false
+            }
+            hebitPeriodNum = 15
+        }
+        // 30칸 button
+        binding.habitPeriodNumBtn30.setOnClickListener{
+            if(binding.habitPeriodNumBtn30.isSelected()){
+                binding.habitPeriodNumBtn30.isSelected = false
+            } else {
+                binding.habitPeriodNumBtn3.isSelected = false
+                binding.habitPeriodNumBtn15.isSelected = false
+                binding.habitPeriodNumBtn30.isSelected = true
+            }
+            hebitPeriodNum = 30
+        }
 
 
         /***** '생성하기'버튼 클릭시 DB 저장 및 화면 전환 *****/
@@ -79,7 +100,7 @@ class CreatinghabitActivity : AppCompatActivity() {
             val habitDateStart: LocalDate = LocalDate.now()
 
             val initial = habitName[0].toUpperCase()
-            val habit = Habit(id, habitName, habitPeriod.toString(), "임시", habitDateStart.toString(),
+            val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,"임시", habitDateStart.toString(),
                     "임시", 0, false, "임시")
             println("Habit : " + habit)
             habitViewModel.insert(habit)

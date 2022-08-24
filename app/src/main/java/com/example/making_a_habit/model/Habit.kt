@@ -17,6 +17,9 @@ data class Habit(
     var habitPeriod: String,
 
     @ColumnInfo
+    var habitPeriodNum: Int?,
+
+    @ColumnInfo
     var habitColor: String,
 
     @ColumnInfo

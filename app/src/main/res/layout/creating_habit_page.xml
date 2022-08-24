@@ -109,18 +109,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/habitPeriod_btn_3"
+            android:id="@+id/habitPeriodNum_btn_3"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/button_choice"
             android:text="3"
-            app:layout_constraintEnd_toStartOf="@+id/habitPeriod_btn_15"
-            app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number" />
+            app:layout_constraintEnd_toStartOf="@+id/habitPeriodNum_btn_15"
+            app:layout_constraintTop_toTopOf="@+id/habitPeriodNum_btn_15" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/habitPeriod_btn_15"
+            android:id="@+id/habitPeriodNum_btn_15"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
@@ -131,15 +130,14 @@
             app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/habitPeriod_btn_30"
+            android:id="@+id/habitPeriodNum_btn_30"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
             android:background="@drawable/button_choice"
             android:text="30"
-            app:layout_constraintStart_toEndOf="@+id/habitPeriod_btn_15"
-            app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number" />
+            app:layout_constraintStart_toEndOf="@+id/habitPeriodNum_btn_15"
+            app:layout_constraintTop_toTopOf="@+id/habitPeriodNum_btn_15" />
 
         <TextView
             android:id="@+id/textView7"
@@ -151,35 +149,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_15" />
+            app:layout_constraintTop_toBottomOf="@+id/habitPeriodNum_btn_15" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/habitColor_btn_red"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/circle_button"
             android:backgroundTint="@color/theme_red"
             app:layout_constraintEnd_toStartOf="@+id/habitColor_btn_yellow"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toTopOf="@+id/habitColor_btn_green" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/habitColor_btn_yellow"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/circle_button"
             android:backgroundTint="@color/theme_yellow"
             app:layout_constraintEnd_toStartOf="@+id/habitColor_btn_green"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toTopOf="@+id/habitColor_btn_green" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/habitColor_btn_green"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:backgroundTint="@color/theme_green"
             app:layout_constraintEnd_toEndOf="parent"
@@ -192,22 +188,20 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:backgroundTint="@color/theme_blue"
             app:layout_constraintStart_toEndOf="@+id/habitColor_btn_green"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toTopOf="@+id/habitColor_btn_green" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/habitColor_btn_gray"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:backgroundTint="@color/theme_gray"
             app:layout_constraintStart_toEndOf="@+id/habitColor_btn_blue"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toTopOf="@+id/habitColor_btn_green" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
