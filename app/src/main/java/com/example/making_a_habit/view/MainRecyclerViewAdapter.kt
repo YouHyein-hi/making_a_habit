@@ -6,16 +6,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.making_a_habit.R
+import com.example.making_a_habit.databinding.ItemMainBinding
+import com.example.making_a_habit.databinding.SetupPageBinding
 import com.example.making_a_habit.model.Habit
 
-class MainAdapter(val mainItemClick: (Habit) -> Unit)
-    : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
+    : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
     private var habit: List<Habit> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main, parent, false)
-        return ViewHolder(view)
+        val binding = ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -26,14 +28,11 @@ class MainAdapter(val mainItemClick: (Habit) -> Unit)
         viewHolder.bind(habit[position])
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-        private val habitName = itemView.findViewById<TextView>(R.id.habitName_text_itemmain)
-        private val habitDateStart = itemView.findViewById<TextView>(R.id.habitDateStart_text_itemmain)
-
+    inner class ViewHolder(private val binding: ItemMainBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(habit: Habit) {
-            habitName.text = habit.habitName
-            habitDateStart.text = habit.habitDateStart
+            binding.habitNameTextItemmain.text = habit.habitName
+            binding.habitDateStartTextItemmain.text = habit.habitDateStart
+            binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
 
             itemView.setOnClickListener {
                 mainItemClick(habit)

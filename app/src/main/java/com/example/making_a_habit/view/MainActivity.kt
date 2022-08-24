@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         /***** RecyclerView 부분 *****/
-        val adapter = MainAdapter { habit ->
+        val adapter = MainRecyclerViewAdapter { habit ->
             // put extras of contact info & start CreatingHabitActivity
         }
 
