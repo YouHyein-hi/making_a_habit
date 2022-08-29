@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/setupPage_btn"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="14dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/setup_icon" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-black"
-        android:text="나의 습관"
+        android:text="@string/mainpage_title"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,16 +47,18 @@
         android:id="@+id/creatingPage_btn"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/circle_button"
         android:padding="15dp"
         android:scaleType="centerInside"
         android:src="@drawable/plus_icon"
+        app:tint="@android:color/white"
+        app:backgroundTint="#CDCDCD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/clockPage_btn"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -66,6 +68,8 @@
         android:padding="10dp"
         android:scaleType="centerInside"
         android:src="@drawable/clock_icon"
+        app:tint="@android:color/white"
+        app:backgroundTint="#CDCDCD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

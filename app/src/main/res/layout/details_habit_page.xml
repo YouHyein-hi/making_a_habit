@@ -7,23 +7,25 @@
 
     <ImageView
         android:id="@+id/back_btn_detailshabitpage"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_icon" />
+        app:srcCompat="@drawable/back_icon"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/delete_btn_detailshabitpage"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/delete_icon" />
+        app:srcCompat="@drawable/trash_icon"
+        tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"

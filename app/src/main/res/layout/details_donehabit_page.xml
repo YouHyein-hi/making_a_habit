@@ -7,33 +7,36 @@
 
     <ImageView
         android:id="@+id/back_btn_detailsdonehabitpage"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_icon" />
+        app:srcCompat="@drawable/back_icon"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/delete_btn_detailsdonehabitpage"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/delete_icon" />
+        app:srcCompat="@drawable/trash_icon"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/share_btn_detailsdonehabitpage"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toStartOf="@+id/delete_btn_detailsdonehabitpage"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/share_icon" />
+        app:srcCompat="@drawable/sharing_icon"
+        tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -51,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="습관 이름은 여기에"
+            android:text="@string/details_donehabit_page_title"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="YYYY.MM.DD. ~ YYYY.MM.DD."
+            android:text="@string/details_donehabit_page_date"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

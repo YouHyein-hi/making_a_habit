@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">making_a_habit</string>
+    <string name="mainpage_title">나의 습관</string>
+    <string name="details_donehabit_page_title">습관 이름은 여기에</string>
+    <string name="details_donehabit_page_date">YYYY.MM.DD. ~ YYYY.MM.DD.</string>
 </resources>

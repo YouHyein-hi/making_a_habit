@@ -1,13 +1,10 @@
 package com.example.making_a_habit.view
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ItemMainBinding
-import com.example.making_a_habit.databinding.SetupPageBinding
 import com.example.making_a_habit.model.Habit
 
 class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
@@ -46,9 +43,11 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     }
 
     /***** 추가하는 부분 *****/
+    @SuppressLint("NotifyDataSetChanged")
     fun sethabit(contacts: List<Habit>) {
         this.habit = contacts
         notifyDataSetChanged()
     }
-
 }
+
+// TODO ? 머야 리사이클러뷰에는 추가되고 room에는 추가가 안되는 건가? 나중에 알아보기!

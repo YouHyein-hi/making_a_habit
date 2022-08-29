@@ -1,9 +1,9 @@
 package com.example.making_a_habit.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +11,7 @@ import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.viewmodel.HabitViewModel
+
 //import androidx.lifecycle.get
 
 class MainActivity : AppCompatActivity() {
@@ -64,6 +65,8 @@ class MainActivity : AppCompatActivity() {
             adapter.sethabit(habits!!)
             //adapter.
         })
+
+        //main_recyclerView.
     }  // onCreate
 }
 
