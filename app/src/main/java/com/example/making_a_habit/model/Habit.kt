@@ -8,7 +8,7 @@ import java.util.*
 @Entity(tableName = "habit")
 data class Habit(
     @PrimaryKey (autoGenerate = true)
-    val id: Long?,
+    val habitId: Long?,
 
     @ColumnInfo
     var habitName: String,

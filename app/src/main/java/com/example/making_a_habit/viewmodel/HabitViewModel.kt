@@ -22,4 +22,8 @@ class HabitViewModel (application: Application) : AndroidViewModel(application){
     fun delete(habit: Habit) {
         repository.delete(habit)
     }
+
+    fun getHabitId(habitId: Long){
+        repository.getHabitId(habitId)
+    }
 }

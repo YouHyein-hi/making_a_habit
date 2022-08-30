@@ -39,4 +39,8 @@ class HabitRepository (application: Application){
             thread.start()
         } catch (e: Exception) { }
     }
+
+    fun getHabitId(habitId: Long){
+        habitDao.getHabitId(habitId)
+    }
 }
