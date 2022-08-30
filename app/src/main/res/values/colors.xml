@@ -10,10 +10,15 @@
 
     <!--theme 5 color-->
     <color name="theme_red">#FFAEAE</color>
+    <color name="theme_red_selected">#DD9797</color>
     <color name="theme_yellow">#FFE8AE</color>
+    <color name="theme_yellow_selected">#DDC397</color>
     <color name="theme_green">#B1CFD1</color>
+    <color name="theme_green_selected">#91A8AA</color>
     <color name="theme_blue">#AED8FF</color>
+    <color name="theme_blue_selected">#97B1DD</color>
     <color name="theme_gray">#CECECE</color>
+    <color name="theme_gray_selected">#9E9E9E</color>
     <color name="theme_pressed">#33000000</color>
     
     <!--Button-->

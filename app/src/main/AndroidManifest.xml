@@ -37,7 +37,8 @@
         <activity android:name=".view.CreatinghabitActivity"></activity>
         <activity android:name=".view.ClockActivity"></activity>
         <activity android:name=".view.SetUpActivity"></activity>
-
+        <activity android:name=".view.DetailHabitActivity"></activity>
+        <!---->
 
     </application>
 

@@ -9,6 +9,17 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_pressed.xml" value="0.1835" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_selected.xml" value="0.1635" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme.xml" value="0.226" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_blue_choice.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_blue_selected.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_choice.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_gray_choice.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_gray_selected.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_green_choice.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_green_selected.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_red_selected.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_yellow.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_yellow_chioce.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_yellow_selected.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_themepressed.xml" value="0.226" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/choice_button.xml" value="0.255" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/circle_button.xml" value="0.254" />
@@ -21,7 +32,11 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/roundsquare.xml" value="0.255" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/setup_icon.xml" value="0.1635" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/share_icon.xml" value="0.1635" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/theme_blue_button.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/theme_button_gray.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/theme_green_button.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/theme_red.xml" value="0.226" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/theme_red_button.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/font/notosnas_font.xml" value="0.2786458333333333" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/creating_comments.xml" value="0.2484375" />
@@ -30,8 +45,13 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/details_habit_page.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/dialog_deletehabit.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/dialog_habitdone.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/fragment_delete_dialog.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/habitround_3.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_donehabit.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_roundfull_15.xml" value="0.2484375" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_roundfull_3.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_roundfull_30.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/list_donehabit_page.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/setup_page.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/splash_page.xml" value="0.24947916666666667" />

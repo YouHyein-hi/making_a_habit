@@ -15,7 +15,7 @@ import java.time.LocalDate
 class CreatinghabitActivity : AppCompatActivity() {
 
     val habitViewModel: HabitViewModel by viewModels()
-    private var id: Long? = null
+    private var id: Int? = null
 
     /***** veiwBinding *****/
     private lateinit var binding: CreatingHabitPageBinding
@@ -29,6 +29,7 @@ class CreatinghabitActivity : AppCompatActivity() {
 
         var habitPeriod: String? = null
         var hebitPeriodNum: Int? = 0
+        var habitColor: String? = null
 
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
@@ -68,6 +69,7 @@ class CreatinghabitActivity : AppCompatActivity() {
                 binding.habitPeriodBtnTime.isSelected = false
             } else { // 버튼이 안 눌려있을 경우 (selected 상태)
                 binding.habitPeriodBtnTime.isSelected = true
+
                 binding.habitPeriodBtnNumber.isSelected = false  // 다른 버튼이 눌린 상태에서 눌렸을 경우를 대비
             }
             habitPeriod = "기간"
@@ -78,6 +80,8 @@ class CreatinghabitActivity : AppCompatActivity() {
                 binding.habitPeriodBtnNumber.isSelected = false
             } else { // 버튼이 안 눌려있을 경우 (selected 상태)
                 binding.habitPeriodBtnNumber.isSelected = true
+
+
                 binding.habitPeriodBtnTime.isSelected = false  // 다른 버튼이 눌린 상태에서 눌렸을 경우를 대비
             }
             habitPeriod = "횟수"
@@ -89,6 +93,7 @@ class CreatinghabitActivity : AppCompatActivity() {
                 binding.habitPeriodNumBtn3.isSelected = false
             } else {
                 binding.habitPeriodNumBtn3.isSelected = true
+
                 binding.habitPeriodNumBtn15.isSelected = false
                 binding.habitPeriodNumBtn30.isSelected = false
             }
@@ -99,8 +104,9 @@ class CreatinghabitActivity : AppCompatActivity() {
             if(binding.habitPeriodNumBtn15.isSelected()){
                 binding.habitPeriodNumBtn15.isSelected = false
             } else {
-                binding.habitPeriodNumBtn3.isSelected = false
                 binding.habitPeriodNumBtn15.isSelected = true
+
+                binding.habitPeriodNumBtn3.isSelected = false
                 binding.habitPeriodNumBtn30.isSelected = false
             }
             hebitPeriodNum = 15
@@ -110,11 +116,89 @@ class CreatinghabitActivity : AppCompatActivity() {
             if(binding.habitPeriodNumBtn30.isSelected()){
                 binding.habitPeriodNumBtn30.isSelected = false
             } else {
+                binding.habitPeriodNumBtn30.isSelected = true
+
                 binding.habitPeriodNumBtn3.isSelected = false
                 binding.habitPeriodNumBtn15.isSelected = false
-                binding.habitPeriodNumBtn30.isSelected = true
             }
             hebitPeriodNum = 30
+        }
+
+
+        // theme red button
+        binding.themeRed.setOnClickListener{
+            if(binding.themeRed.isSelected()){
+                binding.themeRed.isSelected = false
+                println("버튼 누름효과 제거")
+            } else {
+                binding.themeRed.isSelected = true
+                println("버튼 누름효과")
+                binding.themeYellow.isSelected = false
+                binding.themeGreen.isSelected = false
+                binding.themeBlue.isSelected = false
+                binding.themeGray.isSelected = false
+            }
+            habitColor = "red"
+        }
+        // theme yellow button
+        binding.themeYellow.setOnClickListener{
+            if(binding.themeYellow.isSelected()){
+                binding.themeYellow.isSelected = false
+                println("버튼 누름효과 제거")
+            } else {
+                binding.themeYellow.isSelected = true
+                println("버튼 누름효과")
+                binding.themeRed.isSelected = false
+                binding.themeGreen.isSelected = false
+                binding.themeBlue.isSelected = false
+                binding.themeGray.isSelected = false
+            }
+            habitColor = "yellow"
+        }
+        // theme green button
+        binding.themeGreen.setOnClickListener{
+            if(binding.themeGreen.isSelected()){
+                binding.themeGreen.isSelected = false
+                println("버튼 누름효과 제거")
+            } else {
+                binding.themeGreen.isSelected = true
+                println("버튼 누름효과")
+                binding.themeRed.isSelected = false
+                binding.themeYellow.isSelected = false
+                binding.themeBlue.isSelected = false
+                binding.themeGray.isSelected = false
+            }
+            habitColor = "green"
+        }
+        // theme blue button
+        binding.themeBlue.setOnClickListener{
+            if(binding.themeBlue.isSelected()){
+                binding.themeBlue.isSelected = false
+                println("버튼 누름효과 제거")
+            } else {
+                binding.themeBlue.isSelected = true
+                println("버튼 누름효과")
+                binding.themeRed.isSelected = false
+                binding.themeYellow.isSelected = false
+                binding.themeGreen.isSelected = false
+                binding.themeGray.isSelected = false
+            }
+            habitColor = "blue"
+        }
+        // theme gray button
+        binding.themeGray.setOnClickListener{
+            if(binding.themeGray.isSelected()){
+                binding.themeGray.isSelected = false
+                println("버튼 누름효과 제거")
+            } else {
+                binding.themeGray.isSelected = true
+                println("버튼 누름효과")
+                binding.themeRed.isSelected = false
+                binding.themeYellow.isSelected = false
+                binding.themeGreen.isSelected = false
+                binding.themeBlue.isSelected = false
+            }
+            habitColor = "gray"
         }
 
 
@@ -123,22 +207,31 @@ class CreatinghabitActivity : AppCompatActivity() {
             val habitName = binding.habitNameEdittext.text.toString()
             val habitDateStart: LocalDate = LocalDate.now()
 
-            val initial = habitName[0].toUpperCase()
-            val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,"임시", habitDateStart.toString(),
-                    "임시", 0, false, "임시")
-            println("Habit : " + habit)
+
 
             // and &&   or ||
-            if(binding.habitNameEdittext.isEnabled &&
+            // TODO 조건이 너무 구려 어떻게 짧게 할 수 없나?
+            // TODO 그리고 EditText 부분은 안적어도 그냥 넘어감 해결하자!
+            // binding.habitNameEdittext.toString() != null &&
+            if(
                 (binding.habitPeriodBtnTime.isSelected || binding.habitPeriodBtnNumber.isSelected) &&
-                (binding.habitPeriodNumBtn3.isSelected || binding.habitPeriodNumBtn15.isSelected || binding.habitPeriodNumBtn30.isSelected)
-            ){  // TODO 조건이 너무 구려 어떻게 짧게 할 수 없나?
+                (binding.habitPeriodNumBtn3.isSelected || binding.habitPeriodNumBtn15.isSelected || binding.habitPeriodNumBtn30.isSelected) &&
+                (binding.themeRed.isSelected || binding.themeYellow.isSelected || binding.themeGreen.isSelected || binding.themeBlue.isSelected || binding.themeGray.isSelected)
+            ){
+                val initial = habitName[0].toUpperCase()
+                val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,habitColor.toString(), habitDateStart.toString(),
+                    "임시", 0, false, "임시")
+                println("Habit : " + habit)
+
                 habitViewModel.insert(habit)
+                println("다 선택함")
                 finish()
             }
             else{
                 val creatinghabitbutton = "모든 옵션을 선택해주세요."
+                println(creatinghabitbutton)
                 Toast.makeText(applicationContext, creatinghabitbutton, Toast.LENGTH_SHORT).show()
+
             }
 
 
