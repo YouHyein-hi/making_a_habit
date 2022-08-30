@@ -3,12 +3,11 @@ package com.example.making_a_habit.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(tableName = "habit")
 data class Habit(
     @PrimaryKey (autoGenerate = true)
-    val habitId: Long?,
+    val habitId: Int?,
 
     @ColumnInfo
     var habitName: String,

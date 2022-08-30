@@ -40,7 +40,12 @@ class HabitRepository (application: Application){
         } catch (e: Exception) { }
     }
 
-    fun getHabitId(habitId: Long){
-        habitDao.getHabitId(habitId)
+    suspend fun loadAllByIds(habitId: Int): Habit{
+        return habitDao.getHabitId(habitId)
+    }
+
+
+    suspend fun getHabitId(habitId: Int): Habit{
+        return habitDao.getHabitId(habitId)
     }
 }

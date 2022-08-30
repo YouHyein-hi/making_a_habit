@@ -3,8 +3,10 @@ package com.example.making_a_habit.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import com.example.making_a_habit.HabitRepository
 import com.example.making_a_habit.model.Habit
+import kotlinx.coroutines.withContext
 
 class HabitViewModel (application: Application) : AndroidViewModel(application){
 
@@ -23,7 +25,17 @@ class HabitViewModel (application: Application) : AndroidViewModel(application){
         repository.delete(habit)
     }
 
-    fun getHabitId(habitId: Long){
-        repository.getHabitId(habitId)
+    suspend fun loadAllByIds(habitId: Int): Habit {
+        return withContext(viewModelScope.coroutineContext) {
+            repository.loadAllByIds(habitId)
+        }
+
+    }
+
+
+    suspend fun getHabitId(habitId: Int): Habit{
+        return withContext(viewModelScope.coroutineContext) {
+            repository.getHabitId(habitId)
+        }
     }
 }

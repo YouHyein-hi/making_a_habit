@@ -39,7 +39,8 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
 
         // 화면에 item 3개만 띄우기 but 생성은 계속됨! DB에 계속 들어감!
         // TODO item 3개 넘을 시 제한 주기 (button 비활성화, button 클릭시 토스트 추가  --> 근데 이걸 Adapter에 하는게 맞나?)
-        return Math.min(habit.size, limit)
+        //return Math.min(habit.size, limit)
+        return habit.size
     }
 
     /*private fun limitSize() {
@@ -63,6 +64,10 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
 
             itemView.setOnClickListener {
                 mainItemClick(habit)
+
+                val intent = Intent(context, DetailHabitActivity::class.java)
+                intent.putExtra("data", habit.habitId);
+                intent.run { context.startActivity(this) }
             }
 
             itemView.setOnLongClickListener {
@@ -79,5 +84,3 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
         notifyDataSetChanged()
     }
 }
-
-// TODO ? 머야 리사이클러뷰에는 추가되고 room에는 추가가 안되는 건가? 나중에 알아보기!

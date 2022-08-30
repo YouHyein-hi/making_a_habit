@@ -22,8 +22,8 @@ interface HabitDAO {
     fun loadAllByIds(habitIds: IntArray): LiveData<List<Habit>>
 
     //선택한 메모리 데이터 가져오기
-    @Query("SELECT * FROM habit WHERE habitId = (:habitId) LIMIT 1")
-    fun getHabitId(habitId : Long) : LiveData<List<Habit>>
+    @Query("SELECT * FROM habit WHERE habitId = :habitId")
+    suspend fun getHabitId(habitId : Int) : Habit
 
     /*
     @Query("SELECT * FROM habit WHERE first_name LIKE :first AND " +
