@@ -7,15 +7,14 @@ import android.text.TextWatcher
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.making_a_habit.databinding.CreatingHabitPageBinding
 import com.example.making_a_habit.model.Habit
-import com.example.making_a_habit.viewmodel.HabitViewModel
+import com.example.making_a_habit.viewmodel.CreatinghabitViewModel
 import java.time.LocalDate
 
 class CreatinghabitActivity : AppCompatActivity() {
 
-    val habitViewModel: HabitViewModel by viewModels()
+    val creatinghabitViewModel: CreatinghabitViewModel by viewModels()
     private var id: Int? = null
 
     /***** veiwBinding *****/
@@ -128,7 +127,6 @@ class CreatinghabitActivity : AppCompatActivity() {
             hebitPeriodNum = 30
         }
 
-
         // theme red button
         binding.themeRed.setOnClickListener{
             if(binding.themeRed.isSelected()){
@@ -227,7 +225,7 @@ class CreatinghabitActivity : AppCompatActivity() {
                     "임시", 0, false, "임시")
                 println("Habit : " + habit)
 
-                habitViewModel.insert(habit)
+                creatinghabitViewModel.insert(habit)
                 println("다 선택함")
                 finish()
             }

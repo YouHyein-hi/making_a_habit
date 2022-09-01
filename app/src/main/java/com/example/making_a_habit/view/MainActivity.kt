@@ -4,21 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ActivityMainBinding
-import com.example.making_a_habit.model.Habit
-import com.example.making_a_habit.view.adapter.Habit3RoundAdapter
 import com.example.making_a_habit.view.adapter.MainRecyclerViewAdapter
-import com.example.making_a_habit.viewmodel.HabitViewModel
+import com.example.making_a_habit.viewmodel.MainViewModel
 
 //import androidx.lifecycle.get
 
 class MainActivity : AppCompatActivity() {
-    val habitViewModel: HabitViewModel by viewModels()
+    val mainViewModel: MainViewModel by viewModels()
 
     /***** veiwBinding *****/
     private lateinit var binding: ActivityMainBinding
@@ -69,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launchWhenResumed {
-            adapter.sethabit(habitViewModel.getAll())
+            adapter.sethabit(mainViewModel.getAll())
         }
     }
 }
