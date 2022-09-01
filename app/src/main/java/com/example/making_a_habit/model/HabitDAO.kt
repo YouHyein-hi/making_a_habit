@@ -10,7 +10,7 @@ import androidx.room.Query
 interface HabitDAO {
 
     @Query("SELECT * FROM habit")
-    fun getAll(): LiveData<List<Habit>>
+    suspend fun getAll(): List<Habit>
 
     @Insert
     fun insert(vararg habit: Habit)

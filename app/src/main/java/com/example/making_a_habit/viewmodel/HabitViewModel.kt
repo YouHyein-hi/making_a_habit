@@ -11,10 +11,11 @@ import kotlinx.coroutines.withContext
 class HabitViewModel (application: Application) : AndroidViewModel(application){
 
     private val repository = HabitRepository(application)
-    private val habits = repository.getAll()
 
-    fun getAll(): LiveData<List<Habit>> {
-        return habits
+    suspend fun getAll(): List<Habit> {
+        return withContext(viewModelScope.coroutineContext) {
+            repository.getAll()
+        }
     }
 
     fun insert(habit: Habit) {

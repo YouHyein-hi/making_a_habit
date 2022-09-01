@@ -1,5 +1,6 @@
 package com.example.making_a_habit.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -34,6 +35,9 @@ class CreatinghabitActivity : AppCompatActivity() {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnCreatinghabitpage.setOnClickListener{
+            var intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
 
@@ -240,9 +244,9 @@ class CreatinghabitActivity : AppCompatActivity() {
 
         /***** ViewModel 부분 *****/
         //val habitViewModel: HabitViewModel by viewModels()
-        habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
-            // update UI
-        })
+//        habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
+//            // update UI
+//        })
 
     } // onCreate
 

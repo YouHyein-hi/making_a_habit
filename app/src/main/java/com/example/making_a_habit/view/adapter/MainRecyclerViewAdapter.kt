@@ -1,4 +1,4 @@
-package com.example.making_a_habit.view
+package com.example.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.databinding.ItemMainBinding
 import com.example.making_a_habit.model.Habit
-import kotlinx.coroutines.NonDisposableHandle.parent
+import com.example.making_a_habit.view.DetailHabitActivity
 
 class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {

@@ -5,11 +5,14 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.model.Habit
+import com.example.making_a_habit.view.adapter.Habit3RoundAdapter
+import com.example.making_a_habit.view.adapter.MainRecyclerViewAdapter
 import com.example.making_a_habit.viewmodel.HabitViewModel
 
 //import androidx.lifecycle.get
@@ -19,6 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     /***** veiwBinding *****/
     private lateinit var binding: ActivityMainBinding
+    private val adapter: MainRecyclerViewAdapter =  MainRecyclerViewAdapter { habit ->
+        // put extras of contact info & start CreatingHabitActivity
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +35,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         /***** RecyclerView 부분 *****/
-        val adapter = MainRecyclerViewAdapter { habit ->
-            // put extras of contact info & start CreatingHabitActivity
-        }
 
-        val lm = LinearLayoutManager(this)
-        val main_recyclerView = findViewById<RecyclerView>(R.id.main_recyclerView)
-        main_recyclerView.adapter = adapter
-        main_recyclerView.layoutManager = lm
-        main_recyclerView.setHasFixedSize(true)
+        binding.mainRecyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
+        binding.mainRecyclerView.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 연결
+        binding.mainRecyclerView.setHasFixedSize(true)
 
 
         /***** 화면 전환 부분  -> 다시 수정할 예정 (임시!) *****/
@@ -60,14 +62,16 @@ class MainActivity : AppCompatActivity() {
         /***** ViewModel 부분 *****/
         //val habitViewModel: HabitViewModel by viewModels()
 
-        habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
-            // update UI
-            adapter.sethabit(habits!!)
-            //adapter.
-        })
 
         //main_recyclerView.
     }  // onCreate
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launchWhenResumed {
+            adapter.sethabit(habitViewModel.getAll())
+        }
+    }
 }
 
 // 화면 전환 부분 수정
