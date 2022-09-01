@@ -36,7 +36,6 @@
                 android:id="@+id/habitName_text_itemmain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="습관 이름은 여기에"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

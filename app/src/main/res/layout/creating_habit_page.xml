@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="습관 생성하기"
+            android:text="@string/creatinghabitpage_title"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="수행할 습관을 만들어봐요!\n한 번 설정한 습관은 수정할 수 없습니다\n꼭 확인하고 만들어주세요!"
+            android:text="@string/creatinghabitpage_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -55,7 +55,7 @@
             android:background="@drawable/roundsquare"
             android:ems="10"
             android:gravity="center"
-            android:hint="습관 이름 입력하기"
+            android:hint="@string/creatinghabitpage_edittexthint"
             android:inputType="textMultiLine"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
             android:layout_height="19dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="수행할 습관 기준을 정해주세요!"
+            android:text="@string/creatinghabitpage_habitPeriodtext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/habitName_edittext" />
@@ -83,7 +83,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/button_choice"
-            android:text="기간"
+            android:text="@string/creatinghabitpage_habitPeriodtime"
             app:layout_constraintEnd_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -104,7 +104,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_choice"
-            android:text="횟수"
+            android:text="@string/creatinghabitpage_habitPeriodnumber"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -114,7 +114,7 @@
             android:layout_height="80dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/button_choice"
-            android:text="3"
+            android:text="@string/creatinghabitpage_habitPeriod3"
             app:layout_constraintEnd_toStartOf="@+id/habitPeriodNum_btn_15"
             app:layout_constraintTop_toTopOf="@+id/habitPeriodNum_btn_15" />
 
@@ -124,7 +124,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_choice"
-            android:text="15"
+            android:text="@string/creatinghabitpage_habitPeriod15"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number" />
@@ -135,7 +135,7 @@
             android:layout_height="80dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/button_choice"
-            android:text="30"
+            android:text="@string/creatinghabitpage_habitPeriod30"
             app:layout_constraintStart_toEndOf="@+id/habitPeriodNum_btn_15"
             app:layout_constraintTop_toTopOf="@+id/habitPeriodNum_btn_15" />
 
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="수행할 습관 기준을 정해주세요!"
+            android:text="@string/creatinghabitpage_themecolortext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +207,7 @@
         android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/roundsquare"
-        android:text="생성하기"
+        android:text="@string/creatinghabitpage_creating"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

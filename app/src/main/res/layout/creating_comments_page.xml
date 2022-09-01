@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="커멘트 작성"
+            android:text="@string/creatingcommentpage_title"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="습관을 수행하면서 느낀점, 칭찬, 반성 등을\n작성하면서 자기 자신을 되돌아보세요!"
+            android:text="@string/creatingcommentpage_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="습관 이름은 여기에"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +68,7 @@
             android:background="@drawable/roundsquare"
             android:ems="10"
             android:gravity="center_horizontal"
-            android:hint="커멘트를 작성해주세요."
+            android:hint="@string/creatingcommentpage_edittexthint"
             android:inputType="textPersonName"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +84,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/roundsquare"
-        android:text="닫기"
+        android:text="@string/creatingcommentpage_cancelbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView10" />
 
@@ -106,7 +105,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/roundsquare"
-        android:text="완료하기"
+        android:text="@string/creatingcommentpage_creatingbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
 </androidx.constraintlayout.widget.ConstraintLayout>

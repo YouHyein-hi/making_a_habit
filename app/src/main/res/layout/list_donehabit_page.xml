@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-black"
-        android:text="나의 완료 습관"
+        android:text="@string/listdonehabitpage_text"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
