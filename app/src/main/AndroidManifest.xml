@@ -35,9 +35,10 @@
             </intent-filter>
         </activity> <!--메인 페이지-->
         <activity android:name=".view.CreatinghabitActivity"></activity>
-        <activity android:name=".view.ClockActivity"></activity>
         <activity android:name=".view.SetUpActivity"></activity>
         <activity android:name=".view.DetailHabitActivity"></activity>
+        <activity android:name=".view.ListDoneHabitActivity"></activity>
+        <activity android:name=".view.DetailDoneHabitActivity"></activity>
         <!---->
 
     </application>
