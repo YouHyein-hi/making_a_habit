@@ -13,8 +13,9 @@ import com.example.making_a_habit.view.adapter.MainRecyclerViewAdapter
 import com.example.making_a_habit.viewmodel.ListDoneHabitViewModel
 
 class ListDoneHabitActivity : AppCompatActivity() {
-    val listDoneHabitViewModel: ListDoneHabitViewModel by viewModels()
 
+    /***** ViewModel *****/
+    val listDoneHabitViewModel: ListDoneHabitViewModel by viewModels()
     /***** veiwBinding *****/
     private lateinit var binding: ListDonehabitPageBinding
     /***** Adapter *****/

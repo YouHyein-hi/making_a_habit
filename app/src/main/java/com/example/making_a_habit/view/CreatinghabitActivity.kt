@@ -14,11 +14,12 @@ import java.time.LocalDate
 
 class CreatinghabitActivity : AppCompatActivity() {
 
+    /***** ViewModel *****/
     val creatinghabitViewModel: CreatinghabitViewModel by viewModels()
-    private var id: Int? = null
-
     /***** veiwBinding *****/
     private lateinit var binding: CreatingHabitPageBinding
+
+    private var id: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

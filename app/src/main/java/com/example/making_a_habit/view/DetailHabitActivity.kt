@@ -1,6 +1,7 @@
 package com.example.making_a_habit.view
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -20,9 +21,11 @@ import kotlinx.coroutines.launch
 
 class DetailHabitActivity : AppCompatActivity() {
 
+    /***** ViewModel *****/
     val detailhabitViewModel: DetailhabitViewModel by viewModels()
     /***** veiwBinding *****/
     private lateinit var binding: DetailsHabitPageBinding
+    /***** Adapter *****/
     private val habit3RoundAdapter: Habit3RoundAdapter =  Habit3RoundAdapter { habit ->
         // put extras of contact info & start CreatingHabitActivity
     }
@@ -46,9 +49,6 @@ class DetailHabitActivity : AppCompatActivity() {
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnDetailshabitpage.setOnClickListener{
             finish()
-        }
-        binding.deleteBtnDetailshabitpage.setOnClickListener{
-
         }
 
 
@@ -82,6 +82,11 @@ class DetailHabitActivity : AppCompatActivity() {
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
                         habit3RoundAdapter.sethabitPeriod()
                         println("habit.habitPeriodNum == 3")
+/*
+                        val intent = Intent(this@DetailHabitActivity, habit3RoundAdapter::class.java)
+                        intent.putExtra("habitcolor_forid", habit.habitColor)
+                        startActivity(intent)
+ */
                     }
                     else if(habit.habitPeriodNum == 15){
                         binding.detailshabitpageRecyclerView.adapter = habit15RoundAdapter //리사이클러뷰에 어댑터 연결
@@ -115,11 +120,4 @@ class DetailHabitActivity : AppCompatActivity() {
 //        })
 
     }  // onCreate
-
-    override fun onResume() {
-        super.onResume()
-        lifecycleScope.launchWhenResumed {
-            habit3RoundAdapter.sethabitPeriod()
-        }
-    }
 }
