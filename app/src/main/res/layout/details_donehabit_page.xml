@@ -54,30 +54,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="@string/details_donehabit_page_title"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/habitDateStart_text_detailshabitpage"
+            android:id="@+id/habitDate_text_detailshabitpage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/details_donehabit_page_date"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/habitName_text_detailshabitpage" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/habitComment_text_detailshabitpage"
             android:layout_width="300dp"
             android:layout_height="200dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="50dp"
             android:background="@drawable/roundsquare"
             android:gravity="center_horizontal"
+            android:padding="10dp"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
