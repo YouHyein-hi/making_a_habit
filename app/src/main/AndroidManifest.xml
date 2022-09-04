@@ -39,6 +39,7 @@
         <activity android:name=".view.DetailHabitActivity"></activity>
         <activity android:name=".view.ListDoneHabitActivity"></activity>
         <activity android:name=".view.DetailDoneHabitActivity"></activity>
+        <activity android:name=".view.CommentActivity"></activity>
         <!---->
 
     </application>

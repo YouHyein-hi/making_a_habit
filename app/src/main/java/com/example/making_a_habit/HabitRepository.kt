@@ -2,6 +2,7 @@ package com.example.making_a_habit
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.model.HabitDAO
 import com.example.making_a_habit.model.HabitDB
@@ -43,6 +44,14 @@ class HabitRepository (application: Application){
     suspend fun loadAllByIds(habitId: Int): Habit{
         return habitDao.getHabitId(habitId)
     }
+
+    suspend fun updateHabit(habit: Habit){
+        return habitDao.updateHabit(habit)
+    }
+
+    /*suspend fun deleteIds(habitIds: Int) : Habit {
+        return habitDao.deleteIds(habitIds)
+    }*/
 
 
     suspend fun getHabitId(habitId: Int): Habit{

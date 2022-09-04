@@ -20,6 +20,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/cancel_btn_creatingcomentspage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,9 +66,9 @@
 
         <EditText
             android:id="@+id/habitComent_edittext_creatingcomentspage"
-            android:layout_width="300dp"
-            android:layout_height="400dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/roundsquare"
             android:ems="10"
             android:gravity="center_horizontal"
@@ -72,8 +76,10 @@
             android:inputType="textPersonName"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/habitName_text_creatingcomentspage" />
+            app:layout_constraintTop_toBottomOf="@+id/habitName_text_creatingcomentspage"
+            android:maxLength="100" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton

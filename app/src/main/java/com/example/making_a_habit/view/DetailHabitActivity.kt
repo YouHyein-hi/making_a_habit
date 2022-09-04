@@ -73,7 +73,7 @@ class DetailHabitActivity : AppCompatActivity() {
                         "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
                         "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#CECECE"))
                     } // TODO Color 지정해준 거 나중에 변경하기 (R.color.theme_?)이 안되는지 모르겠음
-                    binding.habitDateStartTextDetailshabitpage.text = habitDateStart
+                    binding.habitDateTextDetailshabitpage.text = habitDateStart
 
 
                     if(habit.habitPeriodNum == 3){
@@ -118,6 +118,21 @@ class DetailHabitActivity : AppCompatActivity() {
 //            // update UI
 //            //adapter.
 //        })
+
+
+
+
+
+        /* TODO 임시!!!!!! 나중에 꼭 삭제하기!!!!!!!!!! */
+        binding.testButton.setOnClickListener{
+            val habitId = intent.getIntExtra("data",0)
+            var intent = Intent(this, CommentActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            intent.putExtra("commentId", habitId)
+            startActivity(intent)
+
+            finish()
+        }
 
     }  // onCreate
 }
