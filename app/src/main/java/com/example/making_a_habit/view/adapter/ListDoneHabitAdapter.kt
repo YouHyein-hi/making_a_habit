@@ -15,7 +15,7 @@ import com.example.making_a_habit.view.dialog.deleteDialogFragment
 class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<ListDoneHabitAdapter.ViewHolder>() {
 
-    private var habit: List<Habit> = listOf()
+    private var habit: ArrayList<Habit> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         val binding = ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -67,8 +67,14 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
     fun sethabit(contacts: List<Habit>) {
-        this.habit = contacts
+        habit.clear()
+        contacts.forEach { item->
+            if(item.habitComplete){
+                habit.add(item)
+            }
+        }
         notifyDataSetChanged()
     }
+
 
 }
