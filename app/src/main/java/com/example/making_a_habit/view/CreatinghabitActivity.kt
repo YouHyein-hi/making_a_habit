@@ -209,8 +209,17 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding.creatinghabitBtn.setOnClickListener{
             val habitName = binding.habitNameEdittext.text.toString()
             val habitDateStart: LocalDate = LocalDate.now()
+            var habitDateEnd = ""
 
-
+            if(binding.habitPeriodNumBtn3.isSelected){
+                habitDateEnd = habitDateStart.plusDays(2).toString()
+            }
+            else if(binding.habitPeriodNumBtn15.isSelected){
+                habitDateEnd = habitDateStart.plusDays(14).toString()
+            }
+            else if(binding.habitPeriodNumBtn30.isSelected){
+                habitDateEnd = habitDateStart.plusDays(29).toString()
+            }
 
             // and &&   or ||
             // TODO 조건이 너무 구려 어떻게 짧게 할 수 없나?
@@ -223,7 +232,7 @@ class CreatinghabitActivity : AppCompatActivity() {
             ){
                 val initial = habitName[0].toUpperCase()
                 val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,habitColor.toString(), habitDateStart.toString(),
-                    "임시", 0, false, "임시")
+                    habitDateEnd, 0, false, "임시")
                 println("Habit : " + habit)
 
                 creatinghabitViewModel.insert(habit)
@@ -236,8 +245,6 @@ class CreatinghabitActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, creatinghabitbutton, Toast.LENGTH_SHORT).show()
 
             }
-
-
         }
 
 
