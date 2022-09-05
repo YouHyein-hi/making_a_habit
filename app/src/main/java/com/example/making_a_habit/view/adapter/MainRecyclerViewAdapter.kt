@@ -2,6 +2,8 @@ package com.example.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,27 +11,20 @@ import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.databinding.ItemMainBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailHabitActivity
+import com.example.making_a_habit.view.MainActivity
+import com.example.making_a_habit.view.dialog.deleteDialogFragment
+import com.example.making_a_habit.viewmodel.DeletedialogViewModel
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
-    private var habit: List<Habit> = listOf()
+    private var habit: ArrayList<Habit> = arrayListOf()
     private val limit = 3
 
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         val binding = ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val binding_mainpage = ActivityMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-        fun limitSize(){
-            println("item 3개임!")
-            binding_mainpage.creatingPageBtn.isEnabled = false
-        }
-
-        /*if(habit.size > limit){
-            println("item 3개임!")
-            binding_mainpage.creatingPageBtn.isEnabled = false
-        }*/
 
         return ViewHolder(binding)
     }
@@ -42,12 +37,6 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
         //return Math.min(habit.size, limit)
         return habit.size
     }
-
-    /*private fun limitSize() {
-        val binding_mainpage = ActivityMainBinding.bind(view)
-        println("item 3개임!")
-        binding_mainpage.creatingPageBtn.isEnabled = false
-    }*/
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.bind(habit[position])
@@ -80,7 +69,12 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
     fun sethabit(contacts: List<Habit>) {
-        this.habit = contacts
+        habit.clear()
+        contacts.forEach { item->
+            if(!item.habitComplete){
+                habit.add(item)
+            }
+        }
         notifyDataSetChanged()
     }
 }
