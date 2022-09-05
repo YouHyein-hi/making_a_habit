@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/acircle_progressbar.xml" value="0.2" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_choice.xml" value="0.226" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_disable.xml" value="0.1835" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_enabled.xml" value="0.1835" />
@@ -39,7 +40,9 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/theme_red_button.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/font/notosnas_font.xml" value="0.2786458333333333" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/comment_page.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/creating_comments.xml" value="0.2484375" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/creating_comments_page.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/creating_habit_page.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/details_donehabit_page.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/details_habit_page.xml" value="0.2484375" />
@@ -48,7 +51,7 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/fragment_delete_dialog.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/habitround_3.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_donehabit.xml" value="0.2484375" />
-        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_main.xml" value="0.536" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_roundfull_15.xml" value="0.2484375" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_roundfull_3.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/layout/item_roundfull_30.xml" value="0.2484375" />
