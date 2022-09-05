@@ -57,6 +57,14 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
                 val intent = Intent(context, DetailHabitActivity::class.java)
                 intent.putExtra("data", habit.habitId);
                 intent.run { context.startActivity(this) }
+
+                val fragmentDeleteDialog : deleteDialogFragment = deleteDialogFragment()
+                val bundle : Bundle = Bundle()
+                if (habit.habitId != null) {
+                    bundle.putInt("deleteHabitId", habit.habitId)
+                }
+                fragmentDeleteDialog.arguments = bundle
+
             }
 
             itemView.setOnLongClickListener {
