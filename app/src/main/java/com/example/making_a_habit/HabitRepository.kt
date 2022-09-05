@@ -41,12 +41,17 @@ class HabitRepository (application: Application){
         } catch (e: Exception) { }
     }
 
-    suspend fun loadAllByIds(habitId: Int): Habit{
-        return habitDao.getHabitId(habitId)
+    fun update(habit: Habit) {
+        try {
+            val thread = Thread(Runnable {
+                habitDao.update(habit)
+            })
+            thread.start()
+        } catch (e: Exception) { }
     }
 
-    suspend fun updateHabit(habit: Habit){
-        return habitDao.updateHabit(habit)
+    suspend fun loadAllByIds(habitId: Int): Habit{
+        return habitDao.getHabitId(habitId)
     }
 
     /*suspend fun deleteIds(habitIds: Int) : Habit {
