@@ -52,19 +52,15 @@ class DetailHabitActivity : AppCompatActivity()  {
         }
 
 
-
         // MainRecyclerViewAdapter에서 해당 item 데이터 habitId 받음
         if(intent.hasExtra("data")) {
             // intent를 통해 클릭한 item habitId를 가져옴
-            val habitId = intent.getIntExtra("data",0)
-            println(habitId) // 잘 나오는지 확인
             CoroutineScope(Dispatchers.IO).launch {
                 println(detailhabitViewModel.loadAllByIds(intent.getIntExtra("data", 0)))
                 habit = detailhabitViewModel.loadAllByIds(intent.getIntExtra("data", 0))
                 println(habit.habitName)
 
                 runOnUiThread {
-                    habitDateStart = habit.habitDateStart
                     binding.habitNameTextDetailshabitpage.text = habit.habitName
                     when(habit.habitColor){
                         "red" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
@@ -73,7 +69,18 @@ class DetailHabitActivity : AppCompatActivity()  {
                         "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
                         "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#CECECE"))
                     } // TODO Color 지정해준 거 나중에 변경하기 (R.color.theme_?)이 안되는지 모르겠음
-                    binding.habitDateTextDetailshabitpage.text = habitDateStart
+
+
+                    if(habit.habitPeriod == "기간"){
+                        println("기간이 넘어옴!")
+                        habitDateStart = habit.habitDateStart + " ~ " + habit.habitDateEnd
+                        binding.habitDateTextDetailshabitpage.text = habitDateStart
+                    }
+                    else if(habit.habitPeriod == "횟수"){
+                        println("횟수가 넘어옴!")
+                        habitDateStart = habit.habitDateStart + " ~"
+                        binding.habitDateTextDetailshabitpage.text = habitDateStart
+                    }
 
 
                     if(habit.habitPeriodNum == 3){
@@ -82,11 +89,6 @@ class DetailHabitActivity : AppCompatActivity()  {
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
                         habit3RoundAdapter.sethabitPeriod()
                         println("habit.habitPeriodNum == 3")
-/*
-                        val intent = Intent(this@DetailHabitActivity, habit3RoundAdapter::class.java)
-                        intent.putExtra("habitcolor_forid", habit.habitColor)
-                        startActivity(intent)
- */
                     }
                     else if(habit.habitPeriodNum == 15){
                         binding.detailshabitpageRecyclerView.adapter = habit15RoundAdapter //리사이클러뷰에 어댑터 연결
