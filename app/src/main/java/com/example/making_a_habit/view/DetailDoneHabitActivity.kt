@@ -9,6 +9,7 @@ import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.adapter.Habit15RoundAdapter
 import com.example.making_a_habit.view.adapter.Habit30RoundAdapter
 import com.example.making_a_habit.view.adapter.Habit3RoundAdapter
+import com.example.making_a_habit.view.dialog.deleteDialogFragment
 import com.example.making_a_habit.viewmodel.DetailDonehabitViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +46,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
         }
 
 
-        // MainRecyclerViewAdapter에서 해당 item 데이터 habitId 받음
+        /***** 데이터 받고 해당 화면에 출력하기 *****/
         if(intent.hasExtra("data")) {
             // intent를 통해 클릭한 item habitId를 가져옴
             val habitId = intent.getIntExtra("data",0)
@@ -71,7 +72,19 @@ class DetailDoneHabitActivity : AppCompatActivity() {
             }
         }
 
+        /***** dialog 부분 *****/
+        binding.deleteBtnDetailsdonehabitpage.setOnClickListener{
+            var deletedialog = deleteDialogFragment()
 
-    }
+            /*** Dialog에 해당 item habitId 보내기 ***/
+            val habitId = intent.getIntExtra("data",0)
+            val bundle = Bundle()
+            bundle.putInt("deleteId", habitId)
+            deletedialog.arguments = bundle
+
+            deletedialog.show(supportFragmentManager, "deleteDialog")
+        }
+
+    } // OnCreat
 
 }
