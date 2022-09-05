@@ -26,6 +26,8 @@ class CommentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var habit : Habit
+
         /***** veiwBinding *****/
         binding = CommentPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -50,7 +52,7 @@ class CommentActivity : AppCompatActivity() {
             override fun afterTextChanged(h: Editable?) {
                 if(h != null && !h.toString().equals("")){
                     if(h.toString().length == 100){
-                        val habitName20Up = "커멘트는 20자까지만 쓸 수 있습니다!"
+                        val habitName20Up = "커멘트는 100자까지만 쓸 수 있습니다!"
                         Toast.makeText(applicationContext, habitName20Up, Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -66,7 +68,11 @@ class CommentActivity : AppCompatActivity() {
             if(intent.hasExtra("commentId")) {
                 // intent를 통해 클릭한 item habitId를 가져옴
                 val habitId = intent.getIntExtra("commentId",0)
-                // TODO update 추가하자
+                CoroutineScope(Dispatchers.IO).launch{
+                    habit = commentViewModel.loadAllByIds(intent.getIntExtra("commentId", 0))
+                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitComplete, comment))
+                    //delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitComplete, habit.habitComment))
+                }
                 finish()
             }
 
