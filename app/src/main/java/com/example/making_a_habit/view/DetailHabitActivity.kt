@@ -19,7 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DetailHabitActivity : AppCompatActivity() {
+class DetailHabitActivity : AppCompatActivity()  {
 
     /***** ViewModel *****/
     val detailhabitViewModel: DetailhabitViewModel by viewModels()
@@ -110,6 +110,16 @@ class DetailHabitActivity : AppCompatActivity() {
         /***** dialog 부분 *****/
         binding.deleteBtnDetailshabitpage.setOnClickListener{
             var deletedialog = deleteDialogFragment()
+
+            /*** Dialog에 해당 item habitId 보내기 ***/
+            val habitId = intent.getIntExtra("data",0)
+            println("habitId : " + habitId)
+            val bundle = Bundle()
+            bundle.putInt("deleteId", habitId)
+            deletedialog.arguments = bundle
+            println("보냄")
+
+
             deletedialog.show(supportFragmentManager, "deleteDialog")
         }
 
@@ -120,9 +130,6 @@ class DetailHabitActivity : AppCompatActivity() {
 //        })
 
 
-
-
-
         /* TODO 임시!!!!!! 나중에 꼭 삭제하기!!!!!!!!!! */
         binding.testButton.setOnClickListener{
             val habitId = intent.getIntExtra("data",0)
@@ -130,9 +137,22 @@ class DetailHabitActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             intent.putExtra("commentId", habitId)
             startActivity(intent)
-
             finish()
         }
 
     }  // onCreate
+
+    fun deletebundle(fragment: deleteDialogFragment){
+        val habitId = intent.getIntExtra("data",0)
+        val bundle = Bundle()
+
+        bundle.putInt("deleteId", habitId)
+        fragment.arguments = bundle
+        setFragment(fragment)
+    }
+
+    fun setFragment(fragment:deleteDialogFragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.commit()
+    }
 }

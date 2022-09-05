@@ -32,6 +32,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,7 +52,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/habitDateStart_text_detailshabitpage"
+            android:id="@+id/habitDate_text_detailshabitpage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -61,13 +63,14 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/detailshabitpage_recyclerView"
-            android:layout_width="409dp"
-            android:layout_height="522dp"
-            android:layout_marginTop="1dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/habitDateStart_text_detailshabitpage" />
+            app:layout_constraintTop_toBottomOf="@+id/habitDate_text_detailshabitpage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -80,4 +83,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- TODO 임시 버튼임! 나중에 꼭 삭제하기!-->
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
