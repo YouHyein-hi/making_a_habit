@@ -1,18 +1,21 @@
 package com.example.making_a_habit.view
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.making_a_habit.databinding.DetailsHabitPageBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.adapter.Habit15RoundAdapter
 import com.example.making_a_habit.view.adapter.Habit30RoundAdapter
 import com.example.making_a_habit.view.adapter.Habit3RoundAdapter
+import com.example.making_a_habit.view.adapter.HabitRoundAdapter
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
 import com.example.making_a_habit.viewmodel.DetailhabitViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -25,14 +28,8 @@ class DetailHabitActivity : AppCompatActivity()  {
     val detailhabitViewModel: DetailhabitViewModel by viewModels()
     /***** veiwBinding *****/
     private lateinit var binding: DetailsHabitPageBinding
-    /***** Adapter *****/
-    private val habit3RoundAdapter: Habit3RoundAdapter =  Habit3RoundAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
-    private val habit15RoundAdapter: Habit15RoundAdapter =  Habit15RoundAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
-    private val habit30RoundAdapter: Habit30RoundAdapter =  Habit30RoundAdapter { habit ->
+    /***** Adapter ****/
+    private val habitRoundAdapter: HabitRoundAdapter = HabitRoundAdapter { habit ->
         // put extras of contact info & start CreatingHabitActivity
     }
 
@@ -84,25 +81,25 @@ class DetailHabitActivity : AppCompatActivity()  {
 
 
                     if(habit.habitPeriodNum == 3){
-                        binding.detailshabitpageRecyclerView.adapter = habit3RoundAdapter //리사이클러뷰에 어댑터 연결
-                        binding.detailshabitpageRecyclerView.layoutManager = LinearLayoutManager(this@DetailHabitActivity)
+                        /***** Adapter 연결 + gridLayout *****/
+                        binding.detailshabitpageRecyclerView.adapter = habitRoundAdapter
+                        binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 3)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        habit3RoundAdapter.sethabitPeriod()
-                        println("habit.habitPeriodNum == 3")
+                        habitRoundAdapter.sethabitPeriod(habit.habitPeriodNum)
                     }
                     else if(habit.habitPeriodNum == 15){
-                        binding.detailshabitpageRecyclerView.adapter = habit15RoundAdapter //리사이클러뷰에 어댑터 연결
-                        binding.detailshabitpageRecyclerView.layoutManager = LinearLayoutManager(this@DetailHabitActivity)
+                        /***** Adapter 연결 + gridLayout *****/
+                        binding.detailshabitpageRecyclerView.adapter = habitRoundAdapter
+                        binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        habit15RoundAdapter.sethabitPeriod()
-                        println("habit.habitPeriodNum == 15")
+                        habitRoundAdapter.sethabitPeriod(habit.habitPeriodNum)
                     }
                     else if(habit.habitPeriodNum == 30){
-                        binding.detailshabitpageRecyclerView.adapter = habit30RoundAdapter //리사이클러뷰에 어댑터 연결
-                        binding.detailshabitpageRecyclerView.layoutManager = LinearLayoutManager(this@DetailHabitActivity)
+                        /***** Adapter 연결 + gridLayout *****/
+                        binding.detailshabitpageRecyclerView.adapter = habitRoundAdapter
+                        binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        habit15RoundAdapter.sethabitPeriod()
-                        println("habit.habitPeriodNum == 30")
+                        habitRoundAdapter.sethabitPeriod(habit.habitPeriodNum)
                     }
                 }
             }
@@ -139,22 +136,16 @@ class DetailHabitActivity : AppCompatActivity()  {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             intent.putExtra("commentId", habitId)
             startActivity(intent)
+
+            /*
+            CoroutineScope(Dispatchers.IO).launch{
+                habit = detailhabitViewModel.loadAllByIds(intent.getIntExtra("data",0))
+                detailhabitViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, true, habit.habitComment))
+            }
+             */
+
             finish()
         }
 
     }  // onCreate
-
-    fun deletebundle(fragment: deleteDialogFragment){
-        val habitId = intent.getIntExtra("data",0)
-        val bundle = Bundle()
-
-        bundle.putInt("deleteId", habitId)
-        fragment.arguments = bundle
-        setFragment(fragment)
-    }
-
-    fun setFragment(fragment:deleteDialogFragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.commit()
-    }
 }
