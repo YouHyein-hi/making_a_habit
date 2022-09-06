@@ -70,7 +70,7 @@ class CommentActivity : AppCompatActivity() {
                 val habitId = intent.getIntExtra("commentId",0)
                 CoroutineScope(Dispatchers.IO).launch{
                     habit = commentViewModel.loadAllByIds(intent.getIntExtra("commentId", 0))
-                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitComplete, comment))
+                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, 0, habit.habitComplete, comment))
                     //delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitComplete, habit.habitComment))
                 }
                 finish()

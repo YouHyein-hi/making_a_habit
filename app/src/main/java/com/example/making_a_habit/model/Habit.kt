@@ -31,6 +31,9 @@ data class Habit(
     var habitRoundFull: Int,
 
     @ColumnInfo
+    var habitLastRoundFull: Int,
+
+    @ColumnInfo
     var habitComplete: Boolean,
 
     @ColumnInfo
