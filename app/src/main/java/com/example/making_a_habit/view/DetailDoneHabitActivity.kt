@@ -6,9 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.making_a_habit.databinding.DetailsDonehabitPageBinding
 import com.example.making_a_habit.model.Habit
-import com.example.making_a_habit.view.adapter.Habit15RoundAdapter
-import com.example.making_a_habit.view.adapter.Habit30RoundAdapter
-import com.example.making_a_habit.view.adapter.Habit3RoundAdapter
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
 import com.example.making_a_habit.viewmodel.DetailDonehabitViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -21,15 +18,6 @@ class DetailDoneHabitActivity : AppCompatActivity() {
     val detaildonehabitViewModel: DetailDonehabitViewModel by viewModels()
     /***** veiwBinding *****/
     private lateinit var binding: DetailsDonehabitPageBinding
-    private val habit3RoundAdapter: Habit3RoundAdapter =  Habit3RoundAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
-    private val habit15RoundAdapter: Habit15RoundAdapter =  Habit15RoundAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
-    private val habit30RoundAdapter: Habit30RoundAdapter =  Habit30RoundAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
