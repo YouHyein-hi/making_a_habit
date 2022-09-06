@@ -1,21 +1,17 @@
 package com.example.making_a_habit.view
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.making_a_habit.databinding.DetailsHabitPageBinding
+import com.example.making_a_habit.databinding.ItemRoundfullBinding
+import com.example.making_a_habit.model.DetailItem
 import com.example.making_a_habit.model.Habit
-import com.example.making_a_habit.view.adapter.Habit15RoundAdapter
-import com.example.making_a_habit.view.adapter.Habit30RoundAdapter
-import com.example.making_a_habit.view.adapter.Habit3RoundAdapter
-import com.example.making_a_habit.view.adapter.HabitRoundAdapter
+import com.example.making_a_habit.view.adapter.DetailHabitAdapter
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
 import com.example.making_a_habit.viewmodel.DetailhabitViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -28,8 +24,9 @@ class DetailHabitActivity : AppCompatActivity()  {
     val detailhabitViewModel: DetailhabitViewModel by viewModels()
     /***** veiwBinding *****/
     private lateinit var binding: DetailsHabitPageBinding
+    private lateinit var bindingItem : ItemRoundfullBinding
     /***** Adapter ****/
-    private val habitRoundAdapter: HabitRoundAdapter = HabitRoundAdapter { habit ->
+    private val habitRoundAdapter: DetailHabitAdapter = DetailHabitAdapter { habit ->
         // put extras of contact info & start CreatingHabitActivity
     }
 
@@ -80,26 +77,26 @@ class DetailHabitActivity : AppCompatActivity()  {
                     }
 
 
-                    if(habit.habitPeriodNum == 3){
+                    if(habit.habitPeriodNum == 3) {
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = habitRoundAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 3)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        habitRoundAdapter.sethabitPeriod(habit.habitPeriodNum)
+                        habitRoundAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum,habit.habitColor))
                     }
                     else if(habit.habitPeriodNum == 15){
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = habitRoundAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        habitRoundAdapter.sethabitPeriod(habit.habitPeriodNum)
+                        habitRoundAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum,habit.habitColor))
                     }
                     else if(habit.habitPeriodNum == 30){
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = habitRoundAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        habitRoundAdapter.sethabitPeriod(habit.habitPeriodNum)
+                        habitRoundAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum,habit.habitColor))
                     }
                 }
             }
@@ -118,32 +115,24 @@ class DetailHabitActivity : AppCompatActivity()  {
             deletedialog.arguments = bundle
             println("보냄")
 
-
             deletedialog.show(supportFragmentManager, "deleteDialog")
         }
 
-        /***** ViewModel 부분 *****/
-//        habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
-//            // update UI
-//            //adapter.
-//        })
-
 
         /* TODO 임시!!!!!! 나중에 꼭 삭제하기!!!!!!!!!! */
+        /***** comment_page로 가는 button (임시) *****/
         binding.testButton.setOnClickListener{
             val habitId = intent.getIntExtra("data",0)
             var intent = Intent(this, CommentActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             intent.putExtra("commentId", habitId)
             startActivity(intent)
-
             /*
             CoroutineScope(Dispatchers.IO).launch{
                 habit = detailhabitViewModel.loadAllByIds(intent.getIntExtra("data",0))
                 detailhabitViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, true, habit.habitComment))
             }
              */
-
             finish()
         }
 

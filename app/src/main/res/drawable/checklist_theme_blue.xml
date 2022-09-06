@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--눌렀을 때의 상태-->
+    <item
+        android:state_selected="true"
+        android:drawable="@drawable/button_theme_blue"/>
+
     <!--누르지 않은 (보통의) 상태-->
     <item
         android:state_enabled="true"
