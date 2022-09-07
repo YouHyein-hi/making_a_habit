@@ -69,7 +69,7 @@ class CommentActivity : AppCompatActivity() {
                 // intent를 통해 클릭한 item habitId를 가져옴
                 val habitId = intent.getIntExtra("commentId",0)
                 CoroutineScope(Dispatchers.IO).launch{
-                    habit = commentViewModel.loadAllByIds(intent.getIntExtra("commentId", 0))
+                    habit = commentViewModel.getHabitId(intent.getIntExtra("commentId", 0))
                     commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, 0, habit.habitComplete, comment))
                     //delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitComplete, habit.habitComment))
                 }

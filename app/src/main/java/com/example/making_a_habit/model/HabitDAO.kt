@@ -18,15 +18,17 @@ interface HabitDAO {
     @Update
     fun update(habit: Habit)
 
-    @Query("SELECT * FROM habit WHERE habitId IN (:habitIds)")
-    fun loadAllByIds(habitIds: IntArray): LiveData<List<Habit>>
+    //선택한 메모리 데이터 가져오기
+    @Query("SELECT * FROM habit WHERE habitId = :habitId")
+    suspend fun getHabitId(habitId : Int) : Habit
+
+    @Query("UPDATE habit SET habitId=(:habitIds) WHERE habitLastRoundFull=(:habitLastRoundFull)")
+    fun updateLastRound(habitIds: Int, habitLastRoundFull: Int)
 
     /*@Delete
     suspend fun deleteIds(habitIds: Int) : Habit*/
 
-    //선택한 메모리 데이터 가져오기
-    @Query("SELECT * FROM habit WHERE habitId = :habitId")
-    suspend fun getHabitId(habitId : Int) : Habit
+
 
 
 

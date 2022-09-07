@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.DetailsDonehabitPageBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
@@ -40,19 +41,19 @@ class DetailDoneHabitActivity : AppCompatActivity() {
             val habitId = intent.getIntExtra("data",0)
             println(habitId) // 잘 나오는지 확인
             CoroutineScope(Dispatchers.IO).launch {
-                println(detaildonehabitViewModel.loadAllByIds(intent.getIntExtra("data", 0)))
-                habit = detaildonehabitViewModel.loadAllByIds(intent.getIntExtra("data", 0))
+                println(detaildonehabitViewModel.getHabitId(intent.getIntExtra("data", 0)))
+                habit = detaildonehabitViewModel.getHabitId(intent.getIntExtra("data", 0))
                 println(habit.habitName)
 
                 runOnUiThread {
                     binding.habitNameTextDetailshabitpage.text = habit.habitName
                     when(habit.habitColor){
-                        "red" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
-                        "yellow" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFE8AE"))
-                        "green" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1CFD1"))
-                        "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
-                        "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#CECECE"))
-                    } // TODO Color 지정해준 거 나중에 변경하기 (R.color.theme_?)이 안되는지 모르겠음
+                        "red" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_red)
+                        "yellow" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_yellow)
+                        "green" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_green)
+                        "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_blue)
+                        "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_gray)
+                    }
                     val habitDate = habit.habitDateStart + " ~ " + habit.habitDateEnd
                     binding.habitDateTextDetailshabitpage.text = habitDate
                     binding.habitCommentTextDetailshabitpage.text = habit.habitComment

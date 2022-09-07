@@ -50,16 +50,11 @@ class HabitRepository (application: Application){
         } catch (e: Exception) { }
     }
 
-    suspend fun loadAllByIds(habitId: Int): Habit{
+    suspend fun getHabitId(habitId: Int): Habit{
         return habitDao.getHabitId(habitId)
     }
 
-    /*suspend fun deleteIds(habitIds: Int) : Habit {
-        return habitDao.deleteIds(habitIds)
-    }*/
-
-
-    suspend fun getHabitId(habitId: Int): Habit{
-        return habitDao.getHabitId(habitId)
+    suspend fun updateLastRound(habitId: Int, habitLastRoundFull: Int) {
+        return habitDao.updateLastRound(habitId, habitLastRoundFull)
     }
 }

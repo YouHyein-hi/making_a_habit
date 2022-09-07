@@ -13,9 +13,9 @@ class CommentViewModel (application: Application) : AndroidViewModel(application
 
     private val repository = HabitRepository(application)
 
-    suspend fun loadAllByIds(habitId: Int): Habit {
+    suspend fun getHabitId(habitId: Int): Habit {
         return withContext(viewModelScope.coroutineContext) {
-            repository.loadAllByIds(habitId)
+            repository.getHabitId(habitId)
         }
     }
 

@@ -85,7 +85,6 @@ class CreatinghabitActivity : AppCompatActivity() {
             } else { // 버튼이 안 눌려있을 경우 (selected 상태)
                 binding.habitPeriodBtnNumber.isSelected = true
 
-
                 binding.habitPeriodBtnTime.isSelected = false  // 다른 버튼이 눌린 상태에서 눌렸을 경우를 대비
             }
             habitPeriod = "횟수"
@@ -132,10 +131,9 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding.themeRed.setOnClickListener{
             if(binding.themeRed.isSelected()){
                 binding.themeRed.isSelected = false
-                println("버튼 누름효과 제거")
             } else {
                 binding.themeRed.isSelected = true
-                println("버튼 누름효과")
+
                 binding.themeYellow.isSelected = false
                 binding.themeGreen.isSelected = false
                 binding.themeBlue.isSelected = false
@@ -147,10 +145,9 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding.themeYellow.setOnClickListener{
             if(binding.themeYellow.isSelected()){
                 binding.themeYellow.isSelected = false
-                println("버튼 누름효과 제거")
             } else {
                 binding.themeYellow.isSelected = true
-                println("버튼 누름효과")
+
                 binding.themeRed.isSelected = false
                 binding.themeGreen.isSelected = false
                 binding.themeBlue.isSelected = false
@@ -162,10 +159,9 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding.themeGreen.setOnClickListener{
             if(binding.themeGreen.isSelected()){
                 binding.themeGreen.isSelected = false
-                println("버튼 누름효과 제거")
             } else {
                 binding.themeGreen.isSelected = true
-                println("버튼 누름효과")
+
                 binding.themeRed.isSelected = false
                 binding.themeYellow.isSelected = false
                 binding.themeBlue.isSelected = false
@@ -177,10 +173,9 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding.themeBlue.setOnClickListener{
             if(binding.themeBlue.isSelected()){
                 binding.themeBlue.isSelected = false
-                println("버튼 누름효과 제거")
             } else {
                 binding.themeBlue.isSelected = true
-                println("버튼 누름효과")
+
                 binding.themeRed.isSelected = false
                 binding.themeYellow.isSelected = false
                 binding.themeGreen.isSelected = false
@@ -192,10 +187,9 @@ class CreatinghabitActivity : AppCompatActivity() {
         binding.themeGray.setOnClickListener{
             if(binding.themeGray.isSelected()){
                 binding.themeGray.isSelected = false
-                println("버튼 누름효과 제거")
             } else {
                 binding.themeGray.isSelected = true
-                println("버튼 누름효과")
+
                 binding.themeRed.isSelected = false
                 binding.themeYellow.isSelected = false
                 binding.themeGreen.isSelected = false
@@ -223,7 +217,6 @@ class CreatinghabitActivity : AppCompatActivity() {
 
             // and &&   or ||
             // TODO 조건이 너무 구려 어떻게 짧게 할 수 없나?
-            // TODO 그리고 EditText 부분은 안적어도 그냥 넘어감 해결하자!
             // binding.habitNameEdittext.toString() != null &&
             if(
                 (binding.habitPeriodBtnTime.isSelected || binding.habitPeriodBtnNumber.isSelected) &&
