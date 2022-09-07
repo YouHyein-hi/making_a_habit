@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.databinding.ItemMainBinding
 import com.example.making_a_habit.model.Habit
@@ -20,7 +21,6 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
     private var habit: ArrayList<Habit> = arrayListOf()
-    private val limit = 3
 
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
@@ -30,11 +30,6 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     }
 
     override fun getItemCount(): Int {
-        //if (habit.size > limit) limitSize()
-
-        // 화면에 item 3개만 띄우기 but 생성은 계속됨! DB에 계속 들어감!
-        // TODO item 3개 넘을 시 제한 주기 (button 비활성화, button 클릭시 토스트 추가  --> 근데 이걸 Adapter에 하는게 맞나?)
-        //return Math.min(habit.size, limit)
         return habit.size
     }
 
@@ -46,10 +41,32 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
 
         private val context = binding.root.context
 
+        @SuppressLint("ResourceAsColor")
         fun bind(habit: Habit) {
             binding.habitNameTextItemmain.text = habit.habitName
             binding.habitDateStartTextItemmain.text = habit.habitDateStart
             binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
+
+            /***** progressBar 관련 코드 *****/
+            if(habit.habitPeriodNum == 3){
+                binding.habitRoundFullProgressbarItemmain.max = 3
+                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+            }
+            else if(habit.habitPeriodNum == 15){
+                binding.habitRoundFullProgressbarItemmain.max = 15
+                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+            }
+            else if(habit.habitPeriodNum == 30){
+                binding.habitRoundFullProgressbarItemmain.max = 30
+                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+            }
+            when(habit.habitColor){
+                "red" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#FFAEAE"))
+                "yellow" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#FFE8AE"))
+                "green" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#B1CFD1"))
+                "blue" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#AED8FF"))
+                "gray" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#CECECE"))
+            }
 
             itemView.setOnClickListener {
                 mainItemClick(habit)

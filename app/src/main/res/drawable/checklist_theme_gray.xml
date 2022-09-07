@@ -14,5 +14,5 @@
     <!--비활성화의 상태-->
     <item
         android:state_enabled="false"
-        android:drawable="@drawable/button_disable"/>
+        android:drawable="@drawable/checklist_disable"/>
 </selector>

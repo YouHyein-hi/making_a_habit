@@ -24,7 +24,7 @@
     <!--Button-->
     <color name="basic">#F5F5F5</color>
     <color name="selected">#DBDBDB</color>
-    <color name="disable">#707070</color>
+    <color name="disable">#C9C9C9</color>
 
     <color name="enabled_text">#0D000000</color>
 </resources>

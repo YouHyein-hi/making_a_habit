@@ -36,6 +36,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildscript {
+        repositories {
+            google()
+            mavenCentral()
+        }
+    }
 }
 
 dependencies {
@@ -151,10 +157,6 @@ dependencies {
 
     // optional - Test helpers for Lifecycle runtime
     testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:2.6.0-alpha01")
-
-
-    /*****  *****/
-    implementation 'com.google.android.material:material:1.6.1'
 
     // Room 디버깅 툴 라이브러리
     //debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'

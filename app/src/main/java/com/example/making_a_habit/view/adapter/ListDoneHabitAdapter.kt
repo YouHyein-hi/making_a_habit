@@ -2,6 +2,7 @@ package com.example.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -39,6 +40,28 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
             binding.habitNameTextItemmain.text = habit.habitName
             binding.habitDateStartTextItemmain.text = habit.habitDateStart
             binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
+
+            /***** progressBar 관련 코드 *****/
+            if(habit.habitPeriodNum == 3){
+                binding.habitRoundFullProgressbarItemmain.max = 3
+                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+            }
+            else if(habit.habitPeriodNum == 15){
+                binding.habitRoundFullProgressbarItemmain.max = 15
+                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+            }
+            else if(habit.habitPeriodNum == 30){
+                binding.habitRoundFullProgressbarItemmain.max = 30
+                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+            }
+            when(habit.habitColor){
+                "red" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#FFAEAE"))
+                "yellow" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#FFE8AE"))
+                "green" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#B1CFD1"))
+                "blue" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#AED8FF"))
+                "gray" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#CECECE"))
+            }
+
 
             itemView.setOnClickListener {
                 mainItemClick(habit)
