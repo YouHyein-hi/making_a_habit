@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/pretendardBlack"
+        android:fontStyle="normal"
+        android:fontWeight="900" />
+    <font
+        android:font="@font/pretendardExtraBold"
+        android:fontStyle="normal"
+        android:fontWeight="800" />
+    <font
+        android:font="@font/pretendardBold"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+    <font
+        android:font="@font/pretendardSemiBold"
+        android:fontStyle="normal"
+        android:fontWeight="600" />
+    <font
+        android:font="@font/pretendardMedium"
+        android:fontStyle="normal"
+        android:fontWeight="500" />
+    <font
+        android:font="@font/pretendardRegular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+</font-family>
