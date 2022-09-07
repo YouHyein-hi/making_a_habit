@@ -35,7 +35,7 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="@font/pretendardblack"
             android:text="@string/creatingcommentpage_title"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/pretendardsemibold"
             android:gravity="center"
             android:text="@string/creatingcommentpage_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,16 +72,17 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/roundsquare"
             android:ems="10"
+            android:fontFamily="@font/pretendardsemibold"
             android:gravity="center_horizontal"
             android:hint="@string/creatingcommentpage_edittexthint"
             android:inputType="textMultiLine"
-            android:textSize="20sp"
+            android:maxLength="100"
             android:scrollHorizontally="false"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/habitName_text_creatingcomentspage"
-            android:maxLength="100" />
+            app:layout_constraintTop_toBottomOf="@+id/habitName_text_creatingcomentspage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -91,6 +93,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/roundsquare"
+        android:fontFamily="@font/pretendardsemibold"
         android:text="@string/creatingcommentpage_cancelbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView10" />
@@ -112,6 +115,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/roundsquare"
+        android:fontFamily="@font/pretendardsemibold"
         android:text="@string/creatingcommentpage_creatingbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView10" />

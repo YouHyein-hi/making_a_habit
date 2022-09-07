@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/pretendardblack"
         android:text="@string/mainpage_title"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"

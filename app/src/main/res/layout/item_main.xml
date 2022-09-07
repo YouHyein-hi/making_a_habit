@@ -36,6 +36,8 @@
             android:id="@+id/habitName_text_itemmain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendardbold"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,6 +45,7 @@
             android:id="@+id/habitDateStart_text_itemmain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendardregular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/habitName_text_itemmain" />
 
@@ -52,6 +55,7 @@
         android:id="@+id/habitRoundFull_text_itemmain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendardextrabold"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/habitRoundFull_progressbar_itemmain"
         app:layout_constraintEnd_toEndOf="@+id/habitRoundFull_progressbar_itemmain"

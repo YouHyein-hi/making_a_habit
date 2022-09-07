@@ -4,11 +4,6 @@
     <!-- activity_main.xml -->
     <string name="mainpage_title">나의 습관</string>
 
-
-    <string name="details_donehabit_page_title">습관 이름은 여기에</string>
-    <string name="details_donehabit_page_date">YYYY.MM.DD. ~ YYYY.MM.DD.</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <!--creatin_habit_page.xml -->
     <string name="creatinghabitpage_title">습관 생성하기</string>
     <string name="creatinghabitpage_subtitle">수행할 습관을 만들어봐요!\n한 번 설정한 습관은 수정할 수 없습니다\n꼭 확인하고 만들어주세요!</string>
