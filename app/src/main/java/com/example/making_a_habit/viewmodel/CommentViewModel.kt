@@ -19,8 +19,8 @@ class CommentViewModel (application: Application) : AndroidViewModel(application
         }
     }
 
-    fun update(habit: Habit){
-        viewModelScope.launch(Dispatchers.IO){
+    suspend fun update(habit: Habit) {
+        return withContext(viewModelScope.coroutineContext) {
             repository.update(habit)
         }
     }

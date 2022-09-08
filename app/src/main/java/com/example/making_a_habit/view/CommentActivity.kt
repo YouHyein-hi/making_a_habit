@@ -63,19 +63,20 @@ class CommentActivity : AppCompatActivity() {
         /***** '완료하기' button 클릭시 habitComplete 데이터 수정 *****/
         binding.creatingBtnCreatingcomentspage.setOnClickListener{
             val comment = binding.habitComentEdittextCreatingcomentspage.text.toString()
-
+            println("완료 버튼 누름")
             // DetailHabitActivity에서 해당 item 데이터 habitId 받음
             if(intent.hasExtra("commentId")) {
                 // intent를 통해 클릭한 item habitId를 가져옴
-                val habitId = intent.getIntExtra("commentId",0)
                 CoroutineScope(Dispatchers.IO).launch{
+                    val habitId = intent.getIntExtra("commentId",0)
                     habit = commentViewModel.getHabitId(intent.getIntExtra("commentId", 0))
-                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, 0, habit.habitComplete, comment))
-                    //delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitComplete, habit.habitComment))
+                    println("habitId : " + habitId)
+                    println("habit : " + habit)
+                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, habit.habitComplete, comment))
                 }
-                finish()
             }
-
+            else println("없음")
+        finish()
         }
     }
 }

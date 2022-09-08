@@ -55,8 +55,8 @@ class CompleteDialogFragment : DialogFragment() {
 
             binding.completeBtnDialog.setOnClickListener{
                 /** DetailHabitActivity에 habitId 받은 후 update 하기 **/
+                val habitId = arguments?.getInt("completeId")
                 CoroutineScope(Dispatchers.IO).launch{
-                    val habitId = arguments?.getInt("completeId")
                     habit = completeDialogViewModel.getHabitId(arguments?.getInt("completeId")!!)
                     completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                 }
@@ -65,6 +65,7 @@ class CompleteDialogFragment : DialogFragment() {
                 requireActivity().finish()
 
                 val intent = Intent(getActivity(), CommentActivity::class.java)
+                intent.putExtra("commentId", habitId)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
             }

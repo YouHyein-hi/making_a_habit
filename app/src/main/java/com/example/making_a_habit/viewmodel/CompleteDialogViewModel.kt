@@ -21,10 +21,5 @@ class CompleteDialogViewModel (application: Application) : AndroidViewModel(appl
         return withContext(viewModelScope.coroutineContext) {
             repository.update(habit)
         }
-
-        /*
-
-        repository.update(habit)
-         */
     }
 }
