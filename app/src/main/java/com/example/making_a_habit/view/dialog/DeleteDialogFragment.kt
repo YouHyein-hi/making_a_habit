@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import com.example.making_a_habit.databinding.FragmentDeleteDialogBinding
+import com.example.making_a_habit.databinding.DeleteDialogFragmentBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailHabitActivity
 import com.example.making_a_habit.viewmodel.DeletedialogViewModel
@@ -25,7 +25,7 @@ class deleteDialogFragment : DialogFragment() {
     private var param2: String? = null
 
     val deletedialogViewModel: DeletedialogViewModel by activityViewModels()
-    private lateinit var binding : FragmentDeleteDialogBinding
+    private lateinit var binding : DeleteDialogFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,17 +36,14 @@ class deleteDialogFragment : DialogFragment() {
         isCancelable = false
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var habit : Habit
-        binding = FragmentDeleteDialogBinding.inflate(inflater, container, false)
+        binding = DeleteDialogFragmentBinding.inflate(inflater, container, false)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
 
-        binding.deleteBtnDeletedialog.setOnClickListener{
+        binding.completeBtnDialog.setOnClickListener{
 
             /** DetailHabitActivity에 habitId 받은 후 delete 하기 **/
             val deleteHabitId = arguments?.getInt("deleteId")
@@ -60,7 +57,7 @@ class deleteDialogFragment : DialogFragment() {
             dismiss()
             requireActivity().finish()
         }
-        binding.deletecancelBtnDeletedialog.setOnClickListener{
+        binding.cancelBtnDialog.setOnClickListener{
             dismiss()
         }
         dialog?.setCanceledOnTouchOutside(true)
