@@ -19,6 +19,8 @@
 
 
         <!-- Customize your theme here. -->
+        <!-- 타이틀바 없애기 -->
+        <item name="windowNoTitle">true</item>
     </style>
     <style name="splash" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- <item name="colorPrimary">@color/colorPrimary</item>
