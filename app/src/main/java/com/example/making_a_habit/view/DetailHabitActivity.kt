@@ -12,6 +12,7 @@ import com.example.making_a_habit.databinding.ItemRoundfullBinding
 import com.example.making_a_habit.model.DetailItem
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.adapter.DetailHabitAdapter
+import com.example.making_a_habit.view.dialog.CompleteDialogFragment
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
 import com.example.making_a_habit.viewmodel.DetailhabitViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -123,18 +124,22 @@ class DetailHabitActivity : AppCompatActivity()  {
         /* TODO 임시!!!!!! 나중에 꼭 삭제하기!!!!!!!!!! */
         /***** comment_page로 가는 button (임시) *****/
         binding.testButton.setOnClickListener{
+            var completedialog = CompleteDialogFragment()
+
+            /*** Dialog에 해당 item habitId 보내기 ***/
             val habitId = intent.getIntExtra("data",0)
-            var intent = Intent(this, CommentActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            intent.putExtra("commentId", habitId)
-            startActivity(intent)
+            println("habitId : " + habitId)
+            val bundle = Bundle()
+            bundle.putInt("completeId", habitId)
+            completedialog.arguments = bundle
+            println("보냄")
             /*
             CoroutineScope(Dispatchers.IO).launch{
                 habit = detailhabitViewModel.loadAllByIds(intent.getIntExtra("data",0))
                 detailhabitViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, true, habit.habitComment))
             }
              */
-            finish()
+            completedialog.show(supportFragmentManager, "deleteDialog")
         }
 
     }  // onCreate

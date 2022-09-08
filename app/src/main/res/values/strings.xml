@@ -20,6 +20,12 @@
     <!-- details_habit_page.xml -->
     <string name="detailshabitpage_text">하루에 한 번만 체크할 수 있어요!</string>
 
+    <!-- fragment_complete_dialog.xml -->
+    <string name="dialogcomplete_maintitle">습관 완료!</string>
+    <string name="dialogcomplete_text">**칸 중 **칸을 완료하셨어요!</string>
+    <string name="dialogcomplete_cancel">닫기</string>
+    <string name="dialogcomplete_comment">커멘트 작성</string>
+
     <!-- creating_comments_page.xml -->
     <string name="creatingcommentpage_title">커멘트 작성</string>
     <string name="creatingcommentpage_subtitle">습관을 수행하면서 느낀점, 칭찬, 반성 등을\n작성하면서 자기 자신을 되돌아보세요!</string>
