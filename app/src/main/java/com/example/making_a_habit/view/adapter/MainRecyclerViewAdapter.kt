@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ActivityMainBinding
-import com.example.making_a_habit.databinding.ItemMainBinding
+import com.example.making_a_habit.databinding.ItemHabitlistBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailHabitActivity
 import com.example.making_a_habit.view.MainActivity
@@ -22,9 +22,8 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
 
     private var habit: ArrayList<Habit> = arrayListOf()
 
-
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val binding = ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemHabitlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return ViewHolder(binding)
     }
@@ -37,7 +36,7 @@ class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
         viewHolder.bind(habit[position])
     }
 
-    inner class ViewHolder(private val binding: ItemMainBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemHabitlistBinding): RecyclerView.ViewHolder(binding.root) {
 
         private val context = binding.root.context
 
