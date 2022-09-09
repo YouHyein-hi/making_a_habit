@@ -1,5 +1,6 @@
 package com.example.making_a_habit.view
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -47,15 +48,32 @@ class DetailDoneHabitActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     binding.habitNameTextDetailshabitpage.text = habit.habitName
-                    when(habit.habitColor){
-                        "red" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_red)
-                        "yellow" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_yellow)
-                        "green" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_green)
-                        "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_blue)
-                        "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(R.drawable.checklist_theme_gray)
-                    }
                     val habitDate = habit.habitDateStart + " ~ " + habit.habitDateEnd
                     binding.habitDateTextDetailshabitpage.text = habitDate
+                    when(habit.habitColor){
+                        "red" -> {
+                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
+                            binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_red)
+                        }
+                        "yellow" -> {
+                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFE8AE"))
+                            binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_yellow)
+                        }
+                        "green" -> {
+                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1CFD1"))
+                            binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_green)
+                        }
+                        "blue" -> {
+                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
+                            binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_blue)
+                        }
+                        "gray" -> {
+                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#CECECE"))
+                            binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_gray)
+                        }
+                    }
+                    val roundfull = habit.habitRoundFull.toString() + " / " + habit.habitPeriodNum.toString()
+                    binding.roundfullTextDetailshabitpage.text = roundfull
                     binding.habitCommentTextDetailshabitpage.text = habit.habitComment
                 }
             }
