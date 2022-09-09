@@ -47,10 +47,10 @@ class DetailDoneHabitActivity : AppCompatActivity() {
                 println(habit.habitName)
 
                 runOnUiThread {
-                    binding.habitNameTextDetailshabitpage.text = habit.habitName
+                    binding.habitNameTextDetailshabitpage.text = habit.habitName  // habitName
                     val habitDate = habit.habitDateStart + " ~ " + habit.habitDateEnd
-                    binding.habitDateTextDetailshabitpage.text = habitDate
-                    when(habit.habitColor){
+                    binding.habitDateTextDetailshabitpage.text = habitDate  // habitDateStart ~ habitDateEnd
+                    when(habit.habitColor){  // habitColor theme 설정
                         "red" -> {
                             binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
                             binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_red)
@@ -73,8 +73,11 @@ class DetailDoneHabitActivity : AppCompatActivity() {
                         }
                     }
                     val roundfull = habit.habitRoundFull.toString() + " / " + habit.habitPeriodNum.toString()
-                    binding.roundfullTextDetailshabitpage.text = roundfull
-                    binding.habitCommentTextDetailshabitpage.text = habit.habitComment
+                    binding.roundfullTextDetailshabitpage.text = roundfull  // habitRoundFull / habitPeriodNum
+                    binding.habitCommentTextDetailshabitpage.text = habit.habitComment  // habitComment
+                    if(habit.habitComment == "이 습관은 커멘트가 작성되지 않았습니다."){  // habitComment 작성 안할 시 내용 보여주고 text 색 변경
+                        binding.habitCommentTextDetailshabitpage.setTextColor(Color.parseColor("#C9C9C9"))
+                    }
                 }
             }
         }

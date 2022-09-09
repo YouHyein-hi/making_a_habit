@@ -87,14 +87,13 @@
 
         <TextView
             android:id="@+id/roundfull_text_detailshabitpage"
+            style="@style/TextBox_donehabit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text"
             app:layout_constraintBottom_toTopOf="@+id/habitComment_text_detailshabitpage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/habitDate_text_detailshabitpage"
-            style="@style/TextBox_donehabit"/>
+            app:layout_constraintTop_toBottomOf="@+id/habitDate_text_detailshabitpage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

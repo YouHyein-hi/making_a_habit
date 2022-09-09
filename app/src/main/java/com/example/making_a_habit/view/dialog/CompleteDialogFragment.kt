@@ -70,12 +70,18 @@ class CompleteDialogFragment : DialogFragment() {
                 startActivity(intent)
             }
             binding.cancelBtnDialog.setOnClickListener{
+                val habitId = arguments?.getInt("completeId")
+                val completecommend = "이 습관은 커멘트가 작성되지 않았습니다."
+                CoroutineScope(Dispatchers.IO).launch{
+                    completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                }
                 dismiss()
+                requireActivity().finish()
             }
         }
 
-        dialog?.setCanceledOnTouchOutside(true)
-        dialog?.setCancelable(true)
+        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.setCancelable(false)
 
         return binding.root
     }
