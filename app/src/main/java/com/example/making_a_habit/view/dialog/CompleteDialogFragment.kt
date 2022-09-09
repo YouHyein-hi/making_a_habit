@@ -20,6 +20,7 @@ import com.example.making_a_habit.viewmodel.DeletedialogViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -46,6 +47,8 @@ class CompleteDialogFragment : DialogFragment() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         CoroutineScope(Dispatchers.IO).launch{
+            val NumberDateEnd: LocalDate = LocalDate.now()
+
             habit = completeDialogViewModel.getHabitId(arguments?.getInt("completeId")!!)
             getActivity()?.runOnUiThread(){
                 completeText = habit.habitPeriodNum.toString() + "칸 중 " + habit.habitRoundFull + "칸을 완료하셨어요!"
@@ -57,8 +60,13 @@ class CompleteDialogFragment : DialogFragment() {
                 /** DetailHabitActivity에 habitId 받은 후 update 하기 **/
                 val habitId = arguments?.getInt("completeId")
                 CoroutineScope(Dispatchers.IO).launch{
-                    habit = completeDialogViewModel.getHabitId(arguments?.getInt("completeId")!!)
-                    completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                    if(habit.habitPeriod == "횟수"){
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                    }
+                    else {
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                    }
+
                 }
 
                 dismiss()
@@ -73,7 +81,12 @@ class CompleteDialogFragment : DialogFragment() {
                 val habitId = arguments?.getInt("completeId")
                 val completecommend = "이 습관은 커멘트가 작성되지 않았습니다."
                 CoroutineScope(Dispatchers.IO).launch{
-                    completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                    if(habit.habitPeriod == "횟수"){
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                    }
+                    else {
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                    }
                 }
                 dismiss()
                 requireActivity().finish()
