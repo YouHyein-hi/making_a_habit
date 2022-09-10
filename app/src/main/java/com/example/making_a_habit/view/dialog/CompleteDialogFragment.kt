@@ -61,10 +61,10 @@ class CompleteDialogFragment : DialogFragment() {
                 val habitId = arguments?.getInt("completeId")
                 CoroutineScope(Dispatchers.IO).launch{
                     if(habit.habitPeriod == "횟수"){
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                     }
                     else {
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                     }
 
                 }
@@ -82,10 +82,10 @@ class CompleteDialogFragment : DialogFragment() {
                 val completecommend = "이 습관은 커멘트가 작성되지 않았습니다."
                 CoroutineScope(Dispatchers.IO).launch{
                     if(habit.habitPeriod == "횟수"){
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
                     else {
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
                 }
                 dismiss()

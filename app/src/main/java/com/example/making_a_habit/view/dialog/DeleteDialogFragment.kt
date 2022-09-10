@@ -50,7 +50,7 @@ class deleteDialogFragment : DialogFragment() {
             println("deleteHabitId : " + deleteHabitId)
             CoroutineScope(Dispatchers.IO).launch{
                 habit = deletedialogViewModel.getHabitId(arguments?.getInt("deleteId")!!)
-                deletedialogViewModel.delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, 0, habit.habitComplete, habit.habitComment))
+                deletedialogViewModel.delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, 0, habit.habitComplete, habit.habitComment))
             }
 
             //val intent = Intent(requireContext(), DetailHabitActivity::class.java)

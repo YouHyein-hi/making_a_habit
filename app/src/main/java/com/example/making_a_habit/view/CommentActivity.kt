@@ -72,7 +72,7 @@ class CommentActivity : AppCompatActivity() {
                     habit = commentViewModel.getHabitId(intent.getIntExtra("commentId", 0))
                     println("habitId : " + habitId)
                     println("habit : " + habit)
-                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, habit.habitComplete, comment))
+                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng ,habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, habit.habitComplete, comment))
                 }
             }
             else println("없음")

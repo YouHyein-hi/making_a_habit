@@ -224,7 +224,7 @@ class CreatinghabitActivity : AppCompatActivity() {
                 (binding.themeRed.isSelected || binding.themeYellow.isSelected || binding.themeGreen.isSelected || binding.themeBlue.isSelected || binding.themeGray.isSelected)
             ){
                 val initial = habitName[0].toUpperCase()
-                val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,habitColor.toString(), habitDateStart.toString(), habitDateEnd, 0, 0, false, "임시")
+                val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,habitColor.toString(), habitDateStart.toString(), habitDateStart.toString(), habitDateEnd, 0, 0, false, "임시")
                 println("Habit : " + habit)
 
                 creatinghabitViewModel.insert(habit)

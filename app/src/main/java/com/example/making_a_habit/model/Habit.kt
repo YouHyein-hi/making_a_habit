@@ -25,6 +25,9 @@ data class Habit(
     var habitDateStart: String,
 
     @ColumnInfo
+    var habitDateIng: String,
+
+    @ColumnInfo
     var habitDateEnd: String,
 
     @ColumnInfo
