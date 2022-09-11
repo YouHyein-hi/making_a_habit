@@ -1,7 +1,6 @@
 package com.example.making_a_habit.view
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -27,15 +26,17 @@ class DetailHabitActivity : AppCompatActivity()  {
     private lateinit var binding: DetailsHabitPageBinding
     private lateinit var bindingItem : ItemRoundfullBinding
     /***** Adapter ****/
-    private val detailHabitAdapter: DetailHabitAdapter = DetailHabitAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
+    private val detailHabitAdapter: DetailHabitAdapter = DetailHabitAdapter(
+        { habit ->
+        }, getAdapterData()
+    )
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var habit : Habit
         var habitDateStart : String
+        var getAdapterData = getAdapterData()
 
         /***** veiwBinding *****/
         binding = DetailsHabitPageBinding.inflate(layoutInflater)
@@ -63,7 +64,7 @@ class DetailHabitActivity : AppCompatActivity()  {
                         "green" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1CFD1"))
                         "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
                         "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#CECECE"))
-                    } // TODO Color 지정해준 거 나중에 변경하기 (R.color.theme_?)이 안되는지 모르겠음
+                    }
 
 
                     if(habit.habitPeriod == "기간"){
@@ -80,24 +81,25 @@ class DetailHabitActivity : AppCompatActivity()  {
 
                     if(habit.habitPeriodNum == 3) {
                         /***** Adapter 연결 + gridLayout *****/
+                        //detailHabitAdapter = DetailHabitAdapter(getAdapterData)
                         binding.detailshabitpageRecyclerView.adapter = detailHabitAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 3)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod, habit.habitLastRoundFull))
+                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,habit.habitDateIng, habit.habitRoundFull, habit.habitLastRoundFull))
                     }
                     else if(habit.habitPeriodNum == 15){
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = detailHabitAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod, habit.habitLastRoundFull))
+                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,  habit.habitDateIng, habit.habitRoundFull, habit.habitLastRoundFull))
                     }
                     else if(habit.habitPeriodNum == 30){
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = detailHabitAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod, habit.habitLastRoundFull))
+                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,  habit.habitDateIng, habit.habitRoundFull, habit.habitLastRoundFull))
                     }
 
                 }
@@ -133,14 +135,28 @@ class DetailHabitActivity : AppCompatActivity()  {
             bundle.putInt("completeId", habitId)
             completedialog.arguments = bundle
             println("보냄")
-            /*
-            CoroutineScope(Dispatchers.IO).launch{
-                habit = detailhabitViewModel.loadAllByIds(intent.getIntExtra("data",0))
-                detailhabitViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateEnd, habit.habitRoundFull, true, habit.habitComment))
-            }
-             */
             completedialog.show(supportFragmentManager, "deleteDialog")
         }
 
     }  // onCreate
+
+    inner class getAdapterData {
+        fun getData(dateIng: String, roundfull: Int, lastround: Int){
+            println("getAdapterData 실행함 :::  dataInt(" + dateIng + "), roundfull(" + roundfull + "), lastround(" + lastround + ")" )
+
+            var habit : Habit
+            if(intent.hasExtra("data")) {
+                // intent를 통해 클릭한 item habitId를 가져옴
+                CoroutineScope(Dispatchers.IO).launch {
+                    println(detailhabitViewModel.getHabitId(intent.getIntExtra("data", 0)))
+                    habit = detailhabitViewModel.getHabitId(intent.getIntExtra("data", 0))
+
+                    /** DetailHabitAdapter로 부터 dateIng, roundfull, lastround 받아서 Update 시켜줌 **/
+                    detailhabitViewModel.update(Habit(habit.habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, dateIng, habit.habitDateEnd, roundfull, lastround, habit.habitComplete, habit.habitComment))
+                }
+            }
+        }
+    }
+
+
 }

@@ -17,6 +17,11 @@ class DetailhabitViewModel (application: Application) : AndroidViewModel(applica
         return withContext(viewModelScope.coroutineContext) {
             repository.getHabitId(habitId)
         }
+    }
 
+    suspend fun update(habit: Habit) {
+        return withContext(viewModelScope.coroutineContext) {
+            repository.update(habit)
+        }
     }
 }

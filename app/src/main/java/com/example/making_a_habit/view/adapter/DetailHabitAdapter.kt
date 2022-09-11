@@ -8,12 +8,18 @@ import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.ItemRoundfullBinding
 import com.example.making_a_habit.model.DetailItem
 import com.example.making_a_habit.model.Habit
+import com.example.making_a_habit.view.DetailHabitActivity
+import java.time.LocalDate
 
-class DetailHabitAdapter (val mainItemClick: (Habit) -> Unit)
+class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: DetailHabitActivity.getAdapterData)
     : RecyclerView.Adapter<DetailHabitAdapter.ViewHolder>() {
 
     private val list = arrayListOf<Int>()
     private var color = ""
+    private var period = ""
+    private var dateIng = ""
+    private var roundfull = 0
+    private var lastround = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailHabitAdapter.ViewHolder {
         val binding = ItemRoundfullBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,8 +29,7 @@ class DetailHabitAdapter (val mainItemClick: (Habit) -> Unit)
 
     override fun onBindViewHolder(viewHolder: DetailHabitAdapter.ViewHolder, position: Int) {
 
-        viewHolder.bind(list[position], color)
-    }
+        viewHolder.bind(list[position], color, period, dateIng, roundfull, lastround)    }
 
     override fun getItemCount(): Int {
         return list.size
@@ -35,7 +40,12 @@ class DetailHabitAdapter (val mainItemClick: (Habit) -> Unit)
         private val context = binding.root.context
 
         @SuppressLint("ResourceAsColor")
-        fun bind(count: Int, color : String) {
+        fun bind(count_bind: Int, color_bind : String, period_bind: String, dateIng_bind: String, roundfull_bind: Int, lastround_bind: Int) {
+            val habitDateToday: LocalDate = LocalDate.now()
+            val habitDateYesterday: LocalDate = habitDateToday.minusDays(1)
+
+            /***** roundbutton 기본 설정 *****/
+            binding.habitroundfull.setTextColor(R.color.black)
             when(color){
                 "red" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_red)
                 "yellow" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_yellow)
@@ -43,16 +53,55 @@ class DetailHabitAdapter (val mainItemClick: (Habit) -> Unit)
                 "blue" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_blue)
                 "gray" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_gray)
             }
-            binding.habitroundfull.text = count.toString()
-
-
-            binding.habitroundfull.setOnClickListener{
-                binding.habitroundfull.isSelected = true
-                // TODO 이거 색 너무 구린데 나중에 바꾸자 색깔 별 해야될 듯!
-                binding.habitroundfull.setTextColor(R.color.enabled_text)
+            binding.habitroundfull.text = count_bind.toString()
+            /*** 비활성화 ***/
+            binding.habitroundfull.isEnabled = false
+            binding.habitroundfull.isClickable = false
+            /*** 체크리스트에 아무것도 체크 안되어 있을 경우 1번칸만 활성화 ***/
+            if(lastround == 0){
+                if(position == 0){
+                    binding.habitroundfull.isEnabled = true
+                    binding.habitroundfull.isClickable = true
+                }
             }
 
-            /***** 비활성화일 경우 바꿔주기 *****/
+
+            /***** 횟수일 경우 *****/
+            if(period == "횟수"){
+                if(lastround != 0){
+                    /** DateIng == habitDateToday일 경우 lastRound+1 Button 활성화 **/
+                    if (dateIng == habitDateYesterday.toString()){
+                        if(position == (lastround)){
+                            binding.habitroundfull.isEnabled = true
+                            binding.habitroundfull.isClickable = true
+                        }
+                    }
+                }
+                /*** habitLastRoundFull만큼 체크리스트 채우기 ***/
+                for (i in 0..lastround){
+                    if(i == position){
+                        if(i < lastround){
+                            binding.habitroundfull.isSelected = true
+                        }
+                    }
+                }
+                /*** 칸 클릭 이벤트 ***/
+                /** habitRoundFull+1, habitLastRoundFull+1, DateIng에는 오늘 날짜 저장   getData 불러와서 UPDATE **/
+                binding.habitroundfull.setOnClickListener{
+                    binding.habitroundfull.isSelected = true
+                    roundfull += 1
+                    lastround += 1
+                    dateIng = habitDateToday.toString()
+                    println("roundfull : " + roundfull + ", lastround : " + lastround + ", dateIng : " + dateIng)
+                    activity.getData(dateIng, roundfull, lastround)
+                }
+            }
+            /***** 기간일 경우 *****/
+            else if (period == "기간"){
+
+            }
+
+            /***** 비활성화일 경우 text 색깔 바꿔주기 *****/
             if(binding.habitroundfull.isEnabled == true){
                 binding.habitroundfull.setTextColor(R.color.enabled_text)
             }
@@ -64,7 +113,16 @@ class DetailHabitAdapter (val mainItemClick: (Habit) -> Unit)
     fun sethabitPeriod(item: DetailItem) {
         item.count?: return
         item.color?: return
+        item.period?: return
+        item.dateIng?: return
+        item.roundfull?: return
+        item.lastround?: return
+
         color = item.color
+        period = item.period
+        dateIng = item.dateIng
+        roundfull = item.roundfull
+        lastround = item.lastround
         list.clear()
         for (i in 1..item.count){
             list.add(i)
