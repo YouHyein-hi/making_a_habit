@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.android.gms.oss-licenses-plugin'
 }
 
 android {
@@ -158,8 +159,6 @@ dependencies {
     // optional - Test helpers for Lifecycle runtime
     testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:2.6.0-alpha01")
 
-    // Room 디버깅 툴 라이브러리
-    //debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
-    //debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
-    //
+    //구글오픈라이선스
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 }
