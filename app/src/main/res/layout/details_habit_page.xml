@@ -81,18 +81,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:fontFamily="@font/pretendardsemibold"
         android:text="@string/detailshabitpage_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- TODO 임시 버튼임! 나중에 꼭 삭제하기!-->
-    <Button
-        android:id="@+id/test_button"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/Text_SubText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
