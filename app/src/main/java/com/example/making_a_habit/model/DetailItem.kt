@@ -5,6 +5,7 @@ data class DetailItem(
     val color: String?,     // habitColor
     val period: String?,    // habitPeriod
     val dateIng: String?,   // habitDateIng
+    val dateEnd: String,    // habitDateEnd
     val roundfull : Int?,   // habitRoundFull
     val lastround: Int?     // habitLastRoundFull
 )

@@ -15,9 +15,11 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
     : RecyclerView.Adapter<DetailHabitAdapter.ViewHolder>() {
 
     private val list = arrayListOf<Int>()
+    private var periodNum = 0
     private var color = ""
     private var period = ""
     private var dateIng = ""
+    private var dateEnd = ""
     private var roundfull = 0
     private var lastround = 0
 
@@ -29,7 +31,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
 
     override fun onBindViewHolder(viewHolder: DetailHabitAdapter.ViewHolder, position: Int) {
 
-        viewHolder.bind(list[position], color, period, dateIng, roundfull, lastround)    }
+        viewHolder.bind(list[position], color, period, dateIng, dateEnd, roundfull, lastround)    }
 
     override fun getItemCount(): Int {
         return list.size
@@ -40,7 +42,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
         private val context = binding.root.context
 
         @SuppressLint("ResourceAsColor")
-        fun bind(count_bind: Int, color_bind : String, period_bind: String, dateIng_bind: String, roundfull_bind: Int, lastround_bind: Int) {
+        fun bind(count_bind: Int, color_bind : String, period_bind: String, dateIng_bind: String, dateEnd_bind: String, roundfull_bind: Int, lastround_bind: Int) {
             val habitDateToday: LocalDate = LocalDate.now()
             val habitDateYesterday: LocalDate = habitDateToday.minusDays(1)
 
@@ -65,46 +67,61 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 }
             }
 
-
-            /***** 횟수일 경우 *****/
-            if(period == "횟수"){
-                if(lastround != 0){
-                    /** DateIng == habitDateToday일 경우 lastRound+1 Button 활성화 **/
-                    if (dateIng == habitDateYesterday.toString()){
-                        if(position == (lastround)){
-                            binding.habitroundfull.isEnabled = true
-                            binding.habitroundfull.isClickable = true
-                        }
+            /** DateIng == habitDateToday일 경우 lastRound+1 Button 활성화 **/
+            if(lastround != 0){
+                if (dateIng == habitDateYesterday.toString()){
+                    if(position == (lastround)){
+                        binding.habitroundfull.isEnabled = true
+                        binding.habitroundfull.isClickable = true
                     }
                 }
-                /*** habitLastRoundFull만큼 체크리스트 채우기 ***/
-                for (i in 0..lastround){
-                    if(i == position){
-                        if(i < lastround){
-                            binding.habitroundfull.isSelected = true
-                        }
+            }
+
+            /*** habitLastRoundFull만큼 체크리스트 채우기 ***/
+            for (i in 0..lastround){
+                if(i == position){
+                    if(i < lastround){
+                        binding.habitroundfull.isSelected = true
                     }
                 }
-                /*** 칸 클릭 이벤트 ***/
-                /** habitRoundFull+1, habitLastRoundFull+1, DateIng에는 오늘 날짜 저장   getData 불러와서 UPDATE **/
-                binding.habitroundfull.setOnClickListener{
-                    binding.habitroundfull.isSelected = true
-                    roundfull += 1
-                    lastround += 1
-                    dateIng = habitDateToday.toString()
-                    println("roundfull : " + roundfull + ", lastround : " + lastround + ", dateIng : " + dateIng)
-                    activity.getData(dateIng, roundfull, lastround)
+            }
+
+            /*** 칸 클릭 이벤트 ***/
+            /** habitRoundFull+1, habitLastRoundFull+1, DateIng에는 오늘 날짜 저장   getData 불러와서 UPDATE **/
+            binding.habitroundfull.setOnClickListener{
+                binding.habitroundfull.isSelected = true
+                roundfull += 1
+                lastround += 1
+                dateIng = habitDateToday.toString()
+                println("roundfull : " + roundfull + ", lastround : " + lastround + ", dateIng : " + dateIng)
+                activity.getData(dateIng, roundfull, lastround)
+
+                /*** 완료 이벤트 ***/
+                if(period == "횟수"){
+                    if(lastround == periodNum) {
+                        activity.getData(dateIng, roundfull, lastround)
+                        activity.completeDialog()
+                    }
+                    else println("둘이 같지 않음")
+                }
+                else if(period == "기간"){
+                    if(dateEnd == habitDateToday.toString()) {
+                        activity.getData(dateIng, roundfull, lastround)
+                        activity.completeDialog()
+                    }
+                    else println("둘이 같지 않음!")
                 }
             }
-            /***** 기간일 경우 *****/
-            else if (period == "기간"){
 
+            /*** 완료 이벤트 ***/
+            /** 기간일 경우  habitDateEnd을 넘겼을 경우 완료 이벤트 **/
+            dateEnd = dateEnd.replace("-", "")
+            val dateToday = habitDateToday.toString().replace("-", "")
+            if(dateEnd.toInt() < dateToday.toInt()){
+                activity.getData(dateIng, roundfull, lastround)
+                activity.completeDialog()
             }
 
-            /***** 비활성화일 경우 text 색깔 바꿔주기 *****/
-            if(binding.habitroundfull.isEnabled == true){
-                binding.habitroundfull.setTextColor(R.color.enabled_text)
-            }
         }
     }
 
@@ -115,12 +132,15 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
         item.color?: return
         item.period?: return
         item.dateIng?: return
+        item.dateEnd?: return
         item.roundfull?: return
         item.lastround?: return
 
+        periodNum = item.count
         color = item.color
         period = item.period
         dateIng = item.dateIng
+        dateEnd = item.dateEnd
         roundfull = item.roundfull
         lastround = item.lastround
         list.clear()

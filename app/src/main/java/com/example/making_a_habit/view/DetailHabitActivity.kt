@@ -85,21 +85,21 @@ class DetailHabitActivity : AppCompatActivity()  {
                         binding.detailshabitpageRecyclerView.adapter = detailHabitAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 3)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,habit.habitDateIng, habit.habitRoundFull, habit.habitLastRoundFull))
+                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull))
                     }
                     else if(habit.habitPeriodNum == 15){
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = detailHabitAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,  habit.habitDateIng, habit.habitRoundFull, habit.habitLastRoundFull))
+                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull))
                     }
                     else if(habit.habitPeriodNum == 30){
                         /***** Adapter 연결 + gridLayout *****/
                         binding.detailshabitpageRecyclerView.adapter = detailHabitAdapter
                         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(this@DetailHabitActivity, 5)
                         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,  habit.habitDateIng, habit.habitRoundFull, habit.habitLastRoundFull))
+                        detailHabitAdapter.sethabitPeriod(DetailItem(habit.habitPeriodNum, habit.habitColor, habit.habitPeriod,habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull))
                     }
 
                 }
@@ -138,6 +138,59 @@ class DetailHabitActivity : AppCompatActivity()  {
             completedialog.show(supportFragmentManager, "deleteDialog")
         }
 
+
+        /***** 완료 이벤트 *****/
+        // TODO 누르자마자 나오게 해야되는데 어떻게 해야되는지 모르겠음 일단 임시로 하기
+        /*
+        if(intent.hasExtra("data")){
+            var completedialog = CompleteDialogFragment()
+            CoroutineScope(Dispatchers.IO).launch {
+                habit = detailhabitViewModel.getHabitId(intent.getIntExtra("data", 0))
+
+                /*** 횟수일 경우 완료 이벤트 ***/
+                if(habit.habitPeriod == "횟수"){
+                    if(habit.habitPeriodNum == 3) {
+                        if(habit.habitLastRoundFull == 3){
+                            /*** Dialog에 해당 item habitId 보내기 ***/
+                            val habitId = intent.getIntExtra("data",0)
+                            println("habitId : " + habitId)
+                            val bundle = Bundle()
+                            bundle.putInt("completeId", habitId)
+                            completedialog.arguments = bundle
+                            println("보냄")
+                            completedialog.show(supportFragmentManager, "deleteDialog")
+                        }
+                    }
+                    else if(habit.habitPeriodNum == 15) {
+                        if(habit.habitLastRoundFull == 15){
+                            /*** Dialog에 해당 item habitId 보내기 ***/
+                            val habitId = intent.getIntExtra("data",0)
+                            println("habitId : " + habitId)
+                            val bundle = Bundle()
+                            bundle.putInt("completeId", habitId)
+                            completedialog.arguments = bundle
+                            println("보냄")
+                            completedialog.show(supportFragmentManager, "deleteDialog")
+                        }
+                    }
+                    else if(habit.habitPeriodNum == 30) {
+                        if(habit.habitLastRoundFull == 30){
+                            /*** Dialog에 해당 item habitId 보내기 ***/
+                            val habitId = intent.getIntExtra("data",0)
+                            println("habitId : " + habitId)
+                            val bundle = Bundle()
+                            bundle.putInt("completeId", habitId)
+                            completedialog.arguments = bundle
+                            println("보냄")
+                            completedialog.show(supportFragmentManager, "deleteDialog")
+                        }
+                    }
+                }
+            }
+
+        }
+         */
+
     }  // onCreate
 
     inner class getAdapterData {
@@ -155,6 +208,44 @@ class DetailHabitActivity : AppCompatActivity()  {
                     detailhabitViewModel.update(Habit(habit.habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, dateIng, habit.habitDateEnd, roundfull, lastround, habit.habitComplete, habit.habitComment))
                 }
             }
+        }
+
+
+        /***** 완료 이벤트 *****/
+        fun completeDialog(){
+            println("completeDialog가 실행됨")
+            var habit : Habit
+            if(intent.hasExtra("data")){
+                println("completeDialog : hasExtra 잘 됨")
+                CoroutineScope(Dispatchers.IO).launch {
+                    habit = detailhabitViewModel.getHabitId(intent.getIntExtra("data", 0))
+
+                    if(habit.habitPeriod == "횟수"){
+                        println("completeDialog : 횟수인 거 잘 인식 함")
+                        if(habit.habitPeriodNum == 3)
+                            showCompleteDialog()
+                        else if(habit.habitPeriodNum == 15)
+                            showCompleteDialog()
+                        else if(habit.habitPeriodNum == 30)
+                            showCompleteDialog()
+                    }
+                    if(habit.habitPeriod == "기간") showCompleteDialog()
+                }
+            }
+        }
+
+        /***** 완료 Dialog 띄우기 *****/
+        fun showCompleteDialog(){
+            var completedialog = CompleteDialogFragment()
+
+            /*** Dialog에 해당 item habitId 보내기 ***/
+            val habitId = intent.getIntExtra("data",0)
+            println("habitId : " + habitId)
+            val bundle = Bundle()
+            bundle.putInt("completeId", habitId)
+            completedialog.arguments = bundle
+            println("보냄")
+            completedialog.show(supportFragmentManager, "deleteDialog")
         }
     }
 
