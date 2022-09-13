@@ -53,8 +53,4 @@ class HabitRepository (application: Application){
     suspend fun getHabitId(habitId: Int): Habit{
         return habitDao.getHabitId(habitId)
     }
-
-    suspend fun updateLastRound(habitId: Int, habitLastRoundFull: Int) {
-        return habitDao.updateLastRound(habitId, habitLastRoundFull)
-    }
 }

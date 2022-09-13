@@ -22,9 +22,6 @@ interface HabitDAO {
     @Query("SELECT * FROM habit WHERE habitId = :habitId")
     suspend fun getHabitId(habitId : Int) : Habit
 
-    @Query("UPDATE habit SET habitId=(:habitIds) WHERE habitLastRoundFull=(:habitLastRoundFull)")
-    fun updateLastRound(habitIds: Int, habitLastRoundFull: Int)
-
     /*@Delete
     suspend fun deleteIds(habitIds: Int) : Habit*/
 
