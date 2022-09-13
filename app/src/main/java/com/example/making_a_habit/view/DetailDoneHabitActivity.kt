@@ -1,10 +1,24 @@
 package com.example.making_a_habit.view
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
+import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.PixelCopy
+import android.view.View
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
+import androidx.core.content.FileProvider
 import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.DetailsDonehabitPageBinding
 import com.example.making_a_habit.model.Habit
@@ -13,6 +27,9 @@ import com.example.making_a_habit.viewmodel.DetailDonehabitViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 class DetailDoneHabitActivity : AppCompatActivity() {
 
@@ -21,6 +38,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
     /***** veiwBinding *****/
     private lateinit var binding: DetailsDonehabitPageBinding
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,6 +52,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
         binding.backBtnDetailsdonehabitpage.setOnClickListener {
             finish()
         }
+
 
 
         /***** 데이터 받고 해당 화면에 출력하기 *****/
@@ -95,6 +114,67 @@ class DetailDoneHabitActivity : AppCompatActivity() {
             deletedialog.show(supportFragmentManager, "deleteDialog")
         }
 
+        /** ....공유하기 기능..... **/
+        binding.shareBtnDetailsdonehabitpage.setOnClickListener{
+            getBitmap(binding.shareLayout){ bitmap ->
+                screenToShare(bitmap)
+            }
+        }
+
     } // OnCreat
+
+
+    /** ....공유하기 기능..... **/
+    private fun getBitmap(view: View, callback: (Bitmap?) -> Unit) {
+        window?.let { window ->
+            val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+            val locationOfViewInWindow = IntArray(2)
+            view.getLocationInWindow(locationOfViewInWindow)
+            try {
+                PixelCopy.request(window,
+                    Rect(locationOfViewInWindow[0], locationOfViewInWindow[1], locationOfViewInWindow[0] + view.width, locationOfViewInWindow[1] + view.height),
+                    bitmap, { copyResult ->
+                        if (copyResult == PixelCopy.SUCCESS) callback.invoke(bitmap)
+                        else callback.invoke(null)
+                    }, Handler(Looper.getMainLooper())
+                )
+            } catch (e: IllegalArgumentException) {
+                callback.invoke(null)
+            }
+        }
+    }
+
+    /** ....공유하기 기능..... **/
+    private fun screenToShare(bitmap: Bitmap?) {
+        try {
+            val cachePath = File(cacheDir, "images")
+            cachePath.mkdirs()
+            val stream = FileOutputStream("$cachePath/image.png")
+            bitmap?.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            stream.close()
+            val newFile = File(cachePath, "image.png")
+            val contentUri = FileProvider.getUriForFile( this, "com.example.making_a_habit", newFile)
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "image/png"
+            intent.putExtra(Intent.EXTRA_STREAM, contentUri)
+
+            /*
+            val resInfoList: List<ResolveInfo> = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
+
+            for (resolveInfo in resInfoList) {
+                val packageName = resolveInfo.activityInfo.packageName
+                grantUriPermission(
+                    packageName,
+                    contentUri,
+                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+            }
+             */
+
+            startActivity(Intent.createChooser(intent, "Share image"))
+        }catch (e: IOException){
+            e.printStackTrace()
+        }
+    }
 
 }
