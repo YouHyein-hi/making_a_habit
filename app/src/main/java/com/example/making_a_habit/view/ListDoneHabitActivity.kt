@@ -44,8 +44,7 @@ class ListDoneHabitActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launchWhenResumed {
-            adapter.sethabit(listDoneHabitViewModel.getAll())
+            adapter.sethabit(listDoneHabitViewModel.getAll().sortedWith(compareBy { it.habitDateEnd }))
         }
     }
 }
-// TODO habitComplete에서 true 데이터만 가져오게 설정해야됨

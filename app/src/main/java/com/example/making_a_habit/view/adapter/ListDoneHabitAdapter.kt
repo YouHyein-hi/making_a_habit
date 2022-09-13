@@ -12,6 +12,8 @@ import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailDoneHabitActivity
 import com.example.making_a_habit.view.DetailHabitActivity
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<ListDoneHabitAdapter.ViewHolder>() {
@@ -38,7 +40,8 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
 
         fun bind(habit: Habit) {
             binding.habitNameTextItemmain.text = habit.habitName
-            binding.habitDateStartTextItemmain.text = habit.habitDateStart
+            val habitDate = habit.habitDateStart + " ~ " + habit.habitDateEnd
+            binding.habitDateStartTextItemmain.text = habitDate
             binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
 
             /***** progressBar 관련 코드 *****/
