@@ -20,8 +20,4 @@ class DeletedialogViewModel (application: Application) : AndroidViewModel(applic
     fun delete(habit: Habit) {
         repository.delete(habit)
     }
-
-    /*suspend fun deleteIds(habitIds: Int){
-        repository.deleteIds(habitIds)
-    }*/
 }

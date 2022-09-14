@@ -11,13 +11,6 @@ class HabitRepository (application: Application){
 
     private val habitDatabase = HabitDB.getInstance(application)!!
     private val habitDao: HabitDAO = habitDatabase.habitDao()
-//    private val habits: LiveData<List<Habit>> = habitDao.getAll()
-
-    /*
-    private val habitDatabase = HabitDB.getInstance(application)
-    private val habitDao: HabitDAO? = habitDatabase?.habitDao()
-    private val habits: LiveData<List<Habit>>? = habitDao?.getAll()     // LiveData<List<Habit>>
-     */
 
     suspend fun getAll(): List<Habit> {
         return habitDao.getAll()

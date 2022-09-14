@@ -43,7 +43,6 @@ class CreatinghabitActivity : AppCompatActivity() {
 
 
         /***** editText 20자 초과시 Toast 띄우기 *****/
-        // ToDo Toast 메시지 디자인 하기
         binding.habitNameEdittext.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(h: CharSequence?, p1: Int, p2: Int, p3: Int) {
             } // 텍스트가 변경된 이후에 동작
@@ -65,7 +64,6 @@ class CreatinghabitActivity : AppCompatActivity() {
         /***** habitPeriod_btn 클릭하면 버튼눌림효과 유지 *****/
         // 기간 눌림효과, 눌림효과 해제  횟수 눌림효과, 눌림효과 해제
         // 버튼 누른 상태에서 다른 버튼 누르면 눌림효과 해제 후 눌림
-        // TODO 여기 있는 모든 코드들이 구림. 정말 이게 최선...?
 
         // 기간 Button
         binding.habitPeriodBtnTime.setOnClickListener{
@@ -215,9 +213,6 @@ class CreatinghabitActivity : AppCompatActivity() {
                 habitDateEnd = habitDateStart.plusDays(29).toString()
             }
 
-            // and &&   or ||
-            // TODO 조건이 너무 구려 어떻게 짧게 할 수 없나?
-            // binding.habitNameEdittext.toString() != null &&
             if(
                 (binding.habitPeriodBtnTime.isSelected || binding.habitPeriodBtnNumber.isSelected) &&
                 (binding.habitPeriodNumBtn3.isSelected || binding.habitPeriodNumBtn15.isSelected || binding.habitPeriodNumBtn30.isSelected) &&
@@ -238,13 +233,6 @@ class CreatinghabitActivity : AppCompatActivity() {
 
             }
         }
-
-
-        /***** ViewModel 부분 *****/
-        //val habitViewModel: HabitViewModel by viewModels()
-//        habitViewModel.getAll().observe(this, Observer<List<Habit>>{ habits ->
-//            // update UI
-//        })
 
     } // onCreate
 

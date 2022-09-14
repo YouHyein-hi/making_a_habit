@@ -79,7 +79,6 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
                     bundle.putInt("deleteHabitId", habit.habitId)
                 }
                 fragmentDeleteDialog.arguments = bundle
-                //Activity -> Fragement로 id 옮기기 bundle하면 가능하다네~~~~
 
             }
 

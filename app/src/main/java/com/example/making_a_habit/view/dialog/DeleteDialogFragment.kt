@@ -22,18 +22,12 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class deleteDialogFragment : DialogFragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
     val deletedialogViewModel: DeletedialogViewModel by activityViewModels()
     private lateinit var binding : DeleteDialogFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }*/
         isCancelable = false
     }
 
@@ -54,7 +48,6 @@ class deleteDialogFragment : DialogFragment() {
                 deletedialogViewModel.delete(Habit(deleteHabitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, 0, habit.habitComplete, habit.habitComment))
             }
 
-            //val intent = Intent(requireContext(), DetailHabitActivity::class.java)
             activity?.let{
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
@@ -69,16 +62,5 @@ class deleteDialogFragment : DialogFragment() {
         dialog?.setCancelable(true)
 
         return binding.root
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            deleteDialogFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

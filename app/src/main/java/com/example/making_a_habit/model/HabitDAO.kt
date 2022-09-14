@@ -22,17 +22,4 @@ interface HabitDAO {
     @Query("SELECT * FROM habit WHERE habitId = :habitId")
     suspend fun getHabitId(habitId : Int) : Habit
 
-    /*@Delete
-    suspend fun deleteIds(habitIds: Int) : Habit*/
-
-
-
-
-
-    /*
-    @Query("SELECT * FROM habit WHERE first_name LIKE :first AND " +
-            "last_name LIKE :last LIMIT 1")
-    fun findByName(first: String, last: String): Habit
-     */
-
 }

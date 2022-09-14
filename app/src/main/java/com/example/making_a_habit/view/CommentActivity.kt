@@ -60,7 +60,6 @@ class CommentActivity : AppCompatActivity() {
 
 
         /***** editText 20자 초과시 Toast 띄우기 *****/
-        // ToDo Toast 메시지 디자인 하기
         binding.habitComentEdittextCreatingcomentspage.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(h: CharSequence?, p1: Int, p2: Int, p3: Int) {
             } // 텍스트가 변경된 이후에 동작
