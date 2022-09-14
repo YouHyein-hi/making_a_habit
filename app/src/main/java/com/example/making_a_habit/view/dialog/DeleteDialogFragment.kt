@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.making_a_habit.databinding.DeleteDialogFragmentBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailHabitActivity
+import com.example.making_a_habit.view.MainActivity
 import com.example.making_a_habit.viewmodel.DeletedialogViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -54,6 +55,10 @@ class deleteDialogFragment : DialogFragment() {
             }
 
             //val intent = Intent(requireContext(), DetailHabitActivity::class.java)
+            activity?.let{
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
             dismiss()
             requireActivity().finish()
         }
