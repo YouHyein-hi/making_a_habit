@@ -40,6 +40,25 @@ class CommentActivity : AppCompatActivity() {
             finish()
         }
 
+        if(intent.hasExtra("commentId")) {
+            // intent를 통해 클릭한 item habitId를 가져옴
+            CoroutineScope(Dispatchers.IO).launch {
+                habit = commentViewModel.getHabitId(intent.getIntExtra("commentId", 0))
+                runOnUiThread{
+                    binding.habitNameTextCreatingcomentspage.text = habit.habitName
+                    when(habit.habitColor){
+                        "red" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#FFAEAE"))
+                        "yellow" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#FFE8AE"))
+                        "green" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#B1CFD1"))
+                        "blue" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#AED8FF"))
+                        "gray" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#CECECE"))
+                    }
+                }
+            }
+        }
+
+
+
         /***** editText 20자 초과시 Toast 띄우기 *****/
         // ToDo Toast 메시지 디자인 하기
         binding.habitComentEdittextCreatingcomentspage.addTextChangedListener(object : TextWatcher {

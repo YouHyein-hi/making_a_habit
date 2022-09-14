@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/back_icon" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/share_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -33,21 +33,20 @@
 
         <TextView
             android:id="@+id/textView11"
+            style="@style/Text_MainText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/pretendardblack"
             android:text="@string/creatingcommentpage_title"
-            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView12"
+            style="@style/Text_SubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/pretendardsemibold"
             android:gravity="center"
             android:text="@string/creatingcommentpage_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,22 +62,20 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            android:text="@string/dialogdeletehabit_delete"
+            style="@style/ItemText_Title"
+            />
 
         <EditText
             android:id="@+id/habitComent_edittext_creatingcomentspage"
+            style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/roundsquare"
-            android:ems="10"
-            android:fontFamily="@font/pretendardsemibold"
-            android:gravity="center_horizontal"
             android:hint="@string/creatingcommentpage_edittexthint"
-            android:inputType="textMultiLine"
             android:maxLength="100"
             android:scrollHorizontally="false"
-            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,16 +84,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cancel_btn_creatingcomentspage"
-        style="?android:attr/borderlessButtonStyle"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/roundsquare"
-        android:fontFamily="@font/pretendardsemibold"
         android:text="@string/creatingcommentpage_cancelbtn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView10" />
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        style="@style/ButtonText"/>
 
     <TextView
         android:id="@+id/textView10"
@@ -109,14 +104,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/creating_btn_creatingcomentspage"
-        style="?android:attr/borderlessButtonStyle"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/roundsquare"
-        android:fontFamily="@font/pretendardsemibold"
         android:text="@string/creatingcommentpage_creatingbtn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10" />
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        style="@style/ButtonText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,7 @@ import com.example.making_a_habit.databinding.CompleteDialogFragmentBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.CommentActivity
 import com.example.making_a_habit.view.ListDoneHabitActivity
+import com.example.making_a_habit.view.MainActivity
 import com.example.making_a_habit.viewmodel.CompleteDialogViewModel
 import com.example.making_a_habit.viewmodel.DeletedialogViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -72,10 +73,12 @@ class CompleteDialogFragment : DialogFragment() {
                 dismiss()
                 requireActivity().finish()
 
-                val intent = Intent(getActivity(), CommentActivity::class.java)
-                intent.putExtra("commentId", habitId)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                startActivity(intent)
+                activity?.let{
+                    val intent = Intent(context, CommentActivity::class.java)
+                    intent.putExtra("commentId", habitId)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
+                }
             }
             binding.cancelBtnDialog.setOnClickListener{
                 val habitId = arguments?.getInt("completeId")
