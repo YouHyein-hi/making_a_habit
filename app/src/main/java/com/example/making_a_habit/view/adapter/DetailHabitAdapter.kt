@@ -1,6 +1,7 @@
 package com.example.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -47,7 +48,6 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
             val habitDateYesterday: LocalDate = habitDateToday.minusDays(1)
 
             /***** roundbutton 기본 설정 *****/
-            binding.habitroundfull.setTextColor(R.color.black)
             when(color){
                 "red" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_red)
                 "yellow" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_yellow)
@@ -82,6 +82,13 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 if(i == position){
                     if(i < lastround){
                         binding.habitroundfull.isSelected = true
+                        when(color){
+                            "red" -> binding.habitroundfull.setTextColor(Color.parseColor("#d99494"))
+                            "yellow" -> binding.habitroundfull.setTextColor(Color.parseColor("#d9c594"))
+                            "green" -> binding.habitroundfull.setTextColor(Color.parseColor("#97b0b2"))
+                            "blue" -> binding.habitroundfull.setTextColor(Color.parseColor("#94b8d9"))
+                            "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#afafaf"))
+                        }
                     }
                 }
             }
@@ -95,10 +102,18 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 dateIng = habitDateToday.toString()
                 println("roundfull : " + roundfull + ", lastround : " + lastround + ", dateIng : " + dateIng)
                 activity.getData(dateIng, roundfull, lastround)
+                when(color){
+                    "red" -> binding.habitroundfull.setTextColor(Color.parseColor("#d99494"))
+                    "yellow" -> binding.habitroundfull.setTextColor(Color.parseColor("#d9c594"))
+                    "green" -> binding.habitroundfull.setTextColor(Color.parseColor("#97b0b2"))
+                    "blue" -> binding.habitroundfull.setTextColor(Color.parseColor("#94b8d9"))
+                    "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#afafaf"))
+                }
 
                 /*** 완료 이벤트 ***/
                 if(period == "횟수"){
                     if(lastround == periodNum) {
+                        println("둘이 같음!")
                         activity.getData(dateIng, roundfull, lastround)
                         activity.completeDialog()
                     }
@@ -106,6 +121,10 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 }
                 else if(period == "기간"){
                     if(dateEnd == habitDateToday.toString()) {
+                        activity.getData(dateIng, roundfull, lastround)
+                        activity.completeDialog()
+                    }
+                    else if(lastround == periodNum){
                         activity.getData(dateIng, roundfull, lastround)
                         activity.completeDialog()
                     }
@@ -121,6 +140,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 activity.getData(dateIng, roundfull, lastround)
                 activity.completeDialog()
             }
+
 
         }
     }

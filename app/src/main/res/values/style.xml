@@ -85,4 +85,9 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="Roundfull_text">
+        <item name="android:fontFamily">@font/pretendardbold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@drawable/checklist_choice</item>
+    </style>
 </resources>
