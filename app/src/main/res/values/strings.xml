@@ -44,7 +44,8 @@
     <!-- setup_page.xml -->
     <string name="setuppage_title">설정</string>
     <string name="setuppage_alarm">푸시 알림 ON / OFF</string>
-    <string name="setuppage_open">오픈소스 라이센스</string>
+    <string name="setuppage_open">오픈소스 라이선스</string>
+
 
 
 </resources>

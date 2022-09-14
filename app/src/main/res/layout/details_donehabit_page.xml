@@ -42,33 +42,30 @@
         android:id="@+id/share_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_btn_detailsdonehabitpage">
+        app:layout_constraintTop_toBottomOf="@+id/share_btn_detailsdonehabitpage">
 
         <TextView
             android:id="@+id/habitName_text_detailshabitpage"
+            style="@style/DetailText_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/pretendardbold"
-            android:gravity="center_horizontal"
-            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/habitDate_text_detailshabitpage"
+            style="@style/DetailText_Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/pretendardregular"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/habitName_text_detailshabitpage" />
@@ -76,7 +73,7 @@
         <TextView
             android:id="@+id/habitComment_text_detailshabitpage"
             style="@style/EditText_TextView"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="50dp"
             android:padding="10dp"
