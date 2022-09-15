@@ -61,7 +61,7 @@ class DetailHabitActivity : AppCompatActivity()  {
                     when(habit.habitColor){
                         "red" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
                         "yellow" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFE8AE"))
-                        "green" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1CFD1"))
+                        "green" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1E6E6"))
                         "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
                         "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#CECECE"))
                     }

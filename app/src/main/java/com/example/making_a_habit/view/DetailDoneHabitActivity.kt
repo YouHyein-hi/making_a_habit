@@ -79,7 +79,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
                             binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_yellow)
                         }
                         "green" -> {
-                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1CFD1"))
+                            binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1E6E6"))
                             binding.roundfullTextDetailshabitpage.setBackgroundResource(R.drawable.textbox_theme_green)
                         }
                         "blue" -> {
