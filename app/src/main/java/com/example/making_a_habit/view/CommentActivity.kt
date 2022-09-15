@@ -1,5 +1,6 @@
 package com.example.making_a_habit.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -94,7 +95,18 @@ class CommentActivity : AppCompatActivity() {
                 }
             }
             else println("없음")
-        finish()
+
+            var intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+            finish()
         }
+    }
+
+    override fun onBackPressed() {
+        var intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+        finish()
     }
 }

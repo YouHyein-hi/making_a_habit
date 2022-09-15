@@ -50,6 +50,9 @@ class DetailDoneHabitActivity : AppCompatActivity() {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnDetailsdonehabitpage.setOnClickListener {
+            var intent = Intent(this, ListDoneHabitActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
 
@@ -177,4 +180,10 @@ class DetailDoneHabitActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        var intent = Intent(this, ListDoneHabitActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+        finish()
+    }
 }

@@ -22,6 +22,9 @@ class SetUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.backBtnSetuppage.setOnClickListener{
+            var intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
 
@@ -33,4 +36,10 @@ class SetUpActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        var intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+        finish()
+    }
 }

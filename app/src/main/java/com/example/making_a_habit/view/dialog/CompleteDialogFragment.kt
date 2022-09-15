@@ -61,8 +61,7 @@ class CompleteDialogFragment : DialogFragment() {
 
                 }
 
-                dismiss()
-                requireActivity().finish()
+
 
                 activity?.let{
                     val intent = Intent(context, CommentActivity::class.java)
@@ -70,6 +69,8 @@ class CompleteDialogFragment : DialogFragment() {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     startActivity(intent)
                 }
+                dismiss()
+                requireActivity().finish()
             }
             binding.cancelBtnDialog.setOnClickListener{
                 val habitId = arguments?.getInt("completeId")
@@ -81,6 +82,11 @@ class CompleteDialogFragment : DialogFragment() {
                     else {
                         completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
+                }
+
+                activity?.let{
+                    val intent = Intent(context, MainActivity::class.java)
+                    startActivity(intent)
                 }
                 dismiss()
                 requireActivity().finish()

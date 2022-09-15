@@ -1,5 +1,6 @@
 package com.example.making_a_habit.view
 
+import android.content.Intent
 import android.media.CamcorderProfile.getAll
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -36,6 +37,9 @@ class ListDoneHabitActivity : AppCompatActivity() {
 
         /***** 화면 전환 부분  *****/
         binding.backBtnListdonehabitpage.setOnClickListener{
+            var intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
 
@@ -46,5 +50,12 @@ class ListDoneHabitActivity : AppCompatActivity() {
         lifecycleScope.launchWhenResumed {
             adapter.sethabit(listDoneHabitViewModel.getAll().sortedWith(compareBy { it.habitDateEnd }))
         }
+    }
+
+    override fun onBackPressed() {
+        var intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+        finish()
     }
 }

@@ -1,6 +1,7 @@
 package com.example.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -80,6 +81,7 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
                 }
                 fragmentDeleteDialog.arguments = bundle
 
+                (context as Activity).finish()
             }
 
             itemView.setOnLongClickListener {

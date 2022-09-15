@@ -59,17 +59,21 @@ class MainActivity : AppCompatActivity() {
                 var intent = Intent(this, CreatinghabitActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
+                finish()
             }
         }
         binding.setupPageBtn.setOnClickListener{
             var intent = Intent(this, SetUpActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
+            finish()
+
         }
         binding.clockPageBtn.setOnClickListener{
             var intent = Intent(this, ListDoneHabitActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
+            finish()
         }
 
 
@@ -110,13 +114,11 @@ class MainActivity : AppCompatActivity() {
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
             set(Calendar.HOUR_OF_DAY, 0)
-            set(Calendar.MINUTE, 11)
-            set(Calendar.SECOND, 11)
+            set(Calendar.MINUTE, 17)
+            set(Calendar.SECOND, 10)
         }
 
-        if (calendar.time < Date()) { //설정한 시간에 따라, 알람이 설정이 안될 수 있으므로 달 첫번째 부터의 시간을 설정
-            calendar.add(Calendar.DAY_OF_MONTH, 1)
-        }
+
 
         alarmManager?.setRepeating(
             AlarmManager.RTC_WAKEUP,

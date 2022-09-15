@@ -1,6 +1,7 @@
 package com.example.making_a_habit.view
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -44,6 +45,9 @@ class DetailHabitActivity : AppCompatActivity()  {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnDetailshabitpage.setOnClickListener{
+            var intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
 
@@ -180,5 +184,11 @@ class DetailHabitActivity : AppCompatActivity()  {
         }
     }
 
+    override fun onBackPressed() {
+        var intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+        finish()
+    }
 
 }

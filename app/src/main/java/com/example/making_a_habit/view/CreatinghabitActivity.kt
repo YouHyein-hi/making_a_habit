@@ -218,12 +218,15 @@ class CreatinghabitActivity : AppCompatActivity() {
                 (binding.habitPeriodNumBtn3.isSelected || binding.habitPeriodNumBtn15.isSelected || binding.habitPeriodNumBtn30.isSelected) &&
                 (binding.themeRed.isSelected || binding.themeYellow.isSelected || binding.themeGreen.isSelected || binding.themeBlue.isSelected || binding.themeGray.isSelected)
             ){
-                val initial = habitName[0].toUpperCase()
                 val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,habitColor.toString(), habitDateStart.toString(), habitDateStart.toString(), habitDateEnd, 0, 0, false, "임시")
                 println("Habit : " + habit)
 
                 creatinghabitViewModel.insert(habit)
                 println("다 선택함")
+
+                var intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
                 finish()
             }
             else{
@@ -235,5 +238,13 @@ class CreatinghabitActivity : AppCompatActivity() {
         }
 
     } // onCreate
+
+
+    override fun onBackPressed() {
+        var intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+        finish()
+    }
 
 }
