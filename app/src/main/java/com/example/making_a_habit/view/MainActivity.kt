@@ -30,17 +30,12 @@ class MainActivity : AppCompatActivity() {
     private val adapter: MainRecyclerViewAdapter =  MainRecyclerViewAdapter { habit ->
         // put extras of contact info & start CreatingHabitActivity
     }
-    /***** 푸시알림 부분 *****/
-    internal var alarmManager: AlarmManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /***** veiwBinding *****/
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        /***** 푸시알림 부분 *****/
-        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager?
-        setAlarm(0, 1)
 
         /***** RecyclerView 부분 *****/
         binding.mainRecyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
@@ -89,43 +84,6 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenResumed {
             adapter.sethabit(mainViewModel.getAll())
         }
-    }
-
-    /***** 푸시알림 부분 *****/
-    private fun cancelAlarm() {
-        val receiverIntent = Intent(getApplication(), AlarmReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(applicationContext, 0, receiverIntent, PendingIntent.FLAG_IMMUTABLE)
-        alarmManager?.cancel(pendingIntent)
-    }
-
-    private fun setAlarm(hour: Int, minute: Int) {
-        //옵션값에 따라서, 푸시 설정이 되지 않을 수 있도록 함
-        //if (!pushAvailable.value) return
-        println("setAlarm 수행됨")
-
-        //AlarmReceiver에 값 전달
-        val receiverIntent = Intent(getApplication(), AlarmReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(applicationContext, 0, receiverIntent, PendingIntent.FLAG_IMMUTABLE)
-
-        //alarm 등록 전, 이전 push cancel
-        alarmManager?.cancel(pendingIntent)
-
-        // Set the alarm to start at time and minute
-        val calendar: Calendar = Calendar.getInstance().apply {
-            timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 0)
-            set(Calendar.MINUTE, 17)
-            set(Calendar.SECOND, 10)
-        }
-
-
-
-        alarmManager?.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            calendar.timeInMillis,
-            AlarmManager.INTERVAL_DAY,
-            pendingIntent
-        )
     }
 
 
