@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1585" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/acircle_progressbar.xml" value="0.2" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/back_icon.xml" value="0.1585" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_choice.xml" value="0.226" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_disable.xml" value="0.1835" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_enabled.xml" value="0.1835" />
@@ -16,6 +18,7 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_choice.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_gray_choice.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_gray_selected.xml" value="0.1485" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_green.xml" value="0.1585" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_green_choice.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_green_selected.xml" value="0.1485" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/button_theme_red.xml" value="0.203" />
@@ -40,6 +43,7 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/habitname_edittext.xml" value="0.255" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1205" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1205" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1585" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/item_checklistbutton.xml" value="0.196" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/plus_icon.xml" value="0.1635" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/drawable/roundsquare.xml" value="0.255" />
