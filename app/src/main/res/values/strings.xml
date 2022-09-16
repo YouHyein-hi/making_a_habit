@@ -22,7 +22,6 @@
 
     <!-- fragment_complete_dialog.xml -->
     <string name="dialogcomplete_maintitle">습관 완료!</string>
-    <string name="dialogcomplete_text">**칸 중 **칸을 완료하셨어요!</string>
     <string name="dialogcomplete_cancel">닫기</string>
     <string name="dialogcomplete_comment">커멘트 작성</string>
 
