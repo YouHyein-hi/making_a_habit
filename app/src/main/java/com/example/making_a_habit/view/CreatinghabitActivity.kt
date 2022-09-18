@@ -213,7 +213,7 @@ class CreatinghabitActivity : AppCompatActivity() {
                 habitDateEnd = habitDateStart.plusDays(29).toString()
             }
 
-            if(
+            if( !binding.habitNameEdittext.text.toString().trim().isEmpty() &&
                 (binding.habitPeriodBtnTime.isSelected || binding.habitPeriodBtnNumber.isSelected) &&
                 (binding.habitPeriodNumBtn3.isSelected || binding.habitPeriodNumBtn15.isSelected || binding.habitPeriodNumBtn30.isSelected) &&
                 (binding.themeRed.isSelected || binding.themeYellow.isSelected || binding.themeGreen.isSelected || binding.themeBlue.isSelected || binding.themeGray.isSelected)
