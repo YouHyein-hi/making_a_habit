@@ -46,7 +46,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnDetailsdonehabitpage.setOnClickListener {
-            var intent = Intent(this, ListDoneHabitActivity::class.java)
+            val intent = Intent(this, ListDoneHabitActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
@@ -102,7 +102,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
 
         /***** dialog 부분 *****/
         binding.deleteBtnDetailsdonehabitpage.setOnClickListener{
-            var deletedialog = deleteDialogFragment()
+            val deletedialog = deleteDialogFragment()
 
             /*** Dialog에 해당 item habitId 보내기 ***/
             val habitId = intent.getIntExtra("data",0)
@@ -177,7 +177,7 @@ class DetailDoneHabitActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        var intent = Intent(this, ListDoneHabitActivity::class.java)
+        val intent = Intent(this, ListDoneHabitActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
         finish()

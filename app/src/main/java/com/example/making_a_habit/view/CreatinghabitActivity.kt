@@ -35,7 +35,7 @@ class CreatinghabitActivity : AppCompatActivity() {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnCreatinghabitpage.setOnClickListener{
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
@@ -224,7 +224,7 @@ class CreatinghabitActivity : AppCompatActivity() {
                 creatinghabitViewModel.insert(habit)
                 println("다 선택함")
 
-                var intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
                 finish()
@@ -241,7 +241,7 @@ class CreatinghabitActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        var intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
         finish()

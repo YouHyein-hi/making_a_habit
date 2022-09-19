@@ -94,7 +94,7 @@ class CommentActivity : AppCompatActivity() {
             }
             else println("없음")
 
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
@@ -102,7 +102,7 @@ class CommentActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        var intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
         finish()

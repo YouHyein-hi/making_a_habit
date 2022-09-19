@@ -34,7 +34,7 @@ class ListDoneHabitActivity : AppCompatActivity() {
 
         /***** 화면 전환 부분  *****/
         binding.backBtnListdonehabitpage.setOnClickListener{
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
@@ -50,7 +50,7 @@ class ListDoneHabitActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        var intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
         finish()

@@ -34,7 +34,7 @@ class SetUpActivity : AppCompatActivity() {
 
         /***** 뒤로가기 페이지 화면 전환 *****/
         binding.backBtnSetuppage.setOnClickListener{
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
@@ -42,8 +42,8 @@ class SetUpActivity : AppCompatActivity() {
 
         /***** switch 상태 확인 후 switchbutton 상태 변경 *****/
         val sharedPreference =  getSharedPreferences("switch_state",Context.MODE_PRIVATE)
-        var editor = sharedPreference.edit()
-        var switch_state = sharedPreference.getBoolean("switch_state", false)
+        val editor = sharedPreference.edit()
+        val switch_state = sharedPreference.getBoolean("switch_state", false)
         if(switch_state == false){
             Log.e("Is switch state?", "false")
             binding.alarmSwitch.setChecked(false)
@@ -84,7 +84,7 @@ class SetUpActivity : AppCompatActivity() {
 
     /***** 뒤로가기 페이지 화면 전환 *****/
     override fun onBackPressed() {
-        var intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
         finish()
@@ -123,6 +123,6 @@ class SetUpActivity : AppCompatActivity() {
     private fun cancelAlarm() {
         val receiverIntent = Intent(getApplication(), AlarmBroadCastReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(applicationContext, 0, receiverIntent, PendingIntent.FLAG_IMMUTABLE)
-        manager?.cancel(pendingIntent)
+        manager.cancel(pendingIntent)
     }
 }

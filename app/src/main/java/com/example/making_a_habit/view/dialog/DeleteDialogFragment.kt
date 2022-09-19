@@ -17,9 +17,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class deleteDialogFragment : DialogFragment() {
 
     val deletedialogViewModel: DeletedialogViewModel by activityViewModels()
@@ -30,7 +27,7 @@ class deleteDialogFragment : DialogFragment() {
         isCancelable = false
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         var habit : Habit
         binding = DeleteDialogFragmentBinding.inflate(inflater, container, false)

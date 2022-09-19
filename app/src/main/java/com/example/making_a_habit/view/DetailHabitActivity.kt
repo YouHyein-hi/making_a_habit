@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.making_a_habit.databinding.DetailsHabitPageBinding
-import com.example.making_a_habit.databinding.ItemRoundfullBinding
 import com.example.making_a_habit.model.DetailItem
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.adapter.DetailHabitAdapter
@@ -25,7 +24,6 @@ class DetailHabitActivity : AppCompatActivity()  {
     val detailhabitViewModel: DetailhabitViewModel by viewModels()
     /***** veiwBinding *****/
     private lateinit var binding: DetailsHabitPageBinding
-    private lateinit var bindingItem : ItemRoundfullBinding
     /***** Adapter ****/
     private val detailHabitAdapter: DetailHabitAdapter = DetailHabitAdapter(
         { habit ->
@@ -37,7 +35,6 @@ class DetailHabitActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         var habit : Habit
         var habitDateStart : String
-        var getAdapterData = getAdapterData()
 
         /***** veiwBinding *****/
         binding = DetailsHabitPageBinding.inflate(layoutInflater)
@@ -45,7 +42,7 @@ class DetailHabitActivity : AppCompatActivity()  {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnDetailshabitpage.setOnClickListener{
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
@@ -113,7 +110,7 @@ class DetailHabitActivity : AppCompatActivity()  {
 
         /***** dialog 부분 *****/
         binding.deleteBtnDetailshabitpage.setOnClickListener{
-            var deletedialog = deleteDialogFragment()
+            val deletedialog = deleteDialogFragment()
 
             /*** Dialog에 해당 item habitId 보내기 ***/
             val habitId = intent.getIntExtra("data",0)
@@ -171,7 +168,7 @@ class DetailHabitActivity : AppCompatActivity()  {
 
         /***** 완료 Dialog 띄우기 *****/
         fun showCompleteDialog(){
-            var completedialog = CompleteDialogFragment()
+            val completedialog = CompleteDialogFragment()
 
             /*** Dialog에 해당 item habitId 보내기 ***/
             val habitId = intent.getIntExtra("data",0)
@@ -185,7 +182,7 @@ class DetailHabitActivity : AppCompatActivity()  {
     }
 
     override fun onBackPressed() {
-        var intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
         finish()

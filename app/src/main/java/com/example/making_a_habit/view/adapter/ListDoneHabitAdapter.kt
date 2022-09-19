@@ -68,11 +68,11 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
                 mainItemClick(habit)
 
                 val intent = Intent(context, DetailDoneHabitActivity::class.java)
-                intent.putExtra("data", habit.habitId);
+                intent.putExtra("data", habit.habitId)
                 intent.run { context.startActivity(this) }
 
-                val fragmentDeleteDialog : deleteDialogFragment = deleteDialogFragment()
-                val bundle : Bundle = Bundle()
+                val fragmentDeleteDialog = deleteDialogFragment()
+                val bundle = Bundle()
                 if (habit.habitId != null) {
                     bundle.putInt("deleteHabitId", habit.habitId)
                 }

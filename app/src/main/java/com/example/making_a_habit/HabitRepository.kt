@@ -16,27 +16,27 @@ class HabitRepository (application: Application){
 
     fun insert(habit: Habit) {
         try {
-            val thread = Thread(Runnable {
+            val thread = Thread {
                 habitDao.insert(habit)
-            })
+            }
             thread.start()
         } catch (e: Exception) { }
     }
 
     fun delete(habit: Habit) {
         try {
-            val thread = Thread(Runnable {
+            val thread = Thread {
                 habitDao.delete(habit)
-            })
+            }
             thread.start()
         } catch (e: Exception) { }
     }
 
     fun update(habit: Habit) {
         try {
-            val thread = Thread(Runnable {
+            val thread = Thread {
                 habitDao.update(habit)
-            })
+            }
             thread.start()
         } catch (e: Exception) { }
     }

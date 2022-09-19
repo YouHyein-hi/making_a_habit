@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         /***** 앱 최초 실행 확인 *****/
         val sharedPreference =  getSharedPreferences("isFirst",Context.MODE_PRIVATE)
-        var editor = sharedPreference.edit()
-        var first = sharedPreference.getBoolean("isFirst", false)
+        val editor = sharedPreference.edit()
+        val first = sharedPreference.getBoolean("isFirst", false)
         if(first == false){
             Log.e("Is first Time?", "first")
             editor.putBoolean("isFirst", true)
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             //setPushNotification()
         }
         else{
-            Log.e("Is first Time?", "not first");
+            Log.e("Is first Time?", "not first")
         }
 
 
@@ -72,21 +72,21 @@ class MainActivity : AppCompatActivity() {
                 println("진행 습관은 3개만 가능합니다!")
             }
             else if(binding.mainRecyclerView.size < 3){
-                var intent = Intent(this, CreatinghabitActivity::class.java)
+                val intent = Intent(this, CreatinghabitActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
                 finish()
             }
         }
         binding.setupPageBtn.setOnClickListener{
-            var intent = Intent(this, SetUpActivity::class.java)
+            val intent = Intent(this, SetUpActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
 
         }
         binding.clockPageBtn.setOnClickListener{
-            var intent = Intent(this, ListDoneHabitActivity::class.java)
+            val intent = Intent(this, ListDoneHabitActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
