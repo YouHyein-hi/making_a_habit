@@ -48,16 +48,16 @@ class SetUpActivity : AppCompatActivity() {
         /***** switch 상태 확인 후 switchbutton 상태 변경 *****/
         val sharedPreference =  getSharedPreferences("switch_state",Context.MODE_PRIVATE)
         var editor = sharedPreference.edit()
-        var first = sharedPreference.getBoolean("switch_state", true)
-        if(first == true){
-            Log.e("Is switch state?", "true")
-            binding.alarmSwitch.setChecked(true)
-            setPushNotification()
-        }
-        else{
+        var switch_state = sharedPreference.getBoolean("switch_state", false)
+        if(switch_state == false){
             Log.e("Is switch state?", "false")
             binding.alarmSwitch.setChecked(false)
             cancelAlarm()
+        }
+        else{
+            Log.e("Is switch state?", "true")
+            binding.alarmSwitch.setChecked(true)
+            setPushNotification()
         }
         /***** switchbutton 클릭시 상태 변경 및 데이터 변경 *****/
         binding.alarmSwitch.setOnCheckedChangeListener{CompoundButton, onSwitch ->

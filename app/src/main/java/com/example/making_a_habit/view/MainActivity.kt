@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         /***** 앱 최초 실행 확인 *****/
-        /** 앱 최초 실행 시 푸시 알림 true로 설정 **/
         val sharedPreference =  getSharedPreferences("isFirst",Context.MODE_PRIVATE)
         var editor = sharedPreference.edit()
         var first = sharedPreference.getBoolean("isFirst", false)
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             Log.e("Is first Time?", "first")
             editor.putBoolean("isFirst", true)
             editor.apply()
-            setPushNotification()
+            //setPushNotification()
         }
         else{
             Log.e("Is first Time?", "not first");
