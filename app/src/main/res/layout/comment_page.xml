@@ -64,9 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12"
-            android:text="@string/dialogdeletehabit_delete"
-            style="@style/ItemText_Title"
-            />
+            style="@style/ItemText_Title"/>
 
         <EditText
             android:id="@+id/habitComent_edittext_creatingcomentspage"
@@ -74,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="20dp"
+            android:padding="10dp"
             android:hint="@string/creatingcommentpage_edittexthint"
             android:maxLength="100"
             android:scrollHorizontally="false"
