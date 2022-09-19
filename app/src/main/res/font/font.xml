@@ -24,4 +24,14 @@
         android:font="@font/pretendardregular"
         android:fontStyle="normal"
         android:fontWeight="400" />
+    <font
+        android:font="@font/cafe24ssurround"
+        android:fontStyle="normal"
+        android:fontWeight="300"
+        />
+    <font
+        android:font="@font/cafe24ssurroundair"
+        android:fontStyle="normal"
+        android:fontWeight="200"
+        />
 </font-family>
