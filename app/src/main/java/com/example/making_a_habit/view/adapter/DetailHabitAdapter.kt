@@ -56,14 +56,17 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 "gray" -> binding.habitroundfull.setBackgroundResource(R.drawable.checklist_theme_gray)
             }
             binding.habitroundfull.text = count_bind.toString()
-            /*** 비활성화 ***/
             binding.habitroundfull.isEnabled = false
             binding.habitroundfull.isClickable = false
+            if (!binding.habitroundfull.isEnabled){
+                binding.habitroundfull.setTextColor(Color.parseColor("#b1b1b1"))
+            }
             /*** 체크리스트에 아무것도 체크 안되어 있을 경우 1번칸만 활성화 ***/
             if(lastround == 0){
                 if(position == 0){
                     binding.habitroundfull.isEnabled = true
                     binding.habitroundfull.isClickable = true
+                    binding.habitroundfull.setTextColor(Color.parseColor("#000000"))
                 }
             }
 

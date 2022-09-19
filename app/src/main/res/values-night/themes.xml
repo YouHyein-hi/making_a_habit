@@ -5,16 +5,21 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/back</item>
         <item name="colorPrimaryVariant">@color/back</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
+
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
 
-        <!-- -->
+
+        <!-- Customize your theme here. -->
+        <!-- 타이틀바 없애기 -->
         <item name="windowNoTitle">true</item>
     </style>
 </resources>
