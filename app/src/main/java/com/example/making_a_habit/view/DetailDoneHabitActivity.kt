@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.TypedValue
 import android.view.PixelCopy
 import android.view.View
 import androidx.activity.viewModels
@@ -97,6 +98,9 @@ class DetailDoneHabitActivity : AppCompatActivity() {
                     val roundfull = habit.habitRoundFull.toString() + " / " + habit.habitPeriodNum.toString()
                     binding.roundfullTextDetailshabitpage.text = roundfull  // habitRoundFull / habitPeriodNum
                     binding.habitCommentTextDetailshabitpage.text = habit.habitComment  // habitComment
+                    if(habit.habitComment == "이 습관은 커멘트가 작성되지 않았습니다."){  // habitComment 작성 안할 시 내용 보여주고 text 색 변경
+                        binding.habitCommentTextDetailshabitpage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
+                    }
                 }
             }
         }
