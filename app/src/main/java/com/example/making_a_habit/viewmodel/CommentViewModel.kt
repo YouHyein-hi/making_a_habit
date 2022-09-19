@@ -5,8 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.making_a_habit.HabitRepository
 import com.example.making_a_habit.model.Habit
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class CommentViewModel (application: Application) : AndroidViewModel(application){

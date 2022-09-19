@@ -7,15 +7,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.making_a_habit.AlarmBroadCastReceiver
-import com.example.making_a_habit.R
-import com.example.making_a_habit.databinding.ActivityMainBinding
-import com.example.making_a_habit.databinding.ListDonehabitPageBinding
 import com.example.making_a_habit.databinding.SetupPageBinding
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity.setActivityTitle
 import java.time.LocalDate
 import java.util.*
 

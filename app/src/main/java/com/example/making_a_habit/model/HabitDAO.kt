@@ -1,6 +1,5 @@
 package com.example.making_a_habit.model
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao

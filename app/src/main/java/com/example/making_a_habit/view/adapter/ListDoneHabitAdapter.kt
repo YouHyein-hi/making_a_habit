@@ -11,10 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.making_a_habit.databinding.ItemHabitlistBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailDoneHabitActivity
-import com.example.making_a_habit.view.DetailHabitActivity
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<ListDoneHabitAdapter.ViewHolder>() {

@@ -1,16 +1,13 @@
 package com.example.making_a_habit.view
 
 import android.content.Intent
-import android.media.CamcorderProfile.getAll
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.databinding.ListDonehabitPageBinding
 import com.example.making_a_habit.view.adapter.ListDoneHabitAdapter
-import com.example.making_a_habit.view.adapter.MainRecyclerViewAdapter
 import com.example.making_a_habit.viewmodel.ListDoneHabitViewModel
 
 class ListDoneHabitActivity : AppCompatActivity() {

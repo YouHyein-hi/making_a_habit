@@ -1,9 +1,6 @@
 package com.example.making_a_habit.view
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Rect
@@ -17,8 +14,6 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
 import androidx.core.content.FileProvider
 import com.example.making_a_habit.R
 import com.example.making_a_habit.databinding.DetailsDonehabitPageBinding

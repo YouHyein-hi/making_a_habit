@@ -8,15 +8,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.making_a_habit.R
-import com.example.making_a_habit.databinding.ActivityMainBinding
 import com.example.making_a_habit.databinding.ItemHabitlistBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.view.DetailHabitActivity
-import com.example.making_a_habit.view.MainActivity
 import com.example.making_a_habit.view.dialog.deleteDialogFragment
-import com.example.making_a_habit.viewmodel.DeletedialogViewModel
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 class MainRecyclerViewAdapter(val mainItemClick: (Habit) -> Unit)
     : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {

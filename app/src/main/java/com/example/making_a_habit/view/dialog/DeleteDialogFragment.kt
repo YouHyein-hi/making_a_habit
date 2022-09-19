@@ -11,7 +11,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.example.making_a_habit.databinding.DeleteDialogFragmentBinding
 import com.example.making_a_habit.model.Habit
-import com.example.making_a_habit.view.DetailHabitActivity
 import com.example.making_a_habit.view.MainActivity
 import com.example.making_a_habit.viewmodel.DeletedialogViewModel
 import kotlinx.coroutines.CoroutineScope

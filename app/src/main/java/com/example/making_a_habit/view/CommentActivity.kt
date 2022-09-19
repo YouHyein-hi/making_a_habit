@@ -8,9 +8,7 @@ import android.text.TextWatcher
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.making_a_habit.databinding.CommentPageBinding
-import com.example.making_a_habit.databinding.DetailsHabitPageBinding
 import com.example.making_a_habit.model.Habit
 import com.example.making_a_habit.viewmodel.CommentViewModel
 import kotlinx.coroutines.CoroutineScope
