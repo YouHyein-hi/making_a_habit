@@ -76,6 +76,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                     if(position == (lastround)){
                         binding.habitroundfull.isEnabled = true
                         binding.habitroundfull.isClickable = true
+                        binding.habitroundfull.setTextColor(Color.parseColor("#000000"))
                     }
                 }
             }
