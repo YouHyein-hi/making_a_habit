@@ -86,6 +86,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 if(i == position){
                     if(i < lastround){
                         binding.habitroundfull.isSelected = true
+                        binding.habitroundfull.isClickable = false
                         when(color){
                             "red" -> binding.habitroundfull.setTextColor(Color.parseColor("#d99494"))
                             "yellow" -> binding.habitroundfull.setTextColor(Color.parseColor("#d9c594"))
@@ -101,6 +102,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
             /** habitRoundFull+1, habitLastRoundFull+1, DateIng에는 오늘 날짜 저장   getData 불러와서 UPDATE **/
             binding.habitroundfull.setOnClickListener{
                 binding.habitroundfull.isSelected = true
+                binding.habitroundfull.isClickable = false
                 roundfull += 1
                 lastround += 1
                 dateIng = habitDateToday.toString()
