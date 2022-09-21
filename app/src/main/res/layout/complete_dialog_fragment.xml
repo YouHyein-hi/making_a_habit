@@ -16,24 +16,28 @@
 
         <TextView
             android:id="@+id/title_dialog"
+            style="@style/Text_MainText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/dialogcomplete_maintitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/Text_MainText" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_dialog"
+            style="@style/Dialog_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/Dialog_text"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancel_btn_dialog"

@@ -11,15 +11,15 @@
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/habitRoundFull_progressbar_itemmain"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         app:indicatorSize="70dp"
-        app:trackColor="@color/selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.486"
+        app:trackColor="@color/selected"
         app:trackCornerRadius="20dp"
         app:trackThickness="7dp" />
 
@@ -53,11 +53,15 @@
 
     <TextView
         android:id="@+id/habitRoundFull_text_itemmain"
+        style="@style/ItemText_Number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/habitRoundFull_progressbar_itemmain"
         app:layout_constraintEnd_toEndOf="@+id/habitRoundFull_progressbar_itemmain"
         app:layout_constraintStart_toStartOf="@+id/habitRoundFull_progressbar_itemmain"
-        app:layout_constraintTop_toTopOf="@+id/habitRoundFull_progressbar_itemmain"
-        style="@style/ItemText_Number"/>
+        app:layout_constraintTop_toTopOf="@+id/habitRoundFull_progressbar_itemmain" />
 </androidx.constraintlayout.widget.ConstraintLayout>
