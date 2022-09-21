@@ -27,7 +27,7 @@ class NotificationService(
         )
 
         val notification = NotificationCompat.Builder(context, "alarm_id")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.ic_launcher_foreground2)
             .setContentTitle("오늘의 습관을 체크해 주세요!")
             .setContentText("아직 체크 안 한 습관이 있지 않을까요? 한 번 확인하러 가요!")
             .setContentIntent(activityPendingIntent)
