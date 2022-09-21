@@ -50,7 +50,7 @@ class CommentActivity : AppCompatActivity() {
                         "yellow" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#FFE8AE"))
                         "green" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#B1E6E6"))
                         "blue" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#AED8FF"))
-                        "gray" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#CECECE"))
+                        "gray" -> binding.habitNameTextCreatingcomentspage.setTextColor(Color.parseColor("#AAAAAA"))
                     }
                 }
             }

@@ -92,7 +92,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                             "yellow" -> binding.habitroundfull.setTextColor(Color.parseColor("#d9c594"))
                             "green" -> binding.habitroundfull.setTextColor(Color.parseColor("#97b0b2"))
                             "blue" -> binding.habitroundfull.setTextColor(Color.parseColor("#94b8d9"))
-                            "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#afafaf"))
+                            "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#919191"))
                         }
                     }
                 }
@@ -113,7 +113,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                     "yellow" -> binding.habitroundfull.setTextColor(Color.parseColor("#d9c594"))
                     "green" -> binding.habitroundfull.setTextColor(Color.parseColor("#97b0b2"))
                     "blue" -> binding.habitroundfull.setTextColor(Color.parseColor("#94b8d9"))
-                    "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#afafaf"))
+                    "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#919191"))
                 }
 
                 /*** 완료 이벤트 ***/

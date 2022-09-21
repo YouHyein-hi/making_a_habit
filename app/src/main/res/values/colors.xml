@@ -19,8 +19,8 @@
     <color name="theme_green_selected">#99C8C8</color>
     <color name="theme_blue">#AED8FF</color>
     <color name="theme_blue_selected">#97B1DD</color>
-    <color name="theme_gray">#CECECE</color>
-    <color name="theme_gray_selected">#9E9E9E</color>
+    <color name="theme_gray">#AAAAAA</color>
+    <color name="theme_gray_selected">#888888</color>
     <color name="theme_pressed">#33000000</color>
     
     <!--Button-->
