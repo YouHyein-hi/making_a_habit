@@ -70,9 +70,11 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 }
             }
 
-            /** DateIng == habitDateToday일 경우 lastRound+1 Button 활성화 **/
+            /** DateIng < habitDateToday일 경우 lastRound+1 Button 활성화 **/
+            val dateIngInt = dateIng.replace("-", "").toInt()
+            val dateTodayInt = habitDateToday.toString().replace("-", "").toInt()
             if(lastround != 0){
-                if (dateIng == habitDateYesterday.toString()){
+                if (dateIngInt < dateTodayInt){
                     if(position == (lastround)){
                         binding.habitroundfull.isEnabled = true
                         binding.habitroundfull.isClickable = true
