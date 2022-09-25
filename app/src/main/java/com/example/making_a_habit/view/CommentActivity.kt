@@ -86,6 +86,7 @@ class CommentActivity : AppCompatActivity() {
         /***** '완료하기' button 클릭시 habitComplete 데이터 수정 *****/
         binding.creatingBtnCreatingcomentspage.setOnClickListener{
             val comment = binding.habitComentEdittextCreatingcomentspage.text.toString()
+            val commentNo = "이 습관은 커멘트가 작성되지 않았습니다."
             println("완료 버튼 누름")
             // DetailHabitActivity에서 해당 item 데이터 habitId 받음
             if(intent.hasExtra("commentId")) {
@@ -93,9 +94,13 @@ class CommentActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch{
                     val habitId = intent.getIntExtra("commentId",0)
                     habit = commentViewModel.getHabitId(intent.getIntExtra("commentId", 0))
-                    println("habitId : " + habitId)
-                    println("habit : " + habit)
-                    commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng ,habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, habit.habitComplete, comment))
+                    if(comment == ""){
+                        commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng ,habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, habit.habitComplete, commentNo))
+                    }
+                    else{
+                        commentViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng ,habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, habit.habitComplete, comment))
+                    }
+
                 }
             }
             else println("없음")
