@@ -33,9 +33,15 @@ class CommentActivity : AppCompatActivity() {
 
         /***** 페이지 간 화면 전환 (뒤로가기)*****/
         binding.backBtnCreatingcomentspage.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
         binding.cancelBtnCreatingcomentspage.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
 
