@@ -13,6 +13,7 @@
     <!--theme 5 color-->
     <color name="theme_red">#FFAEAE</color>
     <color name="theme_red_selected">#DD9797</color>
+    <color name="theme_red_text">#D99494</color>
     <color name="theme_yellow">#FFE8AE</color>
     <color name="theme_yellow_selected">#DDC397</color>
     <color name="theme_green">#B1E6E6</color>

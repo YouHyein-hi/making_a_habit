@@ -2,6 +2,7 @@ package com.example.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +33,8 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
 
     override fun onBindViewHolder(viewHolder: DetailHabitAdapter.ViewHolder, position: Int) {
 
-        viewHolder.bind(list[position], color, period, dateIng, dateEnd, roundfull, lastround)    }
+        viewHolder.bind(list[position], color, period, dateIng, dateEnd, roundfull, lastround)
+    }
 
     override fun getItemCount(): Int {
         return list.size
@@ -45,7 +47,6 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
         @SuppressLint("ResourceAsColor")
         fun bind(count_bind: Int, color_bind : String, period_bind: String, dateIng_bind: String, dateEnd_bind: String, roundfull_bind: Int, lastround_bind: Int) {
             val habitDateToday: LocalDate = LocalDate.now()
-            val habitDateYesterday: LocalDate = habitDateToday.minusDays(1)
 
             /***** roundbutton 기본 설정 *****/
             when(color){
@@ -121,11 +122,11 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                 /*** 완료 이벤트 ***/
                 if(period == "횟수"){
                     if(lastround == periodNum) {
-                        println("둘이 같음!")
+                        Log.e("둘이", " 같음!")
                         activity.getData(dateIng, roundfull, lastround)
                         activity.completeDialog()
                     }
-                    else println("둘이 같지 않음")
+                    else Log.e("둘이", " 같지 않음!")
                 }
                 else if(period == "기간"){
                     if(dateEnd == habitDateToday.toString()) {
@@ -136,7 +137,7 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
                         activity.getData(dateIng, roundfull, lastround)
                         activity.completeDialog()
                     }
-                    else println("둘이 같지 않음!")
+                    else Log.e("둘이", " 같지 않음!")
                 }
             }
 

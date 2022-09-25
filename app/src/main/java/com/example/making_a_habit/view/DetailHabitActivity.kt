@@ -53,9 +53,7 @@ class DetailHabitActivity : AppCompatActivity()  {
         if(intent.hasExtra("data")) {
             // intent를 통해 클릭한 item habitId를 가져옴
             CoroutineScope(Dispatchers.IO).launch {
-                println(detailhabitViewModel.getHabitId(intent.getIntExtra("data", 0)))
                 habit = detailhabitViewModel.getHabitId(intent.getIntExtra("data", 0))
-                println(habit.habitName)
 
                 runOnUiThread {
                     binding.habitNameTextDetailshabitpage.text = habit.habitName

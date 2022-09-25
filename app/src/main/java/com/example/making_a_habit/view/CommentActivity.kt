@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -87,7 +88,6 @@ class CommentActivity : AppCompatActivity() {
         binding.creatingBtnCreatingcomentspage.setOnClickListener{
             val comment = binding.habitComentEdittextCreatingcomentspage.text.toString()
             val commentNo = "이 습관은 커멘트가 작성되지 않았습니다."
-            println("완료 버튼 누름")
             // DetailHabitActivity에서 해당 item 데이터 habitId 받음
             if(intent.hasExtra("commentId")) {
                 // intent를 통해 클릭한 item habitId를 가져옴
@@ -102,7 +102,7 @@ class CommentActivity : AppCompatActivity() {
                     }
                 }
             }
-            else println("없음")
+            else Log.e("없", "음")
 
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
