@@ -143,11 +143,13 @@ class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: Detai
 
             /*** 완료 이벤트 ***/
             /** 기간일 경우  habitDateEnd을 넘겼을 경우 완료 이벤트 **/
-            dateEnd = dateEnd.replace("-", "")
-            val dateToday = habitDateToday.toString().replace("-", "")
-            if(dateEnd.toInt() < dateToday.toInt()){
-                activity.getData(dateIng, roundfull, lastround)
-                activity.completeDialog()
+            if(period == "기간"){
+                dateEnd = dateEnd.replace("-", "")
+                val dateToday = habitDateToday.toString().replace("-", "")
+                if(dateEnd.toInt() < dateToday.toInt()){
+                    activity.getData(dateIng, roundfull, lastround)
+                    activity.completeDialog()
+                }
             }
 
 
