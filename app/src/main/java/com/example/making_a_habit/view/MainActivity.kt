@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             Log.e("Is first Time?", "first")
             editor.putBoolean("isFirst", true)
             editor.apply()
-            //setPushNotification()
         }
         else{
             Log.e("Is first Time?", "not first")
@@ -100,37 +99,6 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         lifecycleScope.launchWhenResumed {
             adapter.sethabit(mainViewModel.getAll())
-        }
-    }
-
-    /***** 푸시알림 부분 *****/
-    @SuppressLint("ShortAlarm")
-    private fun setPushNotification(){
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        pIntent = Intent(this, AlarmBroadCastReceiver::class.java).apply {
-            putExtra("data", "02")
-        }.let {
-            PendingIntent.getBroadcast(applicationContext, 0, it,  PendingIntent.FLAG_IMMUTABLE)
-        }
-
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, setBaseTime(21).timeInMillis,AlarmManager.INTERVAL_DAY, pIntent)
-    }
-    /*** 푸시알림 시간 설정 ***/
-    private fun setBaseTime(baseHour: Int): Calendar {
-        val today = LocalDate.now()
-        val todayCalendar = Calendar.getInstance()
-        val baseTime = Calendar.getInstance().apply {
-            set(today.year, today.monthValue -1, today.dayOfMonth, baseHour, 0)
-        }
-
-        return if (todayCalendar.time.time < baseTime.time.time) {
-            Calendar.getInstance().apply {
-                set(today.year, today.monthValue -1 , today.dayOfMonth - 1, baseHour, 0)
-            }
-        } else {
-            baseTime
         }
     }
 

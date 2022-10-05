@@ -101,19 +101,29 @@ class SetUpActivity : AppCompatActivity() {
         }
 
         manager.setRepeating(
-            AlarmManager.RTC_WAKEUP, setBaseTime(21).timeInMillis, AlarmManager.INTERVAL_DAY, pIntent)
+            AlarmManager.RTC_WAKEUP, setBaseTime(20).timeInMillis, AlarmManager.INTERVAL_DAY, pIntent)
     }
     /*** 푸시알림 시간 설정 ***/
     private fun setBaseTime(baseHour: Int): Calendar {
         val today = LocalDate.now()
         val todayCalendar = Calendar.getInstance()
         val baseTime = Calendar.getInstance().apply {
-            set(today.year, today.monthValue -1, today.dayOfMonth, baseHour, 0)
+            //set(today.year, today.monthValue -1, today.dayOfMonth, baseHour, 0)
+            set(Calendar.YEAR, today.year)
+            set(Calendar.MONTH, today.monthValue-1)
+            set(Calendar.DATE, today.dayOfMonth)
+            set(Calendar.HOUR_OF_DAY, baseHour)
+            set(Calendar.MINUTE, 0)
         }
 
         return if (todayCalendar.time.time < baseTime.time.time) {
             Calendar.getInstance().apply {
-                set(today.year, today.monthValue -1 , today.dayOfMonth - 1, baseHour, 0)
+                //set(today.year, today.monthValue -1 , today.dayOfMonth - 1, baseHour, 0)
+                set(Calendar.YEAR, today.year)
+                set(Calendar.MONTH, today.monthValue-1)
+                set(Calendar.DATE, today.dayOfMonth-1)
+                set(Calendar.HOUR_OF_DAY, baseHour)
+                set(Calendar.MINUTE, 0)
             }
         } else {
             baseTime
