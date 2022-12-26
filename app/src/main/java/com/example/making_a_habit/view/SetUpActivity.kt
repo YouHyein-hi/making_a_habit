@@ -47,26 +47,26 @@ class SetUpActivity : AppCompatActivity() {
         if(switch_state == false){
             Log.e("Is switch state?", "false")
             binding.alarmSwitch.setChecked(false)
-            cancelAlarm()
+            //cancelAlarm()
         }
         else{
             Log.e("Is switch state?", "true")
             binding.alarmSwitch.setChecked(true)
-            setPushNotification()
+            //setPushNotification()
         }
         /***** switchbutton 클릭시 상태 변경 및 데이터 변경 *****/
         binding.alarmSwitch.setOnCheckedChangeListener{CompoundButton, onSwitch ->
             /** switch 켜짐 **/
             if (onSwitch){
                 Log.e("푸시알림 스위치 상태 : ", onSwitch.toString())
-                setPushNotification()
+                //setPushNotification()
                 editor.putBoolean("switch_state", true)
                 editor.apply()
             }
             /** switch 꺼짐 **/
             else{
                 Log.e("푸시알림 스위치 상태 : ", onSwitch.toString())
-                cancelAlarm()
+                //cancelAlarm()
                 editor.putBoolean("switch_state", false)
                 editor.apply()
             }
@@ -93,37 +93,44 @@ class SetUpActivity : AppCompatActivity() {
     /***** 푸시알림 *****/
     @SuppressLint("ShortAlarm")
     private fun setPushNotification(){
-
         pIntent = Intent(this, AlarmBroadCastReceiver::class.java).apply {
-            putExtra("data", "02")
+            putExtra("data", "00")
         }.let {
             PendingIntent.getBroadcast(applicationContext, 0, it,  PendingIntent.FLAG_IMMUTABLE)
         }
 
-        manager.setRepeating(
-            AlarmManager.RTC_WAKEUP, setBaseTime(20).timeInMillis, AlarmManager.INTERVAL_DAY, pIntent)
+        /*val calendar = Calendar.getInstance()
+        if(Calendar.getInstance().after(calendar)){
+            calendar.add(Calendar.DAY_OF_MONTH, 1)
+        }
+        manager.setRepeating(AlarmManager.RTC, setBaseTime(20).timeInMillis, AlarmManager.INTERVAL_DAY, pIntent)*/
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, setBaseTime(3).timeInMillis, AlarmManager.INTERVAL_DAY, pIntent)
+        /*print(setBaseTime(12).toString())*/
+        //Log.e("호이 : ", setBaseTime(12).toString())
     }
     /*** 푸시알림 시간 설정 ***/
     private fun setBaseTime(baseHour: Int): Calendar {
         val today = LocalDate.now()
         val todayCalendar = Calendar.getInstance()
         val baseTime = Calendar.getInstance().apply {
-            //set(today.year, today.monthValue -1, today.dayOfMonth, baseHour, 0)
-            set(Calendar.YEAR, today.year)
+            set(today.year, today.monthValue -1, today.dayOfMonth, baseHour, 1)
+            /*set(Calendar.YEAR, today.year)
             set(Calendar.MONTH, today.monthValue-1)
             set(Calendar.DATE, today.dayOfMonth)
             set(Calendar.HOUR_OF_DAY, baseHour)
-            set(Calendar.MINUTE, 0)
+            set(Calendar.MINUTE, 30)*/
         }
+
+        Log.e("baseHour :", baseHour.toString())
 
         return if (todayCalendar.time.time < baseTime.time.time) {
             Calendar.getInstance().apply {
-                //set(today.year, today.monthValue -1 , today.dayOfMonth - 1, baseHour, 0)
-                set(Calendar.YEAR, today.year)
+                set(today.year, today.monthValue -1 , today.dayOfMonth - 1, baseHour, 1)
+                /*set(Calendar.YEAR, today.year)
                 set(Calendar.MONTH, today.monthValue-1)
                 set(Calendar.DATE, today.dayOfMonth-1)
                 set(Calendar.HOUR_OF_DAY, baseHour)
-                set(Calendar.MINUTE, 0)
+                set(Calendar.MINUTE, 30)*/
             }
         } else {
             baseTime
