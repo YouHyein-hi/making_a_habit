@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.making_a_habit"
-        minSdk 26
-        targetSdk 32
+        applicationId "com.making.making_a_habit"
+        minSdk 29
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -23,11 +23,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-
-    buildFeatures {
-        // 뷰 바인딩 활성화
-        viewBinding true
     }
 
     compileOptions {
@@ -43,97 +38,132 @@ android {
             mavenCentral()
         }
     }
+    buildFeatures{
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.camera:camera-core:1.0.0'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    /** Room **/
+
+    /** ViewModel **/
+
 
 
     /***** Room DB 관련 *****/
     //val roomVersion = ""
 
+    //noinspection GradleDependency
     implementation("androidx.room:room-runtime:2.4.3")
+    //noinspection GradleDependency
     annotationProcessor("androidx.room:room-compiler:2.4.3")
 
     // To use Kotlin annotation processing tool (kapt)
+    //noinspection GradleDependency
     kapt("androidx.room:room-compiler:2.4.3")
     // To use Kotlin Symbol Processing (KSP)
     //ksp("androidx.room:room-compiler:2.4.3")
 
     // optional - Kotlin Extensions and Coroutines support for Room
+    //noinspection GradleDependency
     implementation("androidx.room:room-ktx:2.4.3")
 
     // optional - RxJava2 support for Room
+    //noinspection GradleDependency
     implementation("androidx.room:room-rxjava2:2.4.3")
 
     // optional - RxJava3 support for Room
+    //noinspection GradleDependency
     implementation("androidx.room:room-rxjava3:2.4.3")
 
     // optional - Guava support for Room, including Optional and ListenableFuture
+    //noinspection GradleDependency
     implementation("androidx.room:room-guava:2.4.3")
 
     // optional - Test helpers
+    //noinspection GradleDependency
     testImplementation("androidx.room:room-testing:2.4.3")
 
     // optional - Paging 3 Integration
+    //noinspection GradleDependency
     implementation("androidx.room:room-paging:2.4.3")
 
 
     /***** ViewModel 관련 *****/
     // ViewModel
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
     // ViewModel utilities for Compose
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01")
     // LiveData
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha01")
     // Lifecycles only (without ViewModel or LiveData)
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha01")
 
     // Saved state module for ViewModel
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.0-alpha01")
 
     // Annotation processor
-    //noinspection LifecycleAnnotationProcessorWithJava8
+    //noinspection GradleDependency,LifecycleAnnotationProcessorWithJava8
     kapt("androidx.lifecycle:lifecycle-compiler:2.6.0-alpha01")
     // alternately - if using Java8, use the following instead of lifecycle-compiler
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-common-java8:2.6.0-alpha01")
 
     // optional - helpers for implementing LifecycleOwner in a Service
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-service:2.6.0-alpha01")
 
     // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-process:2.6.0-alpha01")
 
     // optional - ReactiveStreams support for LiveData
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.6.0-alpha01")
 
     // optional - Test helpers for LiveData
+    //noinspection GradleDependency
     testImplementation("androidx.arch.core:core-testing:2.1.0")
 
     // optional - Test helpers for Lifecycle runtime
+    //noinspection GradleDependency
     testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:2.6.0-alpha01")
 
 
+    //noinspection GradleDependency
     implementation 'androidx.activity:activity-ktx:1.5.1'
+    //noinspection GradleDependency
     implementation 'androidx.fragment:fragment-ktx:1.5.2'
 
     /***** *****/
 
     // ViewModel
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
     // ViewModel utilities for Compose
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01")
     // LiveData
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha01")
     // Lifecycles only (without ViewModel or LiveData)
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha01")
 
     // Saved state module for ViewModel
@@ -141,23 +171,30 @@ dependencies {
 
     // Annotation processor
     //noinspection LifecycleAnnotationProcessorWithJava8
+    //noinspection GradleDependency
     kapt("androidx.lifecycle:lifecycle-compiler:2.6.0-alpha01")
     // alternately - if using Java8, use the following instead of lifecycle-compiler
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-common-java8:2.6.0-alpha01")
 
     // optional - helpers for implementing LifecycleOwner in a Service
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-service:2.6.0-alpha01")
 
     // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-process:2.6.0-alpha01")
 
     // optional - ReactiveStreams support for LiveData
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.6.0-alpha01")
 
     // optional - Test helpers for LiveData
+    //noinspection GradleDependency
     testImplementation("androidx.arch.core:core-testing:2.1.0")
 
     // optional - Test helpers for Lifecycle runtime
+    //noinspection GradleDependency
     testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:2.6.0-alpha01")
 
     //구글오픈라이선스

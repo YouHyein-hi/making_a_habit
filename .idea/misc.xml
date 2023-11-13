@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -98,10 +97,17 @@
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/menu/dialog_habitdone.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.161" />
         <entry key="..\:/Users/You/AndroidStudioProjects/making_a_habit/app/src/main/res/xml/file_paths.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/drawable/back_icon.xml" value="0.1855" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/drawable/sharing_icon.xml" value="0.1855" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/drawable/trash_icon.xml" value="0.1855" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/layout/complete_dialog_fragment.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/layout/delete_dialog_fragment.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/You/AndroidStudioProjects/making_habit/making_a_habit/app/src/main/res/layout/item_roundfull.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

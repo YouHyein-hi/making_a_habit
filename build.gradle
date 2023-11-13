@@ -4,6 +4,7 @@ buildscript {
         google()
     }
     dependencies {
+        //noinspection GradleDependency
         classpath 'com.google.android.gms:oss-licenses-plugin:0.10.4'
     }
 }
