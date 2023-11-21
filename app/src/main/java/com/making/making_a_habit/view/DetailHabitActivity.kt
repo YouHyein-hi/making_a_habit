@@ -11,6 +11,7 @@ import com.making.making_a_habit.databinding.DetailsHabitPageBinding
 import com.making.making_a_habit.model.DetailItem
 import com.making.making_a_habit.model.Habit
 import com.making.making_a_habit.view.adapter.DetailHabitAdapter
+import com.making.making_a_habit.view.adapter.ListDoneHabitAdapter
 import com.making.making_a_habit.view.dialog.CompleteDialogFragment
 import com.making.making_a_habit.view.dialog.deleteDialogFragment
 import com.making.making_a_habit.viewmodel.DetailhabitViewModel
@@ -25,10 +26,7 @@ class DetailHabitActivity : AppCompatActivity()  {
     /***** veiwBinding *****/
     private lateinit var binding: DetailsHabitPageBinding
     /***** Adapter ****/
-    private val detailHabitAdapter: DetailHabitAdapter = DetailHabitAdapter(
-        { habit ->
-        }, getAdapterData()
-    )
+    private val detailHabitAdapter : DetailHabitAdapter by lazy{ DetailHabitAdapter(getAdapterData()) }
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -177,13 +175,6 @@ class DetailHabitActivity : AppCompatActivity()  {
             println("보냄")
             completedialog.show(supportFragmentManager, "deleteDialog")
         }
-    }
-
-    override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        startActivity(intent)
-        finish()
     }
 
 }

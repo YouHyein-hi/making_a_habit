@@ -13,9 +13,9 @@ import com.making.making_a_habit.model.Habit
 import com.making.making_a_habit.view.DetailDoneHabitActivity
 import com.making.making_a_habit.view.dialog.deleteDialogFragment
 
-class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
-    : RecyclerView.Adapter<ListDoneHabitAdapter.ViewHolder>() {
+class ListDoneHabitAdapter : RecyclerView.Adapter<ListDoneHabitAdapter.ViewHolder>() {
 
+    private lateinit var onMainItemClick : (Habit) -> Unit
     private var habit: ArrayList<Habit> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
@@ -65,7 +65,7 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
 
 
             itemView.setOnClickListener {
-                mainItemClick(habit)
+                onMainItemClick(habit)
 
                 val intent = Intent(context, DetailDoneHabitActivity::class.java)
                 intent.putExtra("data", habit.habitId)
@@ -82,7 +82,7 @@ class ListDoneHabitAdapter(val mainItemClick: (Habit) -> Unit)
             }
 
             itemView.setOnLongClickListener {
-                mainItemClick(habit)
+                onMainItemClick(habit)
                 true
             }
         }

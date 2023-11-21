@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.CreateFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/back_btn_creatinghabitpage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_icon"
+            android:importantForAccessibility="no" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/creatinghabit_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_btn_creatinghabitpage">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/creatinghabitpage_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Text_MainText" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/creatinghabitpage_subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                style="@style/Text_SubText" />
+
+            <EditText
+                android:id="@+id/habitName_edittext"
+                android:layout_width="300dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:hint="@string/creatinghabitpage_edittexthint"
+                android:maxLength="20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                style="@style/EditText"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/creatinghabitpage_habitPeriodtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/habitName_edittext"
+                style="@style/Text_SubText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/habitPeriod_btn_time"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/creatinghabitpage_habitPeriodtime"
+                app:layout_constraintEnd_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                style="@style/ButtonChoiceText" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/habitPeriod_btn_number"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/creatinghabitpage_habitPeriodnumber"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                style="@style/ButtonChoiceText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/habitPeriodNum_btn_3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/creatinghabitpage_habitPeriod3"
+                app:layout_constraintEnd_toStartOf="@+id/habitPeriodNum_btn_15"
+                app:layout_constraintTop_toTopOf="@+id/habitPeriodNum_btn_15"
+                style="@style/ButtonChoiceText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/habitPeriodNum_btn_15"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/creatinghabitpage_habitPeriod15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/habitPeriod_btn_number"
+                style="@style/ButtonChoiceText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/habitPeriodNum_btn_30"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:text="@string/creatinghabitpage_habitPeriod30"
+                app:layout_constraintStart_toEndOf="@+id/habitPeriodNum_btn_15"
+                app:layout_constraintTop_toTopOf="@+id/habitPeriodNum_btn_15"
+                style="@style/ButtonChoiceText" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/creatinghabitpage_themecolortext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/habitPeriodNum_btn_15"
+                style="@style/Text_SubText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/theme_red"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_theme_red_choice"
+                app:layout_constraintEnd_toStartOf="@+id/theme_yellow"
+                app:layout_constraintTop_toTopOf="@+id/theme_green" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/theme_yellow"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_theme_yellow_chioce"
+                app:layout_constraintEnd_toStartOf="@+id/theme_green"
+                app:layout_constraintTop_toTopOf="@+id/theme_green" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/theme_green"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_theme_green_choice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/theme_blue"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/button_theme_blue_choice"
+                app:layout_constraintStart_toEndOf="@+id/theme_green"
+                app:layout_constraintTop_toTopOf="@+id/theme_green" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/theme_gray"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/button_theme_gray_choice"
+                app:layout_constraintStart_toEndOf="@+id/theme_blue"
+                app:layout_constraintTop_toTopOf="@+id/theme_green" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/creatinghabit_btn"
+            style="@style/ButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/creatinghabitpage_creating"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

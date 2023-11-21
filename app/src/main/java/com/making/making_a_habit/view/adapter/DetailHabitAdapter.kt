@@ -13,9 +13,11 @@ import com.making.making_a_habit.model.Habit
 import com.making.making_a_habit.view.DetailHabitActivity
 import java.time.LocalDate
 
-class DetailHabitAdapter(val mainItemClick: (Habit) -> Unit, var activity: DetailHabitActivity.getAdapterData)
+class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
     : RecyclerView.Adapter<DetailHabitAdapter.ViewHolder>() {
 
+
+    private lateinit var onMainItemClick : (Habit) -> Unit
     private val list = arrayListOf<Int>()
     private var periodNum = 0
     private var color = ""

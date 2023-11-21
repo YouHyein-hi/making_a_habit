@@ -17,9 +17,7 @@ class ListDoneHabitActivity : AppCompatActivity() {
     /***** veiwBinding *****/
     private lateinit var binding: ListDonehabitPageBinding
     /***** Adapter *****/
-    private val adapter: ListDoneHabitAdapter =  ListDoneHabitAdapter { habit ->
-        // put extras of contact info & start CreatingHabitActivity
-    }
+    private val adapter : ListDoneHabitAdapter by lazy{ ListDoneHabitAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +47,4 @@ class ListDoneHabitActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        startActivity(intent)
-        finish()
-    }
 }
