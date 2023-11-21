@@ -11,7 +11,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.making.making_a_habit.databinding.CompleteDialogFragmentBinding
 import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.CommentActivity
 import com.making.making_a_habit.view.MainActivity
 import com.making.making_a_habit.viewmodel.CompleteDialogViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -58,13 +57,14 @@ class CompleteDialogFragment : DialogFragment() {
                 }
 
 
-
+/*
                 activity?.let{
                     val intent = Intent(context, CommentActivity::class.java)
                     intent.putExtra("commentId", habitId)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     startActivity(intent)
                 }
+ */
                 dismiss()
                 requireActivity().finish()
             }

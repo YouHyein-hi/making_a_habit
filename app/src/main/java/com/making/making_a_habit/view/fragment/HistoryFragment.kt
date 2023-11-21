@@ -1,15 +1,20 @@
 package com.making.making_a_habit.view.fragment
 
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHistoryBinding
+import com.making.making_a_habit.model.DetailData
 import com.making.making_a_habit.view.adapter.HistoryAdapter
+import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryViewModel
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBinding::inflate, "HistoryFragment") {
 
+    private val mainViewModel : MainViewModel by activityViewModels()
     private val viewModel : HistoryViewModel by viewModels()
     private val adapter : HistoryAdapter by lazy{ HistoryAdapter() }
 
@@ -26,6 +31,26 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
 
             backBtnListdonehabitpage.setOnClickListener {
                 findNavController().popBackStack()
+            }
+
+            adapter.onMainItemClick={
+                mainViewModel.changeSelectedData(
+                    DetailData(
+                        id = it.habitId,
+                        name = it.habitName,
+                        period = it.habitPeriod,
+                        periodNum = it.habitPeriodNum,
+                        color = it.habitColor,
+                        dateStart = it.habitDateStart,
+                        dateIng = it.habitDateIng,
+                        dateEnd = it.habitDateEnd,
+                        roundFull = it.habitRoundFull,
+                        lastRoundFull = it.habitLastRoundFull,
+                        complete = it.habitComplete,
+                        comment = it.habitComment
+                    )
+                )
+                findNavController().navigate(R.id.action_historyFragment_to_historyDetailFragment)
             }
 
         }

@@ -17,7 +17,6 @@
     <string name="creatinghabitpage_themecolortext">습관의 테마 색을 골라주세요!</string>
     <string name="creatinghabitpage_creating">생성하기</string>
 
-    <!-- details_habit_page.xml -->
     <string name="detailshabitpage_text">하루에 한 번만 체크할 수 있어요!</string>
 
     <!-- fragment_complete_dialog.xml -->
@@ -40,11 +39,11 @@
     <!-- list_donehabit_page.xml -->
     <string name="listdonehabitpage_text">나의 완료 습관</string>
 
-    <!-- setup_page.xml -->
     <string name="setuppage_title">설정</string>
     <string name="setuppage_alarm">푸시 알림 ON / OFF</string>
     <string name="setuppage_open">오픈소스 라이선스</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

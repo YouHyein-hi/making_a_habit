@@ -1,21 +1,16 @@
 package com.making.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
 import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.DetailDoneHabitActivity
-import com.making.making_a_habit.view.dialog.deleteDialogFragment
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
-    private lateinit var onMainItemClick : (Habit) -> Unit
+    lateinit var onMainItemClick : (Habit) -> Unit
     private var habit: ArrayList<Habit> = arrayListOf()
 
     var habitList = mutableListOf<Habit>()
@@ -69,27 +64,8 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
                 "gray" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#AAAAAA"))
             }
 
-
             itemView.setOnClickListener {
                 onMainItemClick(habit)
-
-                val intent = Intent(context, DetailDoneHabitActivity::class.java)
-                intent.putExtra("data", habit.habitId)
-                intent.run { context.startActivity(this) }
-
-                val fragmentDeleteDialog = deleteDialogFragment()
-                val bundle = Bundle()
-                if (habit.habitId != null) {
-                    bundle.putInt("deleteHabitId", habit.habitId)
-                }
-                fragmentDeleteDialog.arguments = bundle
-
-                (context as Activity).finish()
-            }
-
-            itemView.setOnLongClickListener {
-                onMainItemClick(habit)
-                true
             }
         }
     }
