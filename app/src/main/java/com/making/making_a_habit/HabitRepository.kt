@@ -8,18 +8,15 @@ import com.making.making_a_habit.model.HabitDB
 class HabitRepository (application: Application){
 
     private val habitDatabase = HabitDB.getInstance(application)!!
-    private val habitDao: HabitDAO = habitDatabase.habitDao()
+    private val habitDao: HabitDAO = habitDatabase.habitDatabase()
 
-    suspend fun getAll(): List<Habit> {
+    suspend fun getAll(): MutableList<Habit> {
         return habitDao.getAll()
     }
 
     fun insert(habit: Habit) {
         try {
-            val thread = Thread {
-                habitDao.insert(habit)
-            }
-            thread.start()
+            habitDao.insert(habit)
         } catch (e: Exception) { }
     }
 
@@ -32,12 +29,19 @@ class HabitRepository (application: Application){
         } catch (e: Exception) { }
     }
 
+    fun deleteData(id: Int) : Int{
+        return habitDao.deleteData(id = id)
+    }
+
     fun update(habit: Habit) {
         try {
+            /*
             val thread = Thread {
                 habitDao.update(habit)
             }
             thread.start()
+             */
+            habitDao.update(habit)
         } catch (e: Exception) { }
     }
 

@@ -10,14 +10,16 @@ import com.making.making_a_habit.R
 import com.making.making_a_habit.databinding.ItemRoundfullBinding
 import com.making.making_a_habit.model.DetailItem
 import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.DetailHabitActivity
+import com.making.making_a_habit.view.fragment.DetailFragment
 import java.time.LocalDate
 
-class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
-    : RecyclerView.Adapter<DetailHabitAdapter.ViewHolder>() {
+class DetailAdapter(var fragment: DetailFragment.getAdapterData)
+    : RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
 
 
     private lateinit var onMainItemClick : (Habit) -> Unit
+    private lateinit var binding : ItemRoundfullBinding
+    private val todayDate: LocalDate = LocalDate.now()
     private val list = arrayListOf<Int>()
     private var periodNum = 0
     private var color = ""
@@ -27,28 +29,9 @@ class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
     private var roundfull = 0
     private var lastround = 0
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailHabitAdapter.ViewHolder {
-        val binding = ItemRoundfullBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return ViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(viewHolder: DetailHabitAdapter.ViewHolder, position: Int) {
-
-        viewHolder.bind(list[position], color, period, dateIng, dateEnd, roundfull, lastround)
-    }
-
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
     inner class ViewHolder(private val binding: ItemRoundfullBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        private val context = binding.root.context
-
         @SuppressLint("ResourceAsColor")
-        fun bind(count_bind: Int, color_bind : String, period_bind: String, dateIng_bind: String, dateEnd_bind: String, roundfull_bind: Int, lastround_bind: Int) {
-            val habitDateToday: LocalDate = LocalDate.now()
+        fun bind(count_bind: Int) {
 
             /***** roundbutton 기본 설정 *****/
             when(color){
@@ -75,7 +58,7 @@ class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
 
             /** DateIng < habitDateToday일 경우 lastRound+1 Button 활성화 **/
             val dateIngInt = dateIng.replace("-", "").toInt()
-            val dateTodayInt = habitDateToday.toString().replace("-", "").toInt()
+            val dateTodayInt = todayDate.toString().replace("-", "").toInt()
             if(lastround != 0){
                 if (dateIngInt < dateTodayInt){
                     if(position == (lastround)){
@@ -110,9 +93,10 @@ class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
                 binding.habitroundfull.isClickable = false
                 roundfull += 1
                 lastround += 1
-                dateIng = habitDateToday.toString()
+                dateIng = todayDate.toString()
                 println("roundfull : " + roundfull + ", lastround : " + lastround + ", dateIng : " + dateIng)
-                activity.getData(dateIng, roundfull, lastround)
+                Log.e("DetailAdapter", "bind: roundfull-${roundfull}, lastround-${lastround}, dateIng-${dateIng}", )
+                fragment.updateData(dateIng, roundfull, lastround)
                 when(color){
                     "red" -> binding.habitroundfull.setTextColor(Color.parseColor("#d99494"))
                     "yellow" -> binding.habitroundfull.setTextColor(Color.parseColor("#d9c594"))
@@ -121,6 +105,7 @@ class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
                     "gray" -> binding.habitroundfull.setTextColor(Color.parseColor("#919191"))
                 }
 
+                /*
                 /*** 완료 이벤트 ***/
                 if(period == "횟수"){
                     if(lastround == periodNum) {
@@ -141,8 +126,10 @@ class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
                     }
                     else Log.e("둘이", " 같지 않음!")
                 }
+                */
             }
 
+            /*
             /*** 완료 이벤트 ***/
             /** 기간일 경우  habitDateEnd을 넘겼을 경우 완료 이벤트 **/
             if(period == "기간"){
@@ -152,10 +139,24 @@ class DetailHabitAdapter(var activity: DetailHabitActivity.getAdapterData)
                     activity.getData(dateIng, roundfull, lastround)
                     activity.completeDialog()
                 }
-            }
-
+            }*/
+            // 위 완료 이벤트는 DetailFragment로 옮겨서 없애도 될 듯!
 
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailAdapter.ViewHolder {
+        binding = ItemRoundfullBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(viewHolder: DetailAdapter.ViewHolder, position: Int) {
+        viewHolder.bind(list[position])
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
     }
 
     /***** 추가하는 부분 *****/

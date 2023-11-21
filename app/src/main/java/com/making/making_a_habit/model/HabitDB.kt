@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Habit::class], version = 4)
 abstract class HabitDB : RoomDatabase() {
-    abstract fun habitDao(): HabitDAO
+    abstract fun habitDatabase(): HabitDAO
 
     companion object {
         private var INSTANCE: HabitDB? = null

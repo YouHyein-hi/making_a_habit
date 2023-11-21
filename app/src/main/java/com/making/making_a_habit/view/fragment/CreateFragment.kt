@@ -6,16 +6,18 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCreateBinding
 import com.making.making_a_habit.model.Habit
+import com.making.making_a_habit.viewmodel.fragmentViewModel.CreateViewModel
 import java.time.LocalDate
 
 class CreateFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding::inflate, "CreateFragment") {
 
-    // val creatinghabitViewModel: CreatinghabitViewModel by viewModels()
+    private val viewModel: CreateViewModel by viewModels()
     private lateinit var callback: OnBackPressedCallback
     private var id: Int? = null
     private var habitPeriod: String? = null
@@ -197,10 +199,11 @@ class CreateFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding
                     (themeRed.isSelected || themeYellow.isSelected || themeGreen.isSelected || themeBlue.isSelected || themeGray.isSelected)
                 ){
                     val habit = Habit(id, habitName, habitPeriod.toString(), hebitPeriodNum,habitColor.toString(), habitDateStart.toString(), habitDateStart.toString(), habitDateEnd, 0, 0, false, "임시")
-                    println("Habit : " + habit)
+                    Log.e(name, "initListener: 모두 선택함", )
+                    Log.e(name, "initListener: ${habit}", )
 
-                    //creatinghabitViewModel.insert(habit)
-                    println("다 선택함")
+                    viewModel.insertData(habit)
+
 
                     findNavController().navigate(R.id.action_createHabitFragment_to_mainFragment)
                 }

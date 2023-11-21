@@ -1,34 +1,29 @@
 package com.making.making_a_habit.view.fragment
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.size
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
-import com.making.making_a_habit.databinding.FragmentMainBinding
-import com.making.making_a_habit.view.CreatinghabitActivity
+import com.making.making_a_habit.databinding.FragmentHomeBinding
+import com.making.making_a_habit.model.DetailData
+import com.making.making_a_habit.model.Habit
 import com.making.making_a_habit.view.adapter.MainRecyclerViewAdapter
-import com.making.making_a_habit.viewmodel.fragmentViewModel.MainViewModel
+import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
+import com.making.making_a_habit.viewmodel.fragmentViewModel.HomeViewModel
+// TODO Detail에서 체크시 Room데이터 Update는 되지만, 앱에서는 안되고 안보임. 이거 해결하기
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate, "MainFragment") {
 
-class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate, "MainFragment") {
-
-    private val viewModel : MainViewModel by viewModels()
+    private val mainViewModel : MainViewModel by activityViewModels()
+    private val viewModel : HomeViewModel by viewModels()
     private val adapter : MainRecyclerViewAdapter by lazy{ MainRecyclerViewAdapter() }
+    private lateinit var data : Habit
 
     override fun initData() {
+        viewModel.getAllData()
         /* 앱 최초 실행 확인
         val sharedPreference =  getSharedPreferences("isFirst",Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
@@ -53,7 +48,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         with(binding){
 
             creatingPageBtn.setOnClickListener {
-                // TODO ViewModel 연결하면 이 코드 지우기
                 if(mainRecyclerView.size == 3){
                     showShortToast("진행 습관은 3개만 가능합니다!")
                     Log.e(name, "initListener: 진행 습관은 3개만 가능합니다!", )
@@ -73,10 +67,34 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                 findNavController().navigate(R.id.action_mainFragment_to_historyFragment)
             }
 
+            adapter.onMainItemClick={
+                mainViewModel.changeSelectedData(
+                    DetailData(
+                        id = it.habitId,
+                        name = it.habitName,
+                        period = it.habitPeriod,
+                        periodNum = it.habitPeriodNum,
+                        color = it.habitColor,
+                        dateStart = it.habitDateStart,
+                        dateIng = it.habitDateIng,
+                        dateEnd = it.habitDateEnd,
+                        roundFull = it.habitRoundFull,
+                        lastRoundFull = it.habitLastRoundFull,
+                        complete = it.habitComplete,
+                        comment = it.habitComment
+                    )
+                )
+                findNavController().navigate(R.id.action_mainFragment_to_detailFragment)
+            }
+
         }
     }
 
     override fun initObserver() {
+        viewModel.habitData.observe(viewLifecycleOwner){
+            adapter.habitList = it.toMutableList()
+            adapter.sethabit(it)
+        }
     }
 
     private fun initMainRecycler(){

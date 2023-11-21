@@ -1,24 +1,10 @@
 package com.making.making_a_habit.view
 
-import android.annotation.SuppressLint
-import android.app.AlarmManager
 import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.size
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.making.making_a_habit.databinding.ActivityMainBinding
-import com.making.making_a_habit.view.adapter.MainRecyclerViewAdapter
-import com.making.making_a_habit.viewmodel.MainViewModel
-import com.making.making_a_habit.AlarmBroadCastReceiver
-import java.time.LocalDate
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 

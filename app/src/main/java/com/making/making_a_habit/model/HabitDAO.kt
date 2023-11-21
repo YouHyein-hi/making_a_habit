@@ -6,13 +6,16 @@ import androidx.room.*
 interface HabitDAO {
 
     @Query("SELECT * FROM habit")
-    suspend fun getAll(): List<Habit>
+    suspend fun getAll(): MutableList<Habit>
 
     @Insert
-    fun insert(vararg habit: Habit)
+    fun insert(habit: Habit)
 
     @Delete
     fun delete(habit: Habit)
+
+    @Query("Delete from habit where habitId = :id")
+    fun deleteData(id : Int): Int
 
     @Update
     fun update(habit: Habit)

@@ -13,10 +13,16 @@ import com.making.making_a_habit.model.Habit
 import com.making.making_a_habit.view.DetailDoneHabitActivity
 import com.making.making_a_habit.view.dialog.deleteDialogFragment
 
-class ListDoneHabitAdapter : RecyclerView.Adapter<ListDoneHabitAdapter.ViewHolder>() {
+class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     private lateinit var onMainItemClick : (Habit) -> Unit
     private var habit: ArrayList<Habit> = arrayListOf()
+
+    var habitList = mutableListOf<Habit>()
+        set(value) {
+            field = value.reversed().toMutableList()
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         val binding = ItemHabitlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)

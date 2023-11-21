@@ -1,41 +1,26 @@
 package com.making.making_a_habit.view.adapter
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
 import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.DetailHabitActivity
-import com.making.making_a_habit.view.dialog.deleteDialogFragment
 
 class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
-    private lateinit var onMainItemClick : (Habit) -> Unit
+    lateinit var onMainItemClick : (Habit) -> Unit
+    private lateinit var binding : ItemHabitlistBinding
     private var habit: ArrayList<Habit> = arrayListOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val binding = ItemHabitlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return ViewHolder(binding)
-    }
-
-    override fun getItemCount(): Int {
-        return habit.size
-    }
-
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(habit[position])
-    }
+    var habitList = mutableListOf<Habit>()
+        set(value) {
+            field = value.reversed().toMutableList()
+            notifyDataSetChanged()
+        }
 
     inner class ViewHolder(private val binding: ItemHabitlistBinding): RecyclerView.ViewHolder(binding.root) {
-
-        private val context = binding.root.context
-
         @SuppressLint("ResourceAsColor")
         fun bind(habit: Habit) {
             binding.habitNameTextItemmain.text = habit.habitName
@@ -63,29 +48,36 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
                 "gray" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#AAAAAA"))
             }
 
+
             itemView.setOnClickListener {
                 onMainItemClick(habit)
-
-                val intent = Intent(context, DetailHabitActivity::class.java)
-                intent.putExtra("data", habit.habitId)
-                intent.run { context.startActivity(this) }
-
-                val fragmentDeleteDialog = deleteDialogFragment()
-                val bundle = Bundle()
-                if (habit.habitId != null) {
-                    bundle.putInt("deleteHabitId", habit.habitId)
-                }
-                fragmentDeleteDialog.arguments = bundle
-
-                (context as Activity).finish()
             }
 
+            /*
             itemView.setOnLongClickListener {
                 onMainItemClick(habit)
                 true
             }
+             */
         }
     }
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
+        binding = ItemHabitlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        viewHolder.bind(habit[position])
+    }
+
+    override fun getItemCount(): Int {
+        return habit.size
+    }
+
+
 
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
@@ -98,4 +90,6 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
         }
         notifyDataSetChanged()
     }
+
+
 }
