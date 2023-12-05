@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "making_a_habit"
 include ':app'
+include ':data'
+include ':domain'
