@@ -11,6 +11,7 @@ import com.making.making_a_habit.databinding.FragmentDetailBinding
 import com.example.domain.model.DetailData
 import com.example.domain.model.DetailItem
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
 import com.making.making_a_habit.ui.adapter.DetailAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.DetailViewModel
@@ -120,19 +121,19 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     inner class getAdapterData{
         fun updateData(dateIng: String, roundfull: Int, lastround: Int){
             viewModel.updateData(
-                HabitEntity(
-                    habitId = habitData.id,
-                    habitName = habitData.name,
-                    habitPeriod = habitData.period,
-                    habitPeriodNum = habitData.periodNum,
-                    habitColor = habitData.color,
-                    habitDateStart = habitData.dateStart,
-                    habitDateIng = dateIng,
-                    habitDateEnd = habitData.dateEnd,
-                    habitRoundFull = roundfull,
-                    habitLastRoundFull = lastround,
-                    habitComplete = habitData.complete,
-                    habitComment = habitData.comment
+                HabitData(
+                    id = habitData.id,
+                    name = habitData.name,
+                    period = habitData.period,
+                    periodNum = habitData.periodNum,
+                    color = habitData.color,
+                    dateStart = habitData.dateStart,
+                    dateIng = dateIng,
+                    dateEnd = habitData.dateEnd,
+                    roundFull = roundfull,
+                    lastRoundFull = lastround,
+                    complete = habitData.complete,
+                    comment = habitData.comment
                 )
             )
         }

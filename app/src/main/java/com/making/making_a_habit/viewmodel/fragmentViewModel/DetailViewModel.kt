@@ -2,19 +2,20 @@ package com.making.making_a_habit.viewmodel.fragmentViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.making.making_a_habit.repository.HabitRepository
+import androidx.lifecycle.ViewModel
+import com.example.data.HabitDB
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
+import com.example.domain.repository.HabitRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DetailViewModel(application: Application) : AndroidViewModel(application) {
+class DetailViewModel(private val repository : HabitRepository) : ViewModel(){
 
-    private val repository = HabitRepository(application)
-
-    fun updateData(habit: HabitEntity){
+    fun updateData(data: HabitData){
         CoroutineScope(Dispatchers.IO).launch {
-            repository.update(habit)
+            repository.update(data)
         }
     }
 

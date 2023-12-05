@@ -9,7 +9,7 @@ import com.example.data.entity.HabitEntity
 
 @Database(entities = [HabitEntity::class], version = 4)
 abstract class HabitDB : RoomDatabase() {
-    abstract fun habitDatabase(): HabitDAO
+    abstract fun habitDao(): HabitDAO
 
     companion object {
         private var INSTANCE: HabitDB? = null
@@ -18,7 +18,7 @@ abstract class HabitDB : RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(HabitDB::class) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        HabitDB::class.java, "contact")
+                        HabitDB::class.java, "habit_database")
                         .fallbackToDestructiveMigration()
                         .build()
                 }

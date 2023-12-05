@@ -36,24 +36,25 @@ class CompleteDialogFragment : DialogFragment() {
         CoroutineScope(Dispatchers.IO).launch{
             val NumberDateEnd: LocalDate = LocalDate.now()
 
-            habit = completeDialogViewModel.getHabitId(arguments?.getInt("completeId")!!)
-            getActivity()?.runOnUiThread(){
+            //habit = completeDialogViewModel.getHabitId(arguments?.getInt("completeId")!!)
+            /*getActivity()?.runOnUiThread(){
                 completeText = habit.habitPeriodNum.toString() + "칸 중 " + habit.habitRoundFull + "칸을 완료하셨어요!"
 
                 binding.textDialog.text = completeText
-            }
+            }*/
 
             binding.completeBtnDialog.setOnClickListener{
                 /** DetailHabitActivity에 habitId 받은 후 update 하기 **/
                 val habitId = arguments?.getInt("completeId")
                 CoroutineScope(Dispatchers.IO).launch{
+                    /*
                     if(habit.habitPeriod == "횟수"){
                         completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                     }
                     else {
                         completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                     }
-
+                     */
                 }
 
 
@@ -72,12 +73,14 @@ class CompleteDialogFragment : DialogFragment() {
                 val habitId = arguments?.getInt("completeId")
                 val completecommend = "이 습관은 커멘트가 작성되지 않았습니다."
                 CoroutineScope(Dispatchers.IO).launch{
+                    /*
                     if(habit.habitPeriod == "횟수"){
-                        completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                        //completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
                     else {
-                        completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                        //completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
+                     */
                 }
 
                 activity?.let{

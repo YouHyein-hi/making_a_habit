@@ -2,22 +2,27 @@ package com.making.making_a_habit.viewmodel.dialogViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.making.making_a_habit.repository.HabitRepository
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
+import com.example.domain.repository.HabitRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DeletedialogViewModel (application: Application) : AndroidViewModel(application){
+class DeletedialogViewModel(private val repository : HabitRepository) : ViewModel(){
 
-    private val repository = HabitRepository(application)
-
-    suspend fun getHabitId(habitId: Int): HabitEntity {
+   /* suspend fun getHabitId(habitId: Int): HabitEntity {
         return withContext(viewModelScope.coroutineContext) {
             repository.getHabitId(habitId)
         }
-    }
+    }*/
 
-    fun delete(habit: HabitEntity) {
-        repository.delete(habit)
+    fun delete(habit: HabitData) {
+        CoroutineScope(Dispatchers.IO).launch {
+            repository.delete(habit)
+        }
     }
 }

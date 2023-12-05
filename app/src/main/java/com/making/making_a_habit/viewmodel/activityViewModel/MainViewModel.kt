@@ -4,9 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.domain.model.DetailData
+import com.example.domain.repository.HabitRepository
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel : ViewModel(){
 
     private val _selectedData = MutableLiveData<DetailData?>()
     val selectedData : LiveData<DetailData?>

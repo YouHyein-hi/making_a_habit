@@ -59,20 +59,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //activity, fragment viewModels, activityViewModels을 메인엑티비티에서 쓸수있게해줌
-    implementation "androidx.activity:activity-ktx:1.8.0"
+    implementation "androidx.activity:activity-ktx:1.8.1"
     implementation "androidx.fragment:fragment-ktx:1.6.2"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
 
     // Fragment navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.7.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.7.5"
-
-    // Room
-    implementation "androidx.room:room-runtime:2.6.0"
-    annotationProcessor "androidx.room:room-compiler:2.6.0"
-    implementation "androidx.room:room-ktx:2.6.0"
-    kapt "androidx.room:room-compiler:2.6.0"
 
     //구글오픈라이선스
     implementation "com.google.android.gms:play-services-oss-licenses:17.0.1"

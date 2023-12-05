@@ -13,6 +13,7 @@ import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCreateBinding
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CreateViewModel
 import java.time.LocalDate
 
@@ -113,19 +114,19 @@ class CreateFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding
 
                 if (isHabitNameNotEmpty && isPeriodSelected && isPeriodNumSelected && isThemeSelected) {
                     viewModel.insertData(
-                        HabitEntity(
-                            habitId =  id,
-                            habitName = habitName,
-                            habitPeriod = habitPeriod.toString(),
-                            habitPeriodNum = hebitPeriodNum,
-                            habitColor = habitColor.toString(),
-                            habitDateStart = habitDateStart.toString(),
-                            habitDateIng = habitDateStart.toString(),
-                            habitDateEnd = habitDateEnd,
-                            habitRoundFull = 0,
-                            habitLastRoundFull = 0,
-                            habitComplete = false,
-                            habitComment = "임시"
+                        HabitData(
+                            id =  id,
+                            name = habitName,
+                            period = habitPeriod.toString(),
+                            periodNum = hebitPeriodNum,
+                            color = habitColor.toString(),
+                            dateStart = habitDateStart.toString(),
+                            dateIng = habitDateStart.toString(),
+                            dateEnd = habitDateEnd,
+                            roundFull = 0,
+                            lastRoundFull = 0,
+                            complete = false,
+                            comment = "임시"
                         )
                     )
 

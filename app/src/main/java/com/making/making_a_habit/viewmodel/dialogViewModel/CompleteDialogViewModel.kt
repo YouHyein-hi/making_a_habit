@@ -1,23 +1,21 @@
 package com.making.making_a_habit.viewmodel.dialogViewModel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.making.making_a_habit.repository.HabitRepository
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
+import com.example.domain.repository.HabitRepository
 import kotlinx.coroutines.withContext
 
-class CompleteDialogViewModel (application: Application) : AndroidViewModel(application){
+class CompleteDialogViewModel(private val repository : HabitRepository) : ViewModel(){
 
-    private val repository = HabitRepository(application)
-
-    suspend fun getHabitId(habitId: Int): HabitEntity {
+    /*suspend fun getHabitId(habitId: Int): HabitEntity {
         return withContext(viewModelScope.coroutineContext) {
             repository.getHabitId(habitId)
         }
-    }
+    }*/
 
-    suspend fun update(habit: HabitEntity) {
+    suspend fun update(habit: HabitData) {
         return withContext(viewModelScope.coroutineContext) {
             repository.update(habit)
         }

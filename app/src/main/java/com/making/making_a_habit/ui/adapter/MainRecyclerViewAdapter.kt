@@ -7,14 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
 
 class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
-    lateinit var onMainItemClick : (HabitEntity) -> Unit
+    lateinit var onMainItemClick : (HabitData) -> Unit
     private lateinit var binding : ItemHabitlistBinding
-    private var habit: ArrayList<HabitEntity> = arrayListOf()
+    private var habit: ArrayList<HabitData> = arrayListOf()
 
-    var habitList = mutableListOf<HabitEntity>()
+    var habitList = mutableListOf<HabitData>()
         set(value) {
             field = value.reversed().toMutableList()
             notifyDataSetChanged()
@@ -22,25 +23,25 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
 
     inner class ViewHolder(private val binding: ItemHabitlistBinding): RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("ResourceAsColor")
-        fun bind(habit: HabitEntity) {
-            binding.habitNameTextItemmain.text = habit.habitName
-            binding.habitDateStartTextItemmain.text = habit.habitDateStart
-            binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
+        fun bind(habit: HabitData) {
+            binding.habitNameTextItemmain.text = habit.name
+            binding.habitDateStartTextItemmain.text = habit.dateStart
+            binding.habitRoundFullTextItemmain.text = habit.roundFull.toString()
 
             /***** progressBar 관련 코드 *****/
-            if(habit.habitPeriodNum == 3){
+            if(habit.periodNum == 3){
                 binding.habitRoundFullProgressbarItemmain.max = 3
-                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+                binding.habitRoundFullProgressbarItemmain.progress = habit.roundFull
             }
-            else if(habit.habitPeriodNum == 15){
+            else if(habit.periodNum == 15){
                 binding.habitRoundFullProgressbarItemmain.max = 15
-                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+                binding.habitRoundFullProgressbarItemmain.progress = habit.roundFull
             }
-            else if(habit.habitPeriodNum == 30){
+            else if(habit.periodNum == 30){
                 binding.habitRoundFullProgressbarItemmain.max = 30
-                binding.habitRoundFullProgressbarItemmain.progress = habit.habitRoundFull
+                binding.habitRoundFullProgressbarItemmain.progress = habit.roundFull
             }
-            when(habit.habitColor){
+            when(habit.color){
                 "red" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#FFAEAE"))
                 "yellow" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#FFE8AE"))
                 "green" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#B1E6E6"))
@@ -81,10 +82,10 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
 
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
-    fun sethabit(contacts: List<HabitEntity>) {
+    fun sethabit(contacts: List<HabitData>) {
         habit.clear()
         contacts.forEach { item->
-            if(!item.habitComplete){
+            if(!item.complete){
                 habit.add(item)
             }
         }

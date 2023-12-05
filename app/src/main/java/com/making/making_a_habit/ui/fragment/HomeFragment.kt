@@ -11,9 +11,11 @@ import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHomeBinding
 import com.example.domain.model.DetailData
 import com.example.data.entity.HabitEntity
+import com.example.data.repolmpl.HabitRepositoryImpl
 import com.making.making_a_habit.ui.adapter.MainRecyclerViewAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HomeViewModel
+
 // TODO Detail에서 체크시 Room데이터 Update는 되지만, 앱에서는 안되고 안보임. 이거 해결하기
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate, "MainFragment") {
 
@@ -70,18 +72,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             adapter.onMainItemClick={
                 mainViewModel.changeSelectedData(
                     DetailData(
-                        id = it.habitId,
-                        name = it.habitName,
-                        period = it.habitPeriod,
-                        periodNum = it.habitPeriodNum,
-                        color = it.habitColor,
-                        dateStart = it.habitDateStart,
-                        dateIng = it.habitDateIng,
-                        dateEnd = it.habitDateEnd,
-                        roundFull = it.habitRoundFull,
-                        lastRoundFull = it.habitLastRoundFull,
-                        complete = it.habitComplete,
-                        comment = it.habitComment
+                        id = it.id,
+                        name = it.name,
+                        period = it.period,
+                        periodNum = it.periodNum,
+                        color = it.color,
+                        dateStart = it.dateStart,
+                        dateIng = it.dateIng,
+                        dateEnd = it.dateEnd,
+                        roundFull = it.roundFull,
+                        lastRoundFull = it.roundFull,
+                        complete = it.complete,
+                        comment = it.comment
                     )
                 )
                 findNavController().navigate(R.id.action_mainFragment_to_detailFragment)

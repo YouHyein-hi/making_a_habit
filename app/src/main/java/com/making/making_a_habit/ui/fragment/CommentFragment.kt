@@ -10,6 +10,7 @@ import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCommentBinding
 import com.example.domain.model.DetailData
 import com.example.data.entity.HabitEntity
+import com.example.domain.model.HabitData
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CommentViewModel
 
@@ -70,37 +71,37 @@ class CommentFragment : BaseFragment<FragmentCommentBinding>(FragmentCommentBind
                 val commentNo = "이 습관은 커멘트가 작성되지 않았습니다."
                 if(comment == ""){
                     viewModel.updateData(
-                        HabitEntity(
-                            habitId = habitData.id,
-                            habitName = habitData.name,
-                            habitPeriod = habitData.period,
-                            habitPeriodNum = habitData.periodNum,
-                            habitColor = habitData.color,
-                            habitDateStart = habitData.dateStart,
-                            habitDateIng = habitData.dateIng,
-                            habitDateEnd = habitData.dateEnd,
-                            habitRoundFull = habitData.roundFull,
-                            habitLastRoundFull = habitData.lastRoundFull,
-                            habitComplete = habitData.complete,
-                            habitComment = commentNo
+                        HabitData(
+                            id = habitData.id,
+                            name = habitData.name,
+                            period = habitData.period,
+                            periodNum = habitData.periodNum,
+                            color = habitData.color,
+                            dateStart = habitData.dateStart,
+                            dateIng = habitData.dateIng,
+                            dateEnd = habitData.dateEnd,
+                            roundFull = habitData.roundFull,
+                            lastRoundFull = habitData.lastRoundFull,
+                            complete = habitData.complete,
+                            comment = commentNo
                         )
                     )
                 }
                 else{
                     viewModel.updateData(
-                        HabitEntity(
-                            habitId = habitData.id,
-                            habitName = habitData.name,
-                            habitPeriod = habitData.period,
-                            habitPeriodNum = habitData.periodNum,
-                            habitColor = habitData.color,
-                            habitDateStart = habitData.dateStart,
-                            habitDateIng = habitData.dateIng,
-                            habitDateEnd = habitData.dateEnd,
-                            habitRoundFull = habitData.roundFull,
-                            habitLastRoundFull = habitData.lastRoundFull,
-                            habitComplete = habitData.complete,
-                            habitComment = comment
+                        HabitData(
+                            id = habitData.id,
+                            name = habitData.name,
+                            period = habitData.period,
+                            periodNum = habitData.periodNum,
+                            color = habitData.color,
+                            dateStart = habitData.dateStart,
+                            dateIng = habitData.dateIng,
+                            dateEnd = habitData.dateEnd,
+                            roundFull = habitData.roundFull,
+                            lastRoundFull = habitData.lastRoundFull,
+                            complete = habitData.complete,
+                            comment = comment
                         )
                     )
                 }
