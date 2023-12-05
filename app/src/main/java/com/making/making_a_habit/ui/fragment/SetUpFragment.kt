@@ -1,21 +1,12 @@
-package com.making.making_a_habit.view.fragment
+package com.making.making_a_habit.ui.fragment
 
-import android.app.AlarmManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentSetUpBinding
-import com.making.making_a_habit.view.MainActivity
 
 
 class SetUpFragment : BaseFragment<FragmentSetUpBinding>(FragmentSetUpBinding::inflate, "SetUpFragment") {

@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view.fragment
+package com.making.making_a_habit.ui.fragment
 
 import android.util.Log
 import androidx.core.view.size
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHomeBinding
-import com.making.making_a_habit.model.DetailData
-import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.adapter.MainRecyclerViewAdapter
+import com.making.making_a_habit.dataClass.DetailData
+import com.making.making_a_habit.room.Habit
+import com.making.making_a_habit.ui.adapter.MainRecyclerViewAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HomeViewModel
 // TODO Detail에서 체크시 Room데이터 Update는 되지만, 앱에서는 안되고 안보임. 이거 해결하기

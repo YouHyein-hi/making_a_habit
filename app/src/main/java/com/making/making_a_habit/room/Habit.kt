@@ -1,4 +1,4 @@
-package com.making.making_a_habit.model
+package com.making.making_a_habit.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

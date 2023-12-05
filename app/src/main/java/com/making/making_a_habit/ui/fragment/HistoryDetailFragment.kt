@@ -1,28 +1,16 @@
-package com.making.making_a_habit.view.fragment
+package com.making.making_a_habit.ui.fragment
 
-import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.Rect
-import android.os.Handler
-import android.os.Looper
 import android.util.TypedValue
-import android.view.PixelCopy
-import android.view.View
-import androidx.core.content.FileProvider
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHistoryDetailBinding
-import com.making.making_a_habit.model.DetailData
-import com.making.making_a_habit.view.adapter.DetailAdapter
+import com.making.making_a_habit.dataClass.DetailData
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryDetailViewModel
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
 
 class HistoryDetailFragment : BaseFragment<FragmentHistoryDetailBinding>(FragmentHistoryDetailBinding::inflate, "HistoryDetailFragment") {
 

@@ -5,9 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 
-/**
- * Created by Jaehyeon on 2022/09/03.
- */
 class AlarmBroadCastReceiver: BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {

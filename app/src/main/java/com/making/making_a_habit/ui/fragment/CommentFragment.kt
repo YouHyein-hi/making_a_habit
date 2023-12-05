@@ -1,23 +1,17 @@
-package com.making.making_a_habit.view.fragment
+package com.making.making_a_habit.ui.fragment
 
 import android.graphics.Color
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCommentBinding
-import com.making.making_a_habit.model.DetailData
-import com.making.making_a_habit.model.Habit
+import com.making.making_a_habit.dataClass.DetailData
+import com.making.making_a_habit.room.Habit
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CommentViewModel
-import com.making.making_a_habit.viewmodel.fragmentViewModel.CreateViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 class CommentFragment : BaseFragment<FragmentCommentBinding>(FragmentCommentBinding::inflate, "CommentFragment") {

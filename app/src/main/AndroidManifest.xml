@@ -17,7 +17,7 @@
 
 
         <activity
-            android:name="com.making.making_a_habit.view.SplashActivity"
+            android:name="com.making.making_a_habit.ui.SplashActivity"
             android:theme="@style/splash"
             android:exported="true">
             <intent-filter>
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.making.making_a_habit.view.MainActivity"
+            android:name="com.making.making_a_habit.ui.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <!--

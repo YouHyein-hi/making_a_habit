@@ -1,10 +1,10 @@
-package com.making.making_a_habit.viewmodel
+package com.making.making_a_habit.viewmodel.dialogViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.making.making_a_habit.HabitRepository
-import com.making.making_a_habit.model.Habit
+import com.making.making_a_habit.repository.HabitRepository
+import com.making.making_a_habit.room.Habit
 import kotlinx.coroutines.withContext
 
 class CompleteDialogViewModel (application: Application) : AndroidViewModel(application){

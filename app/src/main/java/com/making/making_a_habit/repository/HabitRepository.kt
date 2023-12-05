@@ -1,9 +1,9 @@
-package com.making.making_a_habit
+package com.making.making_a_habit.repository
 
 import android.app.Application
-import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.model.HabitDAO
-import com.making.making_a_habit.model.HabitDB
+import com.making.making_a_habit.room.Habit
+import com.making.making_a_habit.room.HabitDAO
+import com.making.making_a_habit.room.HabitDB
 
 class HabitRepository (application: Application){
 
@@ -45,7 +45,7 @@ class HabitRepository (application: Application){
         } catch (e: Exception) { }
     }
 
-    suspend fun getHabitId(habitId: Int): Habit{
+    suspend fun getHabitId(habitId: Int): Habit {
         return habitDao.getHabitId(habitId)
     }
 }

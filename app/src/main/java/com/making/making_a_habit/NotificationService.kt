@@ -5,11 +5,8 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
-import com.making.making_a_habit.view.MainActivity
+import com.making.making_a_habit.ui.MainActivity
 
-/**
- * Created by Jaehyeon on 2022/09/03.
- */
 class NotificationService(
     private val context: Context
 ) {
@@ -34,7 +31,7 @@ class NotificationService(
             .setAutoCancel(true)  // 클릭시 푸시 알림 사라짐
             .build()
 
-        manager.notify(1, notification)
+        //manager.notify(1, notification)
     }
 
 }

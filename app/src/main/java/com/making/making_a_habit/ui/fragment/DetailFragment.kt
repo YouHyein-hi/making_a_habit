@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view.fragment
+package com.making.making_a_habit.ui.fragment
 
 import android.graphics.Color
 import android.util.Log
@@ -8,10 +8,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentDetailBinding
-import com.making.making_a_habit.model.DetailData
-import com.making.making_a_habit.model.DetailItem
-import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.adapter.DetailAdapter
+import com.making.making_a_habit.dataClass.DetailData
+import com.making.making_a_habit.dataClass.DetailItem
+import com.making.making_a_habit.room.Habit
+import com.making.making_a_habit.ui.adapter.DetailAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.DetailViewModel
 import java.time.LocalDate
@@ -23,7 +23,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     private val adapter : DetailAdapter by lazy{ DetailAdapter(getAdapterData()) }
     private lateinit var habitData : DetailData
     private val todayDate: LocalDate = LocalDate.now()
-    private var dateEnd = ""
 
     override fun initData() {
         habitData = mainViewModel.selectedData.value!!
@@ -35,44 +34,36 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         with(binding){
             habitNameTextDetailshabitpage.text = habitData.name
             when(habitData.color){
-                "red" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
-                "yellow" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFE8AE"))
-                "green" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1E6E6"))
-                "blue" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
-                "gray" -> binding.habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AAAAAA"))
+                "red" -> habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFAEAE"))
+                "yellow" -> habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#FFE8AE"))
+                "green" -> habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#B1E6E6"))
+                "blue" -> habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AED8FF"))
+                "gray" -> habitNameTextDetailshabitpage.setTextColor(Color.parseColor("#AAAAAA"))
             }
             if(habitData.period == "기간"){
                 Log.e(name, "initUi: 기간이 넘어옴!", )
                 habitDateStart = habitData.dateStart + " ~ " + habitData.dateEnd
-                binding.habitDateTextDetailshabitpage.text = habitDateStart
+                habitDateTextDetailshabitpage.text = habitDateStart
             }
             else if(habitData.period == "횟수"){
                 Log.e(name, "initUi: 횟수가 넘어옴!", )
                 habitDateStart = habitData.dateStart + " ~"
-                binding.habitDateTextDetailshabitpage.text = habitDateStart
+                habitDateTextDetailshabitpage.text = habitDateStart
             }
 
-            if(habitData.periodNum == 3) {
-                /***** Adapter 연결 + gridLayout *****/
-                //detailHabitAdapter = DetailHabitAdapter(getAdapterData)
-                binding.detailshabitpageRecyclerView.adapter = adapter
-                binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
-                binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                adapter.sethabitPeriod(DetailItem(habitData.periodNum, habitData.color, habitData.period, habitData.dateIng, habitData.dateEnd, habitData.roundFull, habitData.lastRoundFull))
-            }
-            else if(habitData.periodNum == 15){
-                /***** Adapter 연결 + gridLayout *****/
-                binding.detailshabitpageRecyclerView.adapter = adapter
-                binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(requireContext(), 5)
-                binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                adapter.sethabitPeriod(DetailItem(habitData.periodNum, habitData.color, habitData.period, habitData.dateIng, habitData.dateEnd, habitData.roundFull, habitData.lastRoundFull))
-            }
-            else if(habitData.periodNum == 30){
-                /***** Adapter 연결 + gridLayout *****/
-                binding.detailshabitpageRecyclerView.adapter = adapter
-                binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(requireContext(), 5)
-                binding.detailshabitpageRecyclerView.setHasFixedSize(true)
-                adapter.sethabitPeriod(DetailItem(habitData.periodNum, habitData.color, habitData.period, habitData.dateIng, habitData.dateEnd, habitData.roundFull, habitData.lastRoundFull))
+            if (habitData.periodNum == 3 || habitData.periodNum == 15 || habitData.periodNum == 30) {
+                adapter.sethabitPeriod(
+                    DetailItem(
+                        habitData.periodNum,
+                        habitData.color,
+                        habitData.period,
+                        habitData.dateIng,
+                        habitData.dateEnd,
+                        habitData.roundFull,
+                        habitData.lastRoundFull
+                    )
+                )
+                setRecyclerView(habitData.periodNum)
             }
 
         }
@@ -88,7 +79,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
             }
 
             deleteBtnDetailshabitpage.setOnClickListener {
-                //삭제 dialog 띄우기
+                // TODO 삭제 dialog 띄우기
             }
 
         }
@@ -101,15 +92,15 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
             /** 완료 이벤트 관련 **/
             if(it?.period == "횟수"){
                 if(it.lastRoundFull == it.periodNum){
-                    // 완료 Dialog 띄우기
+                    // TODO 완료 Dialog 띄우기
                 }
             }
             else if(it?.period == "기간"){
                 if(it.dateEnd == todayDate.toString()) {
-                    // 완료 Dialog 띄우기
+                    // TODO 완료 Dialog 띄우기
                 }
                 else if(it.lastRoundFull == it.periodNum){
-                    // 완료 Dialog 띄우기
+                    // TODO 완료 Dialog 띄우기
                 }
                 /*
                 // TODO java.lang.NumberFormatException: For input string: "" 오류나는데 해결하기
@@ -145,6 +136,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
                 )
             )
         }
+    }
+
+    private fun setRecyclerView(periodNum: Int?) {
+        binding.detailshabitpageRecyclerView.adapter = adapter
+        binding.detailshabitpageRecyclerView.setHasFixedSize(true)
+        val spanCount = if (periodNum == 3) 3 else 5
+        binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
     }
 
     /*

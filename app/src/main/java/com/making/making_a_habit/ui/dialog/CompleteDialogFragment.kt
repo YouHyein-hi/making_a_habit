@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view.dialog
+package com.making.making_a_habit.ui.dialog
 
 import android.content.Intent
 import android.graphics.Color
@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.making.making_a_habit.databinding.CompleteDialogFragmentBinding
-import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.MainActivity
-import com.making.making_a_habit.viewmodel.CompleteDialogViewModel
+import com.making.making_a_habit.room.Habit
+import com.making.making_a_habit.ui.MainActivity
+import com.making.making_a_habit.viewmodel.dialogViewModel.CompleteDialogViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

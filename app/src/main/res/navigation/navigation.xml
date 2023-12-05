@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.making.making_a_habit.view.fragment.HomeFragment"
+        android:name="com.making.making_a_habit.ui.fragment.HomeFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_home" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/createHabitFragment"
-        android:name="com.making.making_a_habit.view.fragment.CreateFragment"
+        android:name="com.making.making_a_habit.ui.fragment.CreateFragment"
         android:label="fragment_create_habit"
         tools:layout="@layout/fragment_habit" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/setUpFragment"
-        android:name="com.making.making_a_habit.view.fragment.SetUpFragment"
+        android:name="com.making.making_a_habit.ui.fragment.SetUpFragment"
         android:label="fragment_set_up"
         tools:layout="@layout/fragment_set_up" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.making.making_a_habit.view.fragment.HistoryFragment"
+        android:name="com.making.making_a_habit.ui.fragment.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" >
         <action
@@ -52,12 +52,12 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.making.making_a_habit.view.fragment.DetailFragment"
+        android:name="com.making.making_a_habit.ui.fragment.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
     <fragment
         android:id="@+id/historyDetailFragment"
-        android:name="com.making.making_a_habit.view.fragment.HistoryDetailFragment"
+        android:name="com.making.making_a_habit.ui.fragment.HistoryDetailFragment"
         android:label="fragment_history_detail"
         tools:layout="@layout/fragment_history_detail" />
 </navigation>

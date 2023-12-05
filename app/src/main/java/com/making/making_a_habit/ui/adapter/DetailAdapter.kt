@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view.adapter
+package com.making.making_a_habit.ui.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.R
 import com.making.making_a_habit.databinding.ItemRoundfullBinding
-import com.making.making_a_habit.model.DetailItem
-import com.making.making_a_habit.model.Habit
-import com.making.making_a_habit.view.fragment.DetailFragment
+import com.making.making_a_habit.dataClass.DetailItem
+import com.making.making_a_habit.room.Habit
+import com.making.making_a_habit.ui.fragment.DetailFragment
 import java.time.LocalDate
 
 class DetailAdapter(var fragment: DetailFragment.getAdapterData)

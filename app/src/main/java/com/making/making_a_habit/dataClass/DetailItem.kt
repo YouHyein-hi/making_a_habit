@@ -1,4 +1,4 @@
-package com.making.making_a_habit.model
+package com.making.making_a_habit.dataClass
 
 data class DetailItem(
     val count: Int?,        // habitPeriodNum

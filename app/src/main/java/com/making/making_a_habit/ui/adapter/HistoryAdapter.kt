@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view.adapter
+package com.making.making_a_habit.ui.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
-import com.making.making_a_habit.model.Habit
+import com.making.making_a_habit.room.Habit
 
-class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
+class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     lateinit var onMainItemClick : (Habit) -> Unit
-    private lateinit var binding : ItemHabitlistBinding
     private var habit: ArrayList<Habit> = arrayListOf()
 
     var habitList = mutableListOf<Habit>()
@@ -20,11 +19,28 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
             notifyDataSetChanged()
         }
 
+    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
+        val binding = ItemHabitlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return ViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int {
+        return habit.size
+    }
+
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        viewHolder.bind(habit[position])
+    }
+
     inner class ViewHolder(private val binding: ItemHabitlistBinding): RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("ResourceAsColor")
+
+        private val context = binding.root.context
+
         fun bind(habit: Habit) {
             binding.habitNameTextItemmain.text = habit.habitName
-            binding.habitDateStartTextItemmain.text = habit.habitDateStart
+            val habitDate = habit.habitDateStart + " ~ " + habit.habitDateEnd
+            binding.habitDateStartTextItemmain.text = habitDate
             binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
 
             /***** progressBar 관련 코드 *****/
@@ -48,43 +64,18 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
                 "gray" -> binding.habitRoundFullProgressbarItemmain.setIndicatorColor(Color.parseColor("#AAAAAA"))
             }
 
-
             itemView.setOnClickListener {
                 onMainItemClick(habit)
             }
-
-            /*
-            itemView.setOnLongClickListener {
-                onMainItemClick(habit)
-                true
-            }
-             */
         }
     }
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        binding = ItemHabitlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return ViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(habit[position])
-    }
-
-    override fun getItemCount(): Int {
-        return habit.size
-    }
-
-
 
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
     fun sethabit(contacts: List<Habit>) {
         habit.clear()
         contacts.forEach { item->
-            if(!item.habitComplete){
+            if(item.habitComplete){
                 habit.add(item)
             }
         }

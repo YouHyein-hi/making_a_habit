@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view.fragment
+package com.making.making_a_habit.ui.fragment
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHistoryBinding
-import com.making.making_a_habit.model.DetailData
-import com.making.making_a_habit.view.adapter.HistoryAdapter
+import com.making.making_a_habit.dataClass.DetailData
+import com.making.making_a_habit.ui.adapter.HistoryAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryViewModel
 

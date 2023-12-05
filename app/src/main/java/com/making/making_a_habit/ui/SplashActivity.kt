@@ -1,4 +1,4 @@
-package com.making.making_a_habit.view
+package com.making.making_a_habit.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
