@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.R
 import com.making.making_a_habit.databinding.ItemRoundfullBinding
-import com.making.making_a_habit.dataClass.DetailItem
-import com.making.making_a_habit.room.Habit
+import com.example.domain.model.DetailItem
+import com.example.data.entity.HabitEntity
 import com.making.making_a_habit.ui.fragment.DetailFragment
 import java.time.LocalDate
 
@@ -17,7 +17,7 @@ class DetailAdapter(var fragment: DetailFragment.getAdapterData)
     : RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
 
 
-    private lateinit var onMainItemClick : (Habit) -> Unit
+    private lateinit var onMainItemClick : (HabitEntity) -> Unit
     private lateinit var binding : ItemRoundfullBinding
     private val todayDate: LocalDate = LocalDate.now()
     private val list = arrayListOf<Int>()
@@ -170,15 +170,15 @@ class DetailAdapter(var fragment: DetailFragment.getAdapterData)
         item.roundfull?: return
         item.lastround?: return
 
-        periodNum = item.count
-        color = item.color
-        period = item.period
-        dateIng = item.dateIng
+        periodNum = item.count!!
+        color = item.color!!
+        period = item.period!!
+        dateIng = item.dateIng!!
         dateEnd = item.dateEnd
-        roundfull = item.roundfull
-        lastround = item.lastround
+        roundfull = item.roundfull!!
+        lastround = item.lastround!!
         list.clear()
-        for (i in 1..item.count){
+        for (i in 1..item.count!!){
             list.add(i)
         }
         notifyDataSetChanged()

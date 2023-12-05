@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHomeBinding
-import com.making.making_a_habit.dataClass.DetailData
-import com.making.making_a_habit.room.Habit
+import com.example.domain.model.DetailData
+import com.example.data.entity.HabitEntity
 import com.making.making_a_habit.ui.adapter.MainRecyclerViewAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HomeViewModel
@@ -20,7 +20,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val mainViewModel : MainViewModel by activityViewModels()
     private val viewModel : HomeViewModel by viewModels()
     private val adapter : MainRecyclerViewAdapter by lazy{ MainRecyclerViewAdapter() }
-    private lateinit var data : Habit
+    private lateinit var data : HabitEntity
 
     override fun initData() {
         viewModel.getAllData()

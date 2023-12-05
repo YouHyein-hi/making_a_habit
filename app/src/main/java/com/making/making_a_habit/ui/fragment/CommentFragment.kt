@@ -8,8 +8,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCommentBinding
-import com.making.making_a_habit.dataClass.DetailData
-import com.making.making_a_habit.room.Habit
+import com.example.domain.model.DetailData
+import com.example.data.entity.HabitEntity
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CommentViewModel
 
@@ -70,7 +70,7 @@ class CommentFragment : BaseFragment<FragmentCommentBinding>(FragmentCommentBind
                 val commentNo = "이 습관은 커멘트가 작성되지 않았습니다."
                 if(comment == ""){
                     viewModel.updateData(
-                        Habit(
+                        HabitEntity(
                             habitId = habitData.id,
                             habitName = habitData.name,
                             habitPeriod = habitData.period,
@@ -88,7 +88,7 @@ class CommentFragment : BaseFragment<FragmentCommentBinding>(FragmentCommentBind
                 }
                 else{
                     viewModel.updateData(
-                        Habit(
+                        HabitEntity(
                             habitId = habitData.id,
                             habitName = habitData.name,
                             habitPeriod = habitData.period,

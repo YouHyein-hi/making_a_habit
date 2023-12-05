@@ -1,26 +1,26 @@
 package com.making.making_a_habit.repository
 
 import android.app.Application
-import com.making.making_a_habit.room.Habit
-import com.making.making_a_habit.room.HabitDAO
-import com.making.making_a_habit.room.HabitDB
+import com.example.data.entity.HabitEntity
+import com.example.data.dao.HabitDAO
+import com.example.data.HabitDB
 
 class HabitRepository (application: Application){
 
     private val habitDatabase = HabitDB.getInstance(application)!!
     private val habitDao: HabitDAO = habitDatabase.habitDatabase()
 
-    suspend fun getAll(): MutableList<Habit> {
+    suspend fun getAll(): MutableList<HabitEntity> {
         return habitDao.getAll()
     }
 
-    fun insert(habit: Habit) {
+    fun insert(habit: HabitEntity) {
         try {
             habitDao.insert(habit)
         } catch (e: Exception) { }
     }
 
-    fun delete(habit: Habit) {
+    fun delete(habit: HabitEntity) {
         try {
             val thread = Thread {
                 habitDao.delete(habit)
@@ -33,7 +33,7 @@ class HabitRepository (application: Application){
         return habitDao.deleteData(id = id)
     }
 
-    fun update(habit: Habit) {
+    fun update(habit: HabitEntity) {
         try {
             /*
             val thread = Thread {
@@ -45,7 +45,7 @@ class HabitRepository (application: Application){
         } catch (e: Exception) { }
     }
 
-    suspend fun getHabitId(habitId: Int): Habit {
+    suspend fun getHabitId(habitId: Int): HabitEntity {
         return habitDao.getHabitId(habitId)
     }
 }

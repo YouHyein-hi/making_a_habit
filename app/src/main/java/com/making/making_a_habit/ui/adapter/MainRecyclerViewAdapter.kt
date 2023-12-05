@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
-import com.making.making_a_habit.room.Habit
+import com.example.data.entity.HabitEntity
 
 class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
-    lateinit var onMainItemClick : (Habit) -> Unit
+    lateinit var onMainItemClick : (HabitEntity) -> Unit
     private lateinit var binding : ItemHabitlistBinding
-    private var habit: ArrayList<Habit> = arrayListOf()
+    private var habit: ArrayList<HabitEntity> = arrayListOf()
 
-    var habitList = mutableListOf<Habit>()
+    var habitList = mutableListOf<HabitEntity>()
         set(value) {
             field = value.reversed().toMutableList()
             notifyDataSetChanged()
@@ -22,7 +22,7 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
 
     inner class ViewHolder(private val binding: ItemHabitlistBinding): RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("ResourceAsColor")
-        fun bind(habit: Habit) {
+        fun bind(habit: HabitEntity) {
             binding.habitNameTextItemmain.text = habit.habitName
             binding.habitDateStartTextItemmain.text = habit.habitDateStart
             binding.habitRoundFullTextItemmain.text = habit.habitRoundFull.toString()
@@ -81,7 +81,7 @@ class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.Vie
 
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
-    fun sethabit(contacts: List<Habit>) {
+    fun sethabit(contacts: List<HabitEntity>) {
         habit.clear()
         contacts.forEach { item->
             if(!item.habitComplete){

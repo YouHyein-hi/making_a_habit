@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCreateBinding
-import com.making.making_a_habit.room.Habit
+import com.example.data.entity.HabitEntity
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CreateViewModel
 import java.time.LocalDate
 
@@ -113,7 +113,7 @@ class CreateFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding
 
                 if (isHabitNameNotEmpty && isPeriodSelected && isPeriodNumSelected && isThemeSelected) {
                     viewModel.insertData(
-                        Habit(
+                        HabitEntity(
                             habitId =  id,
                             habitName = habitName,
                             habitPeriod = habitPeriod.toString(),

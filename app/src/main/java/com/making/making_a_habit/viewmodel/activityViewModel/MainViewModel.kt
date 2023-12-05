@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.making.making_a_habit.dataClass.DetailData
+import com.example.domain.model.DetailData
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 

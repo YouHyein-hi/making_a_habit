@@ -8,9 +8,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentDetailBinding
-import com.making.making_a_habit.dataClass.DetailData
-import com.making.making_a_habit.dataClass.DetailItem
-import com.making.making_a_habit.room.Habit
+import com.example.domain.model.DetailData
+import com.example.domain.model.DetailItem
+import com.example.data.entity.HabitEntity
 import com.making.making_a_habit.ui.adapter.DetailAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.DetailViewModel
@@ -120,7 +120,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     inner class getAdapterData{
         fun updateData(dateIng: String, roundfull: Int, lastround: Int){
             viewModel.updateData(
-                Habit(
+                HabitEntity(
                     habitId = habitData.id,
                     habitName = habitData.name,
                     habitPeriod = habitData.period,

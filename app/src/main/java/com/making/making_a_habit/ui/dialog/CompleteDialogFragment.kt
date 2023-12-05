@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.making.making_a_habit.databinding.CompleteDialogFragmentBinding
-import com.making.making_a_habit.room.Habit
+import com.example.data.entity.HabitEntity
 import com.making.making_a_habit.ui.MainActivity
 import com.making.making_a_habit.viewmodel.dialogViewModel.CompleteDialogViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -28,7 +28,7 @@ class CompleteDialogFragment : DialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        var habit: Habit
+        var habit: HabitEntity
         var completeText: String
         binding = CompleteDialogFragmentBinding.inflate(inflater, container, false)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -48,10 +48,10 @@ class CompleteDialogFragment : DialogFragment() {
                 val habitId = arguments?.getInt("completeId")
                 CoroutineScope(Dispatchers.IO).launch{
                     if(habit.habitPeriod == "횟수"){
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                        completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                     }
                     else {
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
+                        completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, habit.habitComment))
                     }
 
                 }
@@ -73,10 +73,10 @@ class CompleteDialogFragment : DialogFragment() {
                 val completecommend = "이 습관은 커멘트가 작성되지 않았습니다."
                 CoroutineScope(Dispatchers.IO).launch{
                     if(habit.habitPeriod == "횟수"){
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                        completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, NumberDateEnd.toString(), habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
                     else {
-                        completeDialogViewModel.update(Habit(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
+                        completeDialogViewModel.update(HabitEntity(habitId, habit.habitName, habit.habitPeriod, habit.habitPeriodNum, habit.habitColor, habit.habitDateStart, habit.habitDateIng, habit.habitDateEnd, habit.habitRoundFull, habit.habitLastRoundFull, true, completecommend))
                     }
                 }
 

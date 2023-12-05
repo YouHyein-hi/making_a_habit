@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHistoryBinding
-import com.making.making_a_habit.dataClass.DetailData
+import com.example.domain.model.DetailData
 import com.making.making_a_habit.ui.adapter.HistoryAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryViewModel

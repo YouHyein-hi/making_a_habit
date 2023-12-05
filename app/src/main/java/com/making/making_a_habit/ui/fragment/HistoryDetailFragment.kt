@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.R
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentHistoryDetailBinding
-import com.making.making_a_habit.dataClass.DetailData
+import com.example.domain.model.DetailData
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryDetailViewModel
 

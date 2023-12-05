@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
-import com.making.making_a_habit.room.Habit
+import com.example.data.entity.HabitEntity
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
-    lateinit var onMainItemClick : (Habit) -> Unit
-    private var habit: ArrayList<Habit> = arrayListOf()
+    lateinit var onMainItemClick : (HabitEntity) -> Unit
+    private var habit: ArrayList<HabitEntity> = arrayListOf()
 
-    var habitList = mutableListOf<Habit>()
+    var habitList = mutableListOf<HabitEntity>()
         set(value) {
             field = value.reversed().toMutableList()
             notifyDataSetChanged()
@@ -37,7 +37,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
         private val context = binding.root.context
 
-        fun bind(habit: Habit) {
+        fun bind(habit: HabitEntity) {
             binding.habitNameTextItemmain.text = habit.habitName
             val habitDate = habit.habitDateStart + " ~ " + habit.habitDateEnd
             binding.habitDateStartTextItemmain.text = habitDate
@@ -72,7 +72,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     /***** 추가하는 부분 *****/
     @SuppressLint("NotifyDataSetChanged")
-    fun sethabit(contacts: List<Habit>) {
+    fun sethabit(contacts: List<HabitEntity>) {
         habit.clear()
         contacts.forEach { item->
             if(item.habitComplete){

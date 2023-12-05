@@ -1,7 +1,5 @@
-package com.making.making_a_habit.dataClass
+package com.example.domain.model
 
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
 
 data class DetailData(
     val id: Int?,

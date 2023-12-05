@@ -1,11 +1,13 @@
-package com.making.making_a_habit.room
+package com.example.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.data.dao.HabitDAO
+import com.example.data.entity.HabitEntity
 
-@Database(entities = [Habit::class], version = 4)
+@Database(entities = [HabitEntity::class], version = 4)
 abstract class HabitDB : RoomDatabase() {
     abstract fun habitDatabase(): HabitDAO
 

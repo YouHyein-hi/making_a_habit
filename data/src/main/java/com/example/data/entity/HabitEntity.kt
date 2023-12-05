@@ -1,11 +1,11 @@
-package com.making.making_a_habit.room
+package com.example.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "habit")
-data class Habit(
+data class HabitEntity(
     @PrimaryKey (autoGenerate = true)
     val habitId: Int?,
     @ColumnInfo var habitName: String,
