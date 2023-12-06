@@ -13,8 +13,10 @@ import com.example.data.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CommentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class CommentFragment : BaseFragment<FragmentCommentBinding>(FragmentCommentBinding::inflate, "CommentFragment") {
 
     private val mainViewModel : MainViewModel by activityViewModels()

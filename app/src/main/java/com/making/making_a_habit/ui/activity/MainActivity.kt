@@ -1,11 +1,13 @@
-package com.making.making_a_habit.ui
+package com.making.making_a_habit.ui.activity
 
 import android.app.PendingIntent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.making.making_a_habit.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

@@ -6,15 +6,21 @@ import androidx.lifecycle.ViewModel
 import com.example.data.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.example.domain.repository.HabitRepository
+import com.example.domain.usecase.UpdateUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CommentViewModel(private val repository : HabitRepository) : ViewModel(){
+@HiltViewModel
+class CommentViewModel @Inject constructor(
+    private val updateUseCase: UpdateUseCase
+): ViewModel(){
 
-    fun updateData(habit: HabitData){
+    fun updateData(data: HabitData){
         CoroutineScope(Dispatchers.IO).launch {
-            repository.update(habit)
+            updateUseCase(data)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.database
 
 import android.content.Context
 import androidx.room.Database
@@ -27,3 +27,4 @@ abstract class HabitDB : RoomDatabase() {
         }
     }
 }
+

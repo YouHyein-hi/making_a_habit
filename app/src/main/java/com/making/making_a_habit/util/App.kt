@@ -1,4 +1,4 @@
-package com.making.making_a_habit
+package com.making.making_a_habit.util
 
 import android.app.Application
 import android.app.NotificationChannel

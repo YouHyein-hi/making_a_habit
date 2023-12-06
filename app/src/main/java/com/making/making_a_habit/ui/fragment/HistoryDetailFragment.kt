@@ -11,7 +11,9 @@ import com.making.making_a_habit.databinding.FragmentHistoryDetailBinding
 import com.example.domain.model.DetailData
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryDetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HistoryDetailFragment : BaseFragment<FragmentHistoryDetailBinding>(FragmentHistoryDetailBinding::inflate, "HistoryDetailFragment") {
 
     private val mainViewModel : MainViewModel by activityViewModels()

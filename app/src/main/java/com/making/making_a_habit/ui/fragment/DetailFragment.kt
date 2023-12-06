@@ -15,8 +15,10 @@ import com.example.domain.model.HabitData
 import com.making.making_a_habit.ui.adapter.DetailAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.DetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
 
+@AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding::inflate, "DetailFragment") {
 
     private val mainViewModel : MainViewModel by activityViewModels()

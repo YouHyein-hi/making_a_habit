@@ -1,4 +1,4 @@
-package com.making.making_a_habit.ui
+package com.making.making_a_habit.ui.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,9 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.making.making_a_habit.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
@@ -19,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },DURATION)
+        }, DURATION)
 
     }
     companion object {

@@ -15,8 +15,10 @@ import com.making.making_a_habit.databinding.FragmentCreateBinding
 import com.example.data.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CreateViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
 
+@AndroidEntryPoint
 class CreateFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding::inflate, "CreateFragment") {
 
     private val viewModel: CreateViewModel by viewModels()

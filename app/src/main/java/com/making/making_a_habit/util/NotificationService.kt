@@ -1,11 +1,12 @@
-package com.making.making_a_habit
+package com.making.making_a_habit.util
 
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
-import com.making.making_a_habit.ui.MainActivity
+import com.making.making_a_habit.R
+import com.making.making_a_habit.ui.activity.MainActivity
 
 class NotificationService(
     private val context: Context

@@ -11,7 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.making.making_a_habit.databinding.CompleteDialogFragmentBinding
 import com.example.data.entity.HabitEntity
-import com.making.making_a_habit.ui.MainActivity
+import com.making.making_a_habit.ui.activity.MainActivity
 import com.making.making_a_habit.viewmodel.dialogViewModel.CompleteDialogViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

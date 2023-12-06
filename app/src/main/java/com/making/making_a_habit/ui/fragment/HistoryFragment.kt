@@ -11,7 +11,9 @@ import com.example.domain.model.DetailData
 import com.making.making_a_habit.ui.adapter.HistoryAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HistoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBinding::inflate, "HistoryFragment") {
 
     private val mainViewModel : MainViewModel by activityViewModels()
@@ -58,8 +60,10 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
 
     override fun initObserver() {
         viewModel.habitData.observe(viewLifecycleOwner){
-            adapter.habitList = it.toMutableList()
-            adapter.sethabit(it)
+            if (it != null) {
+                adapter.habitList = it.toMutableList()
+                adapter.sethabit(it)
+            }
         }
     }
 

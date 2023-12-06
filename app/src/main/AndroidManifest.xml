@@ -4,7 +4,7 @@
     package="com.making.making_a_habit">
 
     <application
-        android:name="com.making.making_a_habit.App"
+        android:name=".util.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,7 +17,7 @@
 
 
         <activity
-            android:name="com.making.making_a_habit.ui.SplashActivity"
+            android:name="com.making.making_a_habit.ui.activity.SplashActivity"
             android:theme="@style/splash"
             android:exported="true">
             <intent-filter>
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.making.making_a_habit.ui.MainActivity"
+            android:name="com.making.making_a_habit.ui.activity.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <!--
@@ -54,7 +54,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <receiver android:name="com.making.making_a_habit.AlarmBroadCastReceiver"/>
+        <receiver android:name="com.making.making_a_habit.util.AlarmBroadCastReceiver"/>
 
 
 

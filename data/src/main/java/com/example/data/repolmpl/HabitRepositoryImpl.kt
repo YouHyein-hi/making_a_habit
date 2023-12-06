@@ -1,15 +1,18 @@
 package com.example.data.repolmpl
 
-import com.example.data.HabitDB
+import com.example.data.dao.HabitDAO
 import com.example.data.entity.HabitEntity
 import com.example.data.entity.toDomainEntity
 import com.example.domain.model.HabitData
 import com.example.domain.repository.HabitRepository
+import javax.inject.Inject
 
 //dao : HabitDAO
-class HabitRepositoryImpl(private val db : HabitDB) : HabitRepository {
+class HabitRepositoryImpl@Inject constructor(
+    private val dao: HabitDAO
+) : HabitRepository {
     override suspend fun getAll(): MutableList<HabitData> {
-        return db.habitDao().getAll().map { it.toDomainEntity() }.toMutableList()
+        return dao.getAll().map { it.toDomainEntity() }.toMutableList()
     }
 
     override suspend fun insert(list: HabitData) {
@@ -27,7 +30,7 @@ class HabitRepositoryImpl(private val db : HabitDB) : HabitRepository {
             habitComplete = list.complete,
             habitComment = list.comment
         )
-        db.habitDao().insert(myHabit)
+        dao.insert(myHabit)
     }
 
     override suspend fun delete(list: HabitData) {
@@ -45,11 +48,11 @@ class HabitRepositoryImpl(private val db : HabitDB) : HabitRepository {
             habitComplete = list.complete,
             habitComment = list.comment
         )
-        db.habitDao().delete(myHabit)
+        dao.delete(myHabit)
     }
 
     override suspend fun deletetoId(id: Int): Int {
-        return db.habitDao().deleteData(id)
+        return dao.deleteData(id)
     }
 
     override suspend fun update(list: HabitData) {
@@ -67,7 +70,7 @@ class HabitRepositoryImpl(private val db : HabitDB) : HabitRepository {
             habitComplete = list.complete,
             habitComment = list.comment
         )
-        db.habitDao().update(myHabit)
+        dao.update(myHabit)
     }
 
 /*    override suspend fun getHabitId(id: Int): HabitData {

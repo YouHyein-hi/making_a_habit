@@ -6,15 +6,22 @@ import androidx.lifecycle.ViewModel
 import com.example.data.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.example.domain.repository.HabitRepository
+import com.example.domain.usecase.GetAllUseCase
+import com.example.domain.usecase.InsertUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CreateViewModel(private val repository : HabitRepository) : ViewModel(){
+@HiltViewModel
+class CreateViewModel @Inject constructor(
+    private val insertUsecase: InsertUseCase
+): ViewModel(){
 
     fun insertData(data : HabitData){
         CoroutineScope(Dispatchers.IO).launch {
-            repository.insert(data)
+            insertUsecase(data)
         }
     }
 

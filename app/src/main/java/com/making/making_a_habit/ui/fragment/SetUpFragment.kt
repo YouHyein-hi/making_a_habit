@@ -7,8 +7,10 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentSetUpBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class SetUpFragment : BaseFragment<FragmentSetUpBinding>(FragmentSetUpBinding::inflate, "SetUpFragment") {
 
     private lateinit var callback: OnBackPressedCallback

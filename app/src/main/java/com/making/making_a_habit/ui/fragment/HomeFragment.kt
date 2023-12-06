@@ -15,8 +15,10 @@ import com.example.data.repolmpl.HabitRepositoryImpl
 import com.making.making_a_habit.ui.adapter.MainRecyclerViewAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 // TODO Detail에서 체크시 Room데이터 Update는 되지만, 앱에서는 안되고 안보임. 이거 해결하기
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate, "MainFragment") {
 
     private val mainViewModel : MainViewModel by activityViewModels()
@@ -94,8 +96,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun initObserver() {
         viewModel.habitData.observe(viewLifecycleOwner){
-            adapter.habitList = it.toMutableList()
-            adapter.sethabit(it)
+            if (it != null) {
+                adapter.habitList = it.toMutableList()
+                adapter.sethabit(it)
+                Log.e(name, "initObserver: ${it.size}", )
+            }
+            else{
+                Log.e(name, "initObserver: habitData가 null임!", )
+            }
         }
     }
 
