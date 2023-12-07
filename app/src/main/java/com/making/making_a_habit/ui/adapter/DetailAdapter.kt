@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.R
 import com.making.making_a_habit.databinding.ItemRoundfullBinding
 import com.example.domain.model.DetailItem
-import com.example.data.entity.HabitEntity
+import com.example.data.room.entity.HabitEntity
 import com.making.making_a_habit.ui.fragment.DetailFragment
 import java.time.LocalDate
 

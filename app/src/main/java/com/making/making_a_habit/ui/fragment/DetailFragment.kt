@@ -10,7 +10,7 @@ import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentDetailBinding
 import com.example.domain.model.DetailData
 import com.example.domain.model.DetailItem
-import com.example.data.entity.HabitEntity
+import com.example.data.room.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.making.making_a_habit.ui.adapter.DetailAdapter
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel

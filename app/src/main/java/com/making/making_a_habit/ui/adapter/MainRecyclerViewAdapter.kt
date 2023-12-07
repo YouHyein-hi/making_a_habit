@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.making.making_a_habit.databinding.ItemHabitlistBinding
-import com.example.data.entity.HabitEntity
+import com.example.data.room.entity.HabitEntity
 import com.example.domain.model.HabitData
 
 class MainRecyclerViewAdapter : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {

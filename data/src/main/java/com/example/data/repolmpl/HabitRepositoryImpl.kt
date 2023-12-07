@@ -1,8 +1,8 @@
 package com.example.data.repolmpl
 
-import com.example.data.dao.HabitDAO
-import com.example.data.entity.HabitEntity
-import com.example.data.entity.toDomainEntity
+import com.example.data.room.dao.HabitDAO
+import com.example.data.room.entity.HabitEntity
+import com.example.data.room.entity.toDomainEntity
 import com.example.domain.model.HabitData
 import com.example.domain.repository.HabitRepository
 import javax.inject.Inject

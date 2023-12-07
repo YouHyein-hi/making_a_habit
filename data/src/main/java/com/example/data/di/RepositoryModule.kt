@@ -1,6 +1,6 @@
 package com.example.data.di
 
-import com.example.data.database.HabitDB
+import com.example.data.room.database.HabitDB
 import com.example.data.repolmpl.HabitRepositoryImpl
 import com.example.domain.repository.HabitRepository
 import dagger.Module

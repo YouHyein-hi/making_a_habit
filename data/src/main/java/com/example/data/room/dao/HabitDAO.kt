@@ -1,7 +1,7 @@
-package com.example.data.dao
+package com.example.data.room.dao
 
 import androidx.room.*
-import com.example.data.entity.HabitEntity
+import com.example.data.room.entity.HabitEntity
 
 @Dao
 interface HabitDAO {

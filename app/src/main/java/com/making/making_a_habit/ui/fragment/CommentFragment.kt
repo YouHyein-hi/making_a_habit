@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.making.making_a_habit.base.BaseFragment
 import com.making.making_a_habit.databinding.FragmentCommentBinding
 import com.example.domain.model.DetailData
-import com.example.data.entity.HabitEntity
+import com.example.data.room.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.CommentViewModel

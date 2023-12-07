@@ -2,7 +2,7 @@ package com.example.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.data.database.HabitDB
+import com.example.data.room.database.HabitDB
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 object DataBaseModule {
     @Provides
     @Singleton
-    fun provideLocalDatabase(@ApplicationContext appContext: Context): HabitDB{
+    fun provideLocalDatabase(@ApplicationContext appContext: Context): HabitDB {
         return Room.databaseBuilder(appContext, HabitDB::class.java, "habitDB")
             .fallbackToDestructiveMigration()
             .build()
