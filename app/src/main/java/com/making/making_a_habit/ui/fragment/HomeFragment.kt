@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private lateinit var data : HabitEntity
 
     override fun initData() {
-        viewModel.getAllData()
+        adapter.habitList.clear()
         /* 앱 최초 실행 확인
         val sharedPreference =  getSharedPreferences("isFirst",Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
@@ -46,6 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun initUi() {
         initMainRecycler()
+        viewModel.getAllData()
     }
 
     override fun initListener() {
@@ -97,6 +98,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun initObserver() {
         viewModel.habitData.observe(viewLifecycleOwner){
             if (it != null) {
+                adapter.habitList.clear()
                 adapter.habitList = it.toMutableList()
                 adapter.sethabit(it)
                 Log.e(name, "initObserver: ${it.size}", )
