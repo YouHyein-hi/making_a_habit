@@ -13,6 +13,7 @@ import com.example.domain.model.DetailItem
 import com.example.data.room.entity.HabitEntity
 import com.example.domain.model.HabitData
 import com.making.making_a_habit.ui.adapter.DetailAdapter
+import com.making.making_a_habit.ui.dialog.DeleteDialog
 import com.making.making_a_habit.viewmodel.activityViewModel.MainViewModel
 import com.making.making_a_habit.viewmodel.fragmentViewModel.DetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +25,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     private val mainViewModel : MainViewModel by activityViewModels()
     private val viewModel : DetailViewModel by viewModels()
     private val adapter : DetailAdapter by lazy{ DetailAdapter(getAdapterData()) }
+    private val deleteDialog : DeleteDialog by lazy { DeleteDialog(viewModel) }
     private lateinit var habitData : DetailData
     private val todayDate: LocalDate = LocalDate.now()
 
@@ -82,7 +84,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
             }
 
             deleteBtnDetailshabitpage.setOnClickListener {
-                // TODO 삭제 dialog 띄우기
+                deleteDailog()
             }
 
         }
@@ -146,6 +148,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         binding.detailshabitpageRecyclerView.setHasFixedSize(true)
         val spanCount = if (periodNum == 3) 3 else 5
         binding.detailshabitpageRecyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
+    }
+
+    private fun deleteDailog(){
+        deleteDialog.show(parentFragmentManager, "deleteDailog")
     }
 
     /*
